@@ -1,3 +1,8 @@
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
+
+
 const express = require('express')
 const mongoose = require("mongoose")
 const app = express()
@@ -9,12 +14,15 @@ const categoryRoute = require('./routes/categoryRoute')
 const brandRoute = require('./routes/brandRoute')
 const productRoute = require('./routes/productRoute')
 const session = require("express-session");
+const multer=require('multer')
 // const filestore = require("session-file-store")(session);
 const flash = require("connect-flash")
 const methodOverride = require('method-override')
 const cors = require('cors')
 const MongoDBStore = require('connect-mongodb-session')(session)
 const bodyParser = require('body-parser')
+// const multer=require('multer')
+// const upload = multer({ cloudinary });
 
 
 app.use(express.static(path.join(__dirname, "public")));

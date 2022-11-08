@@ -30,6 +30,9 @@ userRoute.post("/verify", userController.verify);
 
 userRoute.get("/otpget", userController.otpget)
 
+userRoute.get("/cart", userController.cart);
+
+
 
 
 

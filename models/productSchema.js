@@ -4,6 +4,8 @@ const validator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 ObjectId = Schema.ObjectId;
 
+
+
 const productSchema = new Schema(
     {
         product_name: {
@@ -36,7 +38,21 @@ const productSchema = new Schema(
         },
 
 
+        image: [
+
+            {
+                url: String,
+                filename: String,
+
+            }
+        ]
+
     },
+    
+
+
+    
+
 
 );
 

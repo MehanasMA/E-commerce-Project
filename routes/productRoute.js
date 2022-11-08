@@ -1,4 +1,8 @@
 const express = require('express');
+const multer = require("multer");
+const { storage } = require("../cloudinary");
+const upload = multer({ storage });
+
 
 
 const productController = require("../controllers/productController");
@@ -12,16 +16,19 @@ product_route.use(express.static('public/Adminpublic'))
 product_route.get("/products", productController.products);
 
 
-product_route.get("/addproduct", productController.addproduct)
+product_route
+    .route("/addProduct")
+    .get(productController.addproduct)
+    .post(upload.array("image"), productController.addProduct)
 
-product_route.post("/addProduct", productController.addProduct)
+// product_route.post("/addProduct", productController.addProduct)
 
 
 product_route.get("/editproduct/:id", productController.editproduct)
 
 product_route.post("/editProduct/:id", productController.editProduct)
 
-product_route.get("/showProduct", productController.showProduct)
+// product_route.get("/showProduct", productController.showProduct)
 
 product_route.put("/deleteProduct/:id", productController.deleteProduct)
 

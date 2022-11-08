@@ -178,6 +178,11 @@ const verify = async (req, res) => {
 
 
 
+const cart=(req,res)=>{
+    res.render('userpages/cartPage')
+}
+
+
 
 
 exports.home = home;
@@ -189,6 +194,7 @@ exports.blog = blog
 exports.otpget = otpget
 exports.verify = verify
 exports.about = about
+exports.cart = cart
 exports.contact = contact
 exports.loginPost = loginPost;
 exports.signupPost = signupPost;

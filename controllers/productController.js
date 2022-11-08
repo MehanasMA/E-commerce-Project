@@ -6,7 +6,12 @@ const Category = require("../models/categorySchema");
 const Product = require("../models/productSchema")
 const Brand = require('../models/brandSchema');
 const category = require("./userController");
-
+const {cloudinary}=require('../cloudinary')
+const { aggregate } = require("../models/productSchema");
+// const Subcategory = require("../models/subCategorySchema");
+const mongoose = require('mongoose');
+const multer = require('multer');
+const upload = multer({ cloudinary });
 
 
 const showproduct = ""
@@ -24,24 +29,24 @@ const products = async (req, res) => {
 }
 
 
-const showProduct = async (req, res) => {
-    showproduct = await Product.find()
-    res.redirect('/product/products')
-}
+// const showProduct = async (req, res) => {
+//     showproduct = await Product.find()
+//     res.redirect('/product/products')
+// }
 
 
 const editproduct = async (req, res) => {
-    console.log("dfghj");
+   
     const { id } = req.params
-    console.log(id);
+   
     const datas = await Product.findById(id)
     const categories = await Category.find({})
+    
     console.log(datas);
-
     const productId = datas._id
     const category_id = datas._id
 
-    console.log(productId);
+ 
     const categorylook = await Product.aggregate([
         {
             $match: {
@@ -57,19 +62,19 @@ const editproduct = async (req, res) => {
             },
         },
     ]);
-    console.log(category_id);
-    // console.log(categorylook.category[0]);
+    //  console.log(categorylook);
+    // console.log(categorylook[0].category[0]);
 
-    // const categoryFind = await Category.find({});
+    const categoryFind = await Category.find({});
 
-    // console.log(categoryFind)
-    res.render('admintemplate/editproduct', { datas, categorylook ,categories})
+   
+    res.render('admintemplate/editproduct', { datas, categorylook,categoryFind, categories })
 
 }
 
 const editProduct = async (req, res) => {
     const { id } = req.params
-    console.log('edited')
+    // console.log('edited')
     const edit = req.body
     await Product.findByIdAndUpdate(id, { $set: edit })
     res.redirect('/product/product')
@@ -83,7 +88,7 @@ const addproduct = async (req, res) => {
     const categorys = await Category.find({});
 
     res.render("admintemplate/addProduct", { categorys })
-    console.log(categorys);
+    // console.log(categorys);
 
 }
 
@@ -91,24 +96,31 @@ const addproduct = async (req, res) => {
 
 const addProduct = async (req, res) => {
 
-    const { product, description, categoryid, price } = req.body;
-    console.log(req.body);
-
+    const { product, description, categoryid, price,stock} = req.body;
+    
     const newProduct = new Product({
         product_name: product,
         product_description: description,
         category_id: categoryid,
         product_price: price,
+        stock:stock,
+        
+        
+        
     });
-console.log("categoryid" ,categoryid);
+     newProduct.image = req.files.map((f)=> ({ url: f.path, filename: f.filename }));
+    // console.log("categoryid", categoryid);
+
     try {
         await newProduct.save();
         console.log(newProduct);
 
+        // console.log(newProduct);
+
 
 
     } catch (error) {
-        console.log("dfghj");
+        // console.log("dfghj");
         req.flash("msg", "product already exists");
 
         // res.sendStatus(404);
@@ -129,12 +141,12 @@ console.log("categoryid" ,categoryid);
 
 
 const deleteProduct = async (req, res) => {
-    console.log("dadd");
+    // console.log("dadd");
     try {
         const { id } = req.params
-        console.log(id);
+        // console.log(id);
         const product = await Product.findByIdAndDelete(id)
-        console.log(product)
+        // console.log(product)
 
         res.redirect('/product/products')
     } catch (err) {
@@ -143,4 +155,4 @@ const deleteProduct = async (req, res) => {
 }
 
 
-module.exports = { products, addproduct, addProduct, editproduct, editProduct, showProduct, deleteProduct }
+module.exports = { products, addproduct, addProduct, editproduct, editProduct, deleteProduct }
