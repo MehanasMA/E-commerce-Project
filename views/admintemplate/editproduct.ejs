@@ -107,22 +107,14 @@
                 </div>
                 <div class="form-group mb-3">
                   <label for="productDescription">Description</label>
-                  <textarea class="form-control validate" type="text" name="description" rows="3"
-                    value="<%= datas.product_name  %>" required></textarea>
+                  <textarea class="form-control validate" name="description" rows="3"
+                    value="<%= datas.product_description %>" required></textarea>
                 </div>
                 <div class="form-group mb-3">
                   <label for="category">Category</label>
 
 
-                  <select name="categoryid" id="category_id">
-                    <!-- <option selected=
-                      "<%= datas.category %>">
-                    </option>
-                    <% for (let category of categories) { %>
-                      <option value="<%= category.name %>">
-                        
-                      </option>
-                      <% } %> -->
+                  <select class="custom-select tm-select-accounts" name="categoryid" id="category_id">
                                             <%for(datas of categoryFind){%>
                                               <option value="<%=datas._id%>" 
                                                 <%if(categorylook[0].category[0].category==(datas.category)){ %> selected
@@ -137,13 +129,13 @@
                   <div class="form-group mb-3 col-xs-12 col-sm-6">
                     <label for="productPrice">Price
                     </label>
-                    <input id="price" name="price" type="number" class="form-control" 
+                    <input id="price" name="price" type="text" class="form-control" 
                       value="<%= datas.product_price %>" required />
                   </div>
                   <div class="form-group mb-3 col-xs-12 col-sm-6">
                     <label for="stock">Units In Stock
                     </label>
-                    <input id="stock" name="stock" type="number" class="form-control validate"
+                    <input id="stock" name="stock" type="text" class="form-control validate"
                       value="<%= datas.stock %>" required />
                   </div>
                 </div>

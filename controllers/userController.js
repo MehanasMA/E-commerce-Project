@@ -2,8 +2,10 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/userSchema");
 const nodemailer = require('nodemailer')
 const Admin = require('../models/adminSchema')
+const Product=require('../models/productSchema')
 const flash = require('connect-flash')
-
+const cartItems=require('../models/cartSchema')
+const cartController=require('./cartController')
 
 
 
@@ -24,7 +26,8 @@ const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
 
 
 const home = (req, res) => {
-    res.render("userpages/home", { message: req.flash("invalid") });
+    const user=req.session.email
+    res.render("userpages/home", { message: req.flash("invalid") ,user});
 };
 
 const loginPost = async (req, res, next) => {
@@ -88,8 +91,11 @@ const category = (req, res) => {
     res.render("userpages/category")
 }
 
-const shop = (req, res) => {
-    res.render('userpages/shop')
+const shop = async(req, res) => {
+    const user = req.session.email
+    const product=await Product.find()
+    // console.log(product);
+    res.render('userpages/shop',{user,product})
 }
 
 const blog = (req, res) => {
@@ -103,6 +109,28 @@ const about = (req, res) => {
 const contact = (req, res) => {
     res.render('userpages/contact')
 }
+
+
+const wishlist = (req, res) => {
+    res.render('userpages/wishlist')
+}
+
+
+
+
+const logout = (req, res) => {
+    try {
+        req.session.destroy()
+        res.redirect("/");
+    } catch (error) {
+        console.log(error.message)
+
+    }
+
+
+}
+
+
 
 
 
@@ -178,8 +206,8 @@ const verify = async (req, res) => {
 
 
 
-const cart=(req,res)=>{
-    res.render('userpages/cartPage')
+const checkout=(req,res)=>{
+    res.render('userpages/checkoutpage')
 }
 
 
@@ -194,7 +222,9 @@ exports.blog = blog
 exports.otpget = otpget
 exports.verify = verify
 exports.about = about
-exports.cart = cart
+exports.checkout = checkout
+exports.wishlist = wishlist
 exports.contact = contact
 exports.loginPost = loginPost;
 exports.signupPost = signupPost;
+exports.logout = logout;

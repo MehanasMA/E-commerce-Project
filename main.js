@@ -12,6 +12,7 @@ const adminRoute = require('./routes/adminRoute')
 const userRoute = require('./routes/userRoute')
 const categoryRoute = require('./routes/categoryRoute')
 const brandRoute = require('./routes/brandRoute')
+const cartRoute = require('./routes/cartRoute')
 const productRoute = require('./routes/productRoute')
 const session = require("express-session");
 const multer=require('multer')
@@ -75,6 +76,7 @@ app.use('/admin', adminRoute)
 app.use('/', userRoute)
 app.use('/category', categoryRoute)
 app.use('/brand', brandRoute)
+app.use('/cart', cartRoute)
 app.use('/product', productRoute)
 
 

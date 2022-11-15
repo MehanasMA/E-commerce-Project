@@ -35,7 +35,17 @@
 	<header class="header-area header-sticky text-center header-default">
 		<div class="header-main-sticky">
 			<div class="header-nav d-none">
-
+				<!-- <div class="container">
+					<div class="nav-left float-left">
+						<% if(user) {%>
+						<div class="ttheader-service">WELCOME....!!!!!
+					
+							<div class="nav-right float-right d-flex">
+								<div class="ttheader-mail"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></div>
+							<%}%></div>
+					</div>
+				</div>
+				</div> -->
 			</div>
 			<div class="header-main-head">
 
@@ -75,28 +85,39 @@
 								</button>
 								<div id="user-dropdown" class="user-menu">
 									<ul>
+										<% if(user) { %>
 										<li><a href="/myaccount" class="text-capitalize">my account</a></li>
+
+
+                                               <!-- <li>Welcome <% user%></li>   -->
+												<li> <a class="" href="/logout">Logout</a></li>
+												 <% }
+												 else { %>
+
 										<li><a type="submit" class="modal-view button" data-toggle="modal"
 												data-target="#modalRegisterForm">Register</a></li>
+
+
 										<li><a href="#" class="modal-view button" data-toggle="modal"
 												data-target="#modalLoginForm">login</a></li>
+												<% } %>
 									</ul>
 								</div>
 							</div>
 							<div class="cart-wrapper">
-								<button type="button" class="btn">
+								<button  class="btn"><a href="/cart/cart/<%=datas._id%>">
 									<i class="material-icons">shopping_cart</i>
-									<span class="ttcount">2</span>
+									</a>
 								</button>
 
-								<div id="cart-dropdown" class="cart-menu">
+								<!-- <div id="cart-dropdown" class="cart-menu">
 									<ul class="w-100 float-left">
 										<li>
 											<table class="table table-striped">
 												<tbody>
 													<tr>
 														<td class="text-center"><a href="#"><img
-																	src="img/products/01.jpg" alt="01" title="01"></a>
+																	src="" alt="01" title="01"></a>
 														</td>
 														<td class="text-left product-name"><a href="#">aliquam quaerat
 																voluptatem</a>
@@ -133,7 +154,7 @@
 											</form>
 										</li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
 							<div>
 								<!-- <i class="fa-solid fa-heart"></i> -->
@@ -2623,14 +2644,13 @@
 
 	</footer>
 	<!-- Footer -->
+	<% if(user){%>
 	<div class="alert text-center cookiealert" role="alert">
-		<b>Do you like cookies?</b> We use cookies to ensure you get the best experience on our website. <a
-			href="https://cookiesandyou.com/">Learn more</a>
+		<b>WELCOME ...!!!!!</b>
 
-		<button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
-			I agree
-		</button>
+		
 	</div>
+	<%}%>
 
 	<!-- Register modal -->
 	<form action="/signupPost" method="post" id="form" onsubmit="return signUpValidation()">

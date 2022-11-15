@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Fashion Template for Bootstrap</title>
+  	    <title>Fasion Template for Bootstrap</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,18 +11,17 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,900" rel="stylesheet"> 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
 	<!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/styles.css" rel="stylesheet">
-    <link href="/css/animate.css" rel="stylesheet">
-    <link href="/css/owl-carousel.css" rel="stylesheet">
-	 <link href="/css/lightbox.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/owl-carousel.css" rel="stylesheet">
+	 <link href="css/lightbox.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
   </head>
 
@@ -31,15 +30,38 @@
 	<header class="header-area header-sticky text-center header-default">
 	<div class="header-main-sticky">
 	<div class="header-nav">
-	
+	<div class="container">
+		<div class="nav-left float-left"><div class="ttheader-service">Wants to explore Upcoming Deals on Weekends?</div>
+		</div>
+		<div class="nav-right float-right d-flex">
+		<div class="ttheader-mail"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></div>
+		</div>
+	</div>
 	</div>
 	<div class="header-main-head">
 	
     <div class="header-main">
 	<div class="container">
             <div class="header-left float-left d-flex d-lg-flex d-md-block d-xs-block">
-				
-				
+				<div class="language-wrapper toggle">
+				<button type="button" class="btn text-capitalize dropdown-toggle"><img src="img/banner/en.png" alt="en"/><span>English</span></button>
+					<div id="language-dropdown" class="language">
+					<ul>
+								<li><img src="img/banner/en.png" alt="en"/><span>English</span></li>
+								<li><img src="img/banner/fr.png" alt="fr"/><span>French</span></li>
+					</ul>
+					</div>
+				</div>
+				<div class="currency-wrapper toggle">
+				<button type="button" class="btn text-capitalize dropdown-toggle"><span>€ Euro</span></button>
+					<div id="currency-dropdown" class="currency">
+					<ul>
+							<li><span>€ Euro</span></li>
+							<li><span>£ Pound Sterling</span></li>
+							<li><span>$ US Dollar</span></li>
+					</ul>
+					</div>
+				</div>
 				  <div class="contact">
 						<i class="material-icons">phone</i>
 						<span>1234567890</span>
@@ -68,7 +90,7 @@
 		</button>
 		<div id="user-dropdown" class="user-menu">
 		<ul>
-			<li><a href="/myaccount" class="text-capitalize">my account</a></li>
+			<li><a href="my-account.html" class="text-capitalize">my account</a></li>
 			<li><a href="#" class="modal-view button" data-toggle="modal" data-target="#modalRegisterForm">Register</a></li>
 			<li><a href="#" class="modal-view button" data-toggle="modal" data-target="#modalLoginForm">login</a></li>
 		</ul>
@@ -110,10 +132,10 @@
                   </li>
                   <li class="buttons w-100 float-left">
                     <form action="cart_page.html">
-                      <input class="btn pull-left mt_10 btn-primary btn-rounded w-100" value="/cart/cart" type="submit">
+                      <input class="btn pull-left mt_10 btn-primary btn-rounded w-100" value="View cart" type="submit">
                     </form>
                     <form action="checkout_page.html">
-                      <input class="btn pull-right mt_10 btn-primary btn-rounded w-100" value="/Checkout" type="submit">
+                      <input class="btn pull-right mt_10 btn-primary btn-rounded w-100" value="Checkout" type="submit">
                     </form>
                   </li>
                 </ul>
@@ -254,11 +276,33 @@
 		</div>
 		</li>
 		<li class="nav-item dropdown">
-		<a class="nav-link text-uppercase" href="/contact">contact us</a>      </li>
+		<a class="nav-link text-uppercase" href="contact-us.html">contact us</a>      </li>
 		
 		<li class="nav-item dropdown">   
-		<a class="nav-link dropdown-toggle text-uppercase" href="/category">Blog</a>
-		
+		<a class="nav-link dropdown-toggle text-uppercase" href="category.html">Blog</a>
+		<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
+			<div class="sub-menu">
+			  <h6 class="sub-title text-uppercase font-weight-normal white-text d-none">Featured</h6>
+			<ul class="list-unstyled">
+				  <li>
+				  <a class="menu-item pl-0" href="blog-2-column.html">
+					blog 2 column                  </a>                </li>
+				<li>
+				  <a class="menu-item pl-0" href="blog-3-column.html">
+				   blog 3 column                  </a>                </li>
+				<li>
+				<li>
+				  <a class="menu-item pl-0" href="blog-2-column-masonary.html">
+				   blog masonary                 </a>                </li>
+				<li>
+				  <a class="menu-item pl-0" href="blog-list.html">
+					blog list                  </a>                </li>
+				<li>
+				  <a class="menu-item pl-0" href="blog-details.html">
+				   blog details                  </a>                </li>
+			  </ul>
+			</div>
+		</div>
 		</li>
 		</ul>
 		<!-- Links -->
@@ -286,10 +330,31 @@
 		
 		<!-- Features -->
 		<li class="nav-item dropdown active">
-		<a class="nav-link dropdown-toggle text-uppercase" href="category">
+		<a class="nav-link dropdown-toggle text-uppercase" href="category.html">
 			Features
 		  <span class="sr-only">(current)</span>        </a>
-	
+		<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
+			<div class="sub-menu mb-xl-0 mb-4">
+			  <h6 class="sub-title text-uppercase font-weight-normal white-text">Featured</h6>
+			  <ul class="list-unstyled">
+				<li>
+				  <a class="menu-item pl-0" href="index.html">
+					Home 1                  </a>                </li>
+				<li>
+				  <a class="menu-item pl-0" href="index2.html">
+				   Home 2                  </a>                </li>
+				<li>
+				  <a class="menu-item pl-0" href="index3.html">
+					Home 3                 </a>                </li>
+				<li>
+				  <a class="menu-item pl-0" href="index4.html">
+					Home 4                  </a>                </li>
+				<li>
+				  <a class="menu-item pl-0" href="index5.html">
+					Home 5                  </a>                </li>
+			  </ul>
+			</div>
+		</div>
 		</li>
 		<li class="nav-item dropdown">
 		<a class="nav-link dropdown-toggle text-uppercase" href="category.html">
@@ -414,113 +479,344 @@
 	</div>
 	</div>
 	</header>
-	
-	<nav aria-label="breadcrumb" class="w-100 float-left">
+		<nav aria-label="breadcrumb" class="w-100 float-left">
   <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg" style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-		    <li class="breadcrumb-item active" aria-current="page">cart</li>
+    <li class="breadcrumb-item active"><a href="#">Home</a></li>
+	    <li class="breadcrumb-item active" aria-current="page">checkout</li>
 
   </ol>
 </nav>
-    
-	<div class="cart-area table-area pt-110 pb-95 float-left w-100">
-            <div class="container">
-			<div class="row">
-			<div class="col-lg-8 col-md-12 col-sm-12 float-left cart-wrapper">
-                <div class="table-responsive">
-                    <table class="table product-table text-center">
-                       <thead>
-						<% if(cartList.length>0){ %>
-                            <tr>
-                                <th class="table-remove text-capitalize">remove</th>
-                                <th class="table-image text-capitalize">image</th>
-                                <th class="table-p-name text-capitalize">product</th>
-                                <th class="table-p-price text-capitalize">price</th>
-                                <th class="table-p-qty text-capitalize">quantity</th>
-                                <th class="table-total text-capitalize">total</th>
-                            </tr>
-                        </thead>
-						<tbody>
-							<tr>
-								<td class="table-remove"><button><i class="material-icons">delete</i></button></td>
-								<% cartList.forEach((p)=>{ %>
-									<% p.product.forEach((p2)=> { %>
-										<tr id="row<%= p.item %>">
-											<td class="align-middle">
-												<%= p2.name %>
-											</td>
-											<td class="align-middle"><img src="<%= p2.images[0].url %> " alt="" style="width: 50px;"> </td>
-											<td class="align-middle "> Rs.<span id="price<%= p.item %>">
-													<%= p2.price %>
-												</span> </td>
-											<td class="align-middle">
-												<div class="input-group quantity mx-auto" style="width: 100px;">
-													<div class="input-group-btn">
-														<button type="button" id="minus" onclick="dec('<%= p.item %>')" class="btn btn-sm btn-primary btn-minus">
-															<i class="fa fa-minus"></i>
-														</button>
-													</div>
-													<input type="text" readonly class="form-control form-control-sm bg-secondary text-center"
-														value="<%= p.itemQuantity %> " id="<%= p.item %>">
-													<div class="input-group-btn">
-														<button type="button" onclick="inc('<%= p.item %>')" class="btn btn-sm btn-primary btn-plus" id="plus">
-															<i class="fa fa-plus"></i>
-														</button>
-													</div>
-												</div>
-											</td>
-											<% const total=parseInt(p.itemQuantity)*parseInt(p2.price) %>
-												<td class="align-middle ">Rs.<span id="total<%= p.item %>">
-														<%= total %>
-													</span> </td>
-												<td class="align-middle">
-													<button type="button" data-toggle="modal" data-target="#exampleModal<%= p.item %>"
-														class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button>
-												</td>
-						
-					</tr>
-                           
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-bottom-wrapper">
-                    <div class="table-coupon d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left">
-                        <input type="text" placeholder="Coupon code">
-                        <button type="submit" class="btn-primary btn">Apply coupon</button>
-                    </div>
-                    <div class="table-update d-flex d-xs-block d-lg-flex d-sm-flex justify-content-end">
-                        <button type="button" class="btn-primary btn">Update cart</button>
-                    </div>
-                </div>
-			</div>
-			<div class="table-total-wrapper d-flex justify-content-end pt-60 col-md-12 col-sm-12 col-lg-4 float-left  align-items-center">
-                    <div class="table-total-content">
-                        <h2 class="pb-20">Cart totals</h2>
-                        <div class="table-total-amount">
-                            <div class="single-total-content d-flex justify-content-between float-left w-100">
-                                <strong>Subtotal</strong>
-                                <span class="c-total-price">$160.00</span>
-                            </div>
-                            <div class="single-total-content d-flex justify-content-between float-left w-100">
-                                <strong>Shipping</strong>
-                                <span class="c-total-price"><span>Flat Rate:</span> $5.00</span>
-                            </div>
-                            <div class="single-total-content d-flex justify-content-end float-left w-100">
-                                <a href="#">Calculate shipping</a>
-                            </div>
-                            <div class="single-total-content tt-total d-flex justify-content-between float-left w-100">
-                                <strong>Total</strong>
-                                <span class="c-total-price">$165.00</span>
-                            </div>
-                            <a href="/checkout" class="btn btn-primary float-left w-100 text-center">Proceed to checkout</a>
-                        </div>
-                    </div>
-                </div>
-			</div>
-            </div>
-                
-        </div>
+ <div class="checkout-inner float-left w-100">   
+ <div class="container">
+ <div class="row">
+<div class="cart-block-left col-md-4 order-md-2 mb-4">
+<h4 class="d-flex justify-content-between align-items-center mb-3">
+<span>Your cart</span>
+</h4> 
+<div class="list-group mb-3">
+<div class="list-group-item d-flex justify-content-between lh-condensed">
+  <div>
+	<h6 class="my-0">aliquam quaerat voluptatem</h6>
+  </div>
+  <span class="text-muted">$20</span>
+</div>
+<div class="list-group-item d-flex justify-content-between lh-condensed">
+  <div>
+	<h6 class="my-0">voluptas sit aspernatur</h6>
+  </div>
+  <span class="text-muted">$20</span>
+</div>
+<div class="list-group-item d-flex justify-content-between">
+  <div class="text-success">
+	<h6 class="my-0">Promo code</h6>
+	<small>EXAMPLECODE</small>
+  </div>
+  <span class="text-success">-$5</span>
+</div>
+<div class="list-group-item d-flex justify-content-between">
+  <strong>Total (USD)</strong>
+  <strong>$35</strong>
+</div>
+<div class="list-group-item  justify-content-between">
+  <div class="custom-control custom-radio" id="checkbox-card">
+	<input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+	<label class="custom-control-label" for="credit">Credit card</label>
+  </div>
+  <div class="custom-control custom-radio" id="checkbox-card-debit">
+	<input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+	<label class="custom-control-label" for="debit">Debit card</label>
+  </div>
+  <div class="custom-control custom-radio" id="checkbox-card-paypal">
+	<input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+	<label class="custom-control-label" for="paypal">Paypal</label>
+  </div>
+</div>
+<div id="card-dropdown">
+<div class="list-group-item  justify-content-between">
+  <div class="col-md-12 mb-3 p-0">
+	<label for="cc-name">Name on card</label>
+	<input type="text" class="form-control" id="cc-name" placeholder="" required="">
+	<small class="text-muted">Full name as displayed on card</small>
+	<div class="invalid-feedback">
+	  Name on card is required
+	</div>
+  </div>
+  <div class="col-md-12 p-0">
+	<label for="cc-number">Credit card number</label>
+	<input type="text" class="form-control" id="cc-number" placeholder="" required="">
+	<div class="invalid-feedback">
+	  Credit card number is required
+	</div>
+  </div>
+</div>
+<div class="list-group-item d-flex justify-content-between">
+<div class="row">
+  <div class="col-md-6 mb-3">
+	<label for="cc-expiration">Expiration</label>
+	<input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+	<div class="invalid-feedback">
+	  Expiration date required
+	</div>
+  </div>
+  <div class="col-md-6 mb-3">
+	<label for="cc-expiration">CVV</label>
+	<input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+	<div class="invalid-feedback">
+	  Security code required
+	</div>
+  </div>
+  </div>
+</div>
+</div>
+<div id="card-dropdown-debit">
+<div class="list-group-item  justify-content-between">
+  <div class="col-md-12 mb-3 p-0">
+	<label for="cc-name">Name on card</label>
+	<input type="text" class="form-control" id="cc-name" placeholder="" required="">
+	<small class="text-muted">Full name as displayed on card</small>
+	<div class="invalid-feedback">
+	  Name on card is required
+	</div>
+  </div>
+  <div class="col-md-12 p-0">
+	<label for="cc-number">Credit card number</label>
+	<input type="text" class="form-control" id="cc-number" placeholder="" required="">
+	<div class="invalid-feedback">
+	  Credit card number is required
+	</div>
+  </div>
+</div>
+<div class="list-group-item d-flex justify-content-between">
+<div class="row">
+  <div class="col-md-6 mb-3">
+	<label for="cc-expiration">Expiration</label>
+	<input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+	<div class="invalid-feedback">
+	  Expiration date required
+	</div>
+  </div>
+  <div class="col-md-6 mb-3">
+	<label for="cc-expiration">CVV</label>
+	<input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+	<div class="invalid-feedback">
+	  Security code required
+	</div>
+  </div>
+  </div>
+</div>
+</div>
+<div id="card-dropdown-paypal">
+<div class="list-group-item  justify-content-between">
+  <div class="image"><img src="img/logos/paypal.png"></div>
+</div>
+</div>
+<a href="order-confirmation.html" class="btn btn-primary btn-lg btn-primary">Place an order</a>
+</ul>
 
+<!--<form class="card p-2">
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Promo code">
+  <div class="input-group-append">
+	<button type="submit" class="btn btn-secondary btn-primary">Redeem</button>
+  </div>
+</div>
+</form>-->
+</div>
+</div>
+<div class="cart-block-right col-md-8 order-md-1">
+<h4 class="mb-3">Billing address</h4>
+<form class="needs-validation" novalidate="">
+<div class="row">
+  <div class="col-md-6 mb-3">
+	<label for="firstName">First name <span class="required">*</span></label>
+	<input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+	<div class="invalid-feedback">
+	  Valid first name is required.
+	</div>
+  </div>
+  <div class="col-md-6 mb-3">
+	<label for="lastName">Last name <span class="required">*</span></label>
+	<input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+	<div class="invalid-feedback">
+	  Valid last name is required.
+	</div>
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="username">Username <span class="required">*</span></label>
+  <div class="input-group">
+	<div class="input-group-prepend">
+	  <span class="input-group-text">@</span>
+	</div>
+	<input type="text" class="form-control" id="username" placeholder="Username" required="">
+	<div class="invalid-feedback" style="width: 100%;">
+	  Your username is required.
+	</div>
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="email">Email <span class="text-muted">(Optional)</span></label>
+  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+  <div class="invalid-feedback">
+	Please enter a valid email address for shipping updates.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="address">Address<span class="required">*</span> </label>
+  <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+  <div class="invalid-feedback">
+	Please enter your shipping address.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+</div>
+
+<div class="row">
+  <div class="col-md-5 mb-3">
+	<label for="country">Country <span class="required">*</span></label>
+	<select class="custom-select d-block w-100" id="country" required="">
+	  <option value="">Choose...</option>
+	  <option>United States</option>
+	</select>
+	<div class="invalid-feedback">
+	  Please select a valid country.
+	</div>
+  </div>
+  <div class="col-md-4 mb-3">
+	<label for="state">State <span class="required">*</span></label>
+	<select class="custom-select d-block w-100" id="state" required="">
+	  <option value="">Choose...</option>
+	  <option>California</option>
+	</select>
+	<div class="invalid-feedback">
+	  Please provide a valid state.
+	</div>
+  </div>
+  <div class="col-md-3 mb-3">
+	<label for="zip">Zip <span class="required">*</span></label>
+	<input type="text" class="form-control" id="zip" placeholder="" required="">
+	<div class="invalid-feedback">
+	  Zip code required.
+	</div>
+  </div>
+</div>
+<hr class="mb-4">
+<div class="custom-control custom-checkbox" id="same-address-main">
+  <input type="checkbox" class="custom-control-input" id="same-address">
+  <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+</div>
+<div id="checkout-shipping-address">
+<address>
+	John duff <br>
+	ABCD Street Name, City, vancouver <br>
+	canada <br>
+	(123) 456-7890
+</address>
+</div>
+<div class="custom-control custom-checkbox" id="different-address-main">
+  <input type="checkbox" class="custom-control-input" id="different-address">
+  <label class="custom-control-label" for="different-address">ship to a different address?</label>
+</div>
+<div id="checkout-shipping-address-diff">
+<div class="row">
+  <div class="col-md-6 mb-3">
+	<label for="firstName">First name <span class="required">*</span></label>
+	<input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+	<div class="invalid-feedback">
+	  Valid first name is required.
+	</div>
+  </div>
+  <div class="col-md-6 mb-3">
+	<label for="lastName">Last name <span class="required">*</span></label>
+	<input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+	<div class="invalid-feedback">
+	  Valid last name is required.
+	</div>
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="username">Username <span class="required">*</span></label>
+  <div class="input-group">
+	<div class="input-group-prepend">
+	  <span class="input-group-text">@</span>
+	</div>
+	<input type="text" class="form-control" id="username" placeholder="Username" required="">
+	<div class="invalid-feedback" style="width: 100%;">
+	  Your username is required.
+	</div>
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="email">Email <span class="text-muted">(Optional)</span></label>
+  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+  <div class="invalid-feedback">
+	Please enter a valid email address for shipping updates.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="address">Address<span class="required">*</span> </label>
+  <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+  <div class="invalid-feedback">
+	Please enter your shipping address.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+</div>
+
+<div class="row">
+  <div class="col-md-5 mb-3">
+	<label for="country">Country <span class="required">*</span></label>
+	<select class="custom-select d-block w-100" id="country" required="">
+	  <option value="">Choose...</option>
+	  <option>United States</option>
+	</select>
+	<div class="invalid-feedback">
+	  Please select a valid country.
+	</div>
+  </div>
+  <div class="col-md-4 mb-3">
+	<label for="state">State <span class="required">*</span></label>
+	<select class="custom-select d-block w-100" id="state" required="">
+	  <option value="">Choose...</option>
+	  <option>California</option>
+	</select>
+	<div class="invalid-feedback">
+	  Please provide a valid state.
+	</div>
+  </div>
+  <div class="col-md-3 mb-3">
+	<label for="zip">Zip <span class="required">*</span></label>
+	<input type="text" class="form-control" id="zip" placeholder="" required="">
+	<div class="invalid-feedback">
+	  Zip code required.
+	</div>
+  </div>
+</div>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="save-info">
+  <label class="custom-control-label" for="save-info">Save this information for next time</label>
+</div>
+<hr class="mb-4">
+
+
+</form>
+</div>
+</div>
+</div>
+</div>
     <!-- Footer -->
 	<div class="block-newsletter"> 
 				<div class="parallax" data-source-url="img/banner/parallax.jpg" style="background-image:url(img/banner/parallax.jpg); background-position:50% 65.8718%;">
@@ -609,7 +905,7 @@
             <li class="links">
                <span class="email">
 			  		<span class="icon"><i class="material-icons">email</i></span>
-					<span class="data"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></span> </span>           </li>
+					<span class="data"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></span>            </li>
           </ul>
         </div>
       </div>
@@ -630,6 +926,7 @@
   </footer>
   <!-- Footer -->
   
+
   <!-- Register modal -->
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -697,153 +994,23 @@
 </div>
 </div>
 
-<!-- product_view modal -->
-<div class="modal fade product_view" id="product_view" tabindex="-1" role="dialog" aria-hidden="true">
-<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-			 <h4 class="modal-title w-100w-100w-100 font-weight-bold d-none">Quick view</h4>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	  <span aria-hidden="true">×</span>
-	</button>
-		</div>
-		<div class="modal-body">
-			<div class="row">
-				<div class="col-md-6 left-columm">
-						<div class="product-large-image tab-content">
-						<div class="tab-pane active" id="product-1" role="tabpanel" aria-labelledby="product-tab-1">
-							
-						</div>
-						
-				</div>
-				<div class="small-image-list float-left w-100"> 
-                                <div class="nav-add small-image-slider-single-product-tabstyle-3 owl-carousel" role="tablist">
-                                   
-                                </div>
-                            </div>
-				</div>
-				<div class="col-md-6 product_content">
-					<h4 class="product-title text-capitalize">aliquam quaerat voluptatem</h4>
-					<div class="rating">
-					<div class="product-ratings d-inline-block align-middle">
-									 <span class="fa fa-stack"><i class="material-icons">star</i></span>
-									   <span class="fa fa-stack"><i class="material-icons">star</i></span>
-									   <span class="fa fa-stack"><i class="material-icons">star</i></span>
-									   <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-									   <span class="fa fa-stack"><i class="material-icons off">star</i></span>			</div>							</div>
-					<span class="description float-left w-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-					<h3 class="price float-left w-100"><span class="regular-price align-middle">$75.00</span><span class="old-price align-middle">$60.00</span></h3>
-					
-					<div class="product-variants float-left w-100">
-						
-						<div class="color-option d-flex align-items-center">
-                                        <h5>color :</h5>
-                                        <ul class="color-categories">
-                                            <li class="active">
-                                                <a class="tt-pink" href="#" title="Pink"></a>
-                                            </li>
-                                            <li>
-                                                <a class="tt-blue" href="#" title="Blue"></a>
-                                            </li>
-                                            <li>
-                                                <a class="tt-yellow" href="#" title="Yellow"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-					</div>
-					<div class="btn-cart d-flex align-items-center float-left w-100">
-						<h5>qty:</h5>
-						<input value="1" type="number">
-						<button type="button" class="btn btn-primary"><i class="material-icons">shopping_cart</i> Add To Cart</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-
-<!-- cart-pop modal -->
-
-<div class="modal fade" id="cart-pop" tabindex="-1" role="dialog" aria-hidden="true">
-<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header alert-success">
-			 <h4 class="modal-title w-100w-100w-100">Product successfully added to your shopping cart</h4>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	  <span aria-hidden="true">×</span>
-	</button>
-		</div>
-		<div class="modal-body">
-			<div class="row">
-			<div class="col-md-6 divide-right">
-			<div class="row">
-				<div class="col-md-5 col-xs-4 product-img float-left">
-				
-				</div>
-				<div class="col-md-7 col-xs-8 product-desc float-left">
-					<h4 class="product-title text-capitalize">aliquam quaerat voluptatem</h4>
-					<div class="rating">
-					<div class="product-ratings">
-					<span class="fa fa-stack"><i class="material-icons">star</i></span>
-				   <span class="fa fa-stack"><i class="material-icons">star</i></span>
-				   <span class="fa fa-stack"><i class="material-icons">star</i></span>
-				   <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-				   <span class="fa fa-stack"><i class="material-icons off">star</i></span></div></div>
-					<h3 class="price float-left w-100"><span class="regular-price align-middle">$75.00</span><span class="old-price align-middle">$60.00</span></h3>
-				</div>
-			</div>
-			</div>
-				<div class="col-md-6 divide-left">
-					<p class="cart-products-count"></p>
-					<p class="total-products float-left w-100">
-						<strong>Total products: </strong> 
-					</p>
-					<p class="shipping float-left w-100">
-						<strong>Total shipping: </strong> 
-					</p>
-					<p class="total-price float-left w-100">
-						<strong>Total:</strong> 
-					</p>
-					<div class="cart-content-btn float-left w-100">
-					<form action="#">
-                      <input class="btn pull-right mt_10 btn-primary" value="Continue shopping" type="submit">
-                    </form>
-					<form action="checkout_page.html">
-                      <input class="btn pull-right mt_10 btn-primary" value="Proceed to checkout" type="submit">
-                    </form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/custom.js"></script>
-		<script src="js/parallax.js"></script>
-		<script src="js/lightbox-2.6.min.js"></script>
-		<script src="js/ResizeSensor.min.js"></script>
-		<script src="js/theia-sticky-sidebar.min.js"></script>
-		<script src="js/inview.js"></script>
-		<script src="js/cookiealert.js"></script>
+	<script src="js/jquery.min.js"></script>]
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/parallax.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/ResizeSensor.min.js"></script>
+	<script src="js/theia-sticky-sidebar.min.js"></script>
 		<script src="js/jquery.countdown.min.js"></script>
 		<script src="js/masonry.pkgd.min.js"></script>
 		<script src="js/imagesloaded.pkgd.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-			crossorigin="anonymous"></script>
-
-<!--Start of Tawk.to Script-->
+					
+		<!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -855,59 +1022,11 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+<!--End of Tawk.to Script-->			
 
-<script>
-	function inc(id) {
-		// let discount = document.getElementById('discount').innerHTML
-		let count = document.getElementById(id).value
-		let price = document.getElementById('price' + id).innerHTML
-		fetch('/itemInc/' + id, {
-			method: 'post',
-			headers: {
-				'Content-type': 'application/json',
-				body: JSON.stringify({ hai: "ok" })
-			}
-		})
-			.then(res => res.json())
-			.then(data => {
-				document.getElementById(id).value++
-				document.getElementById('total' + id).innerHTML = parseInt(price) * parseInt(document.getElementById(id).value)
-				document.getElementById('subtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('price' + id).innerHTML)
-				document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML) - parseInt(document.getElementById('discount').innerHTML)
-			})
-	} 
-	  
-		function itemDel(id) {
-
-			let price = document.getElementById('price' + id).innerHTML
-			let count = document.getElementById(id).value
-			let row = document.getElementById('row' + id)
-
-			fetch('/itemDelete/' + id, {
-				method: 'put',
-				headers: {
-					'Content-type': 'application/json',
-					body: JSON.stringify({ hai: "jhj" })
-				}
-			})
-				.then(res => res.json())
-				.then(data => {
-					document.getElementById('subtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) - parseInt(document.getElementById('total' + id).innerHTML)
-					document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML)
-					row.remove()
-					success: location.reload()
-				})
-		}
-	
-
-
-	
-	
-	</script>
-<!--End of Tawk.to Script-->
-		
-		</body>
+  </body>
 </html>
+
 
 
 

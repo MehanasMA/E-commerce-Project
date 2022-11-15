@@ -21,7 +21,7 @@ product_route
     .get(productController.addproduct)
     .post(upload.array("image"), productController.addProduct)
 
-// product_route.post("/addProduct", productController.addProduct)
+product_route.get("/productManageget", productController.productManageget)
 
 
 product_route.get("/editproduct/:id", productController.editproduct)

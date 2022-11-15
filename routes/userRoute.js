@@ -1,6 +1,7 @@
 const express = require("express");
 const { check } = require("express-validator");
 const userController = require("../controllers/userController");
+const { sessionCheckHomePage }=require('../middleware/auth')
 
 const userRoute = express.Router();
 
@@ -8,7 +9,7 @@ const userRoute = express.Router();
 
 userRoute.use(express.static("public"));
 
-userRoute.get("/", userController.home);
+userRoute.get("/",userController.home);
 
 userRoute.post("/loginPost", userController.loginPost);
 
@@ -18,7 +19,7 @@ userRoute.get("/myaccount", userController.myaccount);
 
 userRoute.get("/category", userController.category);
 
-userRoute.get("/shop", userController.shop);
+userRoute.get("/shop", sessionCheckHomePage,userController.shop);
 
 userRoute.get("/blog", userController.blog);
 
@@ -30,7 +31,12 @@ userRoute.post("/verify", userController.verify);
 
 userRoute.get("/otpget", userController.otpget)
 
-userRoute.get("/cart", userController.cart);
+userRoute.get("/wishlist", userController.wishlist);
+
+userRoute.get("/checkout", userController.checkout);
+
+userRoute.get("/logout", userController.logout);
+
 
 
 
