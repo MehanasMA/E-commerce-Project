@@ -12,4 +12,6 @@ category_route.use(express.static('public/Adminpublic'))
 
 category_route.post("/addcategory", categoryController.addCategory)
 
+category_route.put("/deleteCategory/:id", categoryController.deleteCategory)
+
 module.exports = category_route 

@@ -23,9 +23,22 @@ const addCategory = async (req, res) => {
 };
 
 
+const deleteCategory = async (req, res) => {
+    try {
+        const { id } = req.params
+        const category = await Category.findByIdAndDelete(id)
+
+        res.redirect("/product/products");
+
+    } catch (err) {
+        console.log(err);
+    }
+
+}
 
 
-module.exports = { addCategory }
+
+module.exports = { addCategory,deleteCategory }
 
 
 

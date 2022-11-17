@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Fashion Template for Bootstrap</title>
+	<title>Victoriia</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,14 +21,19 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Bootstrap core CSS -->
-	<link href="css/styles.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/owl-carousel.css" rel="stylesheet">
-	<link href="css/lightbox.css" rel="stylesheet">
-	<link href="css/cookiealert.css" rel="stylesheet">
+	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/css/animate.css" rel="stylesheet">
+	<link href="/css/owl-carousel.css" rel="stylesheet">
+	<link href="/css/lightbox.css" rel="stylesheet">
+	<link href="/css/cookiealert.css" rel="stylesheet">
+
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
 	<!-- Custom styles for this template -->
 </head>
-
 <body>
 
 	<header class="header-area header-sticky text-center header-default">
@@ -50,7 +55,7 @@
 						</div>
 						<div class="header-middle float-left">
 							<div class="logo">
-								<a href="index.html"><img src="img/logos/logo.png" alt="NatureCircle"></a>
+								<a href="index.html"><img src="/img/logos/logo.png" alt="NatureCircle"></a>
 							</div>
 						</div>
 						<div class="header-right d-flex d-xs-block d-sm-flex justify-content-end float-right">
@@ -92,7 +97,7 @@
 												<tbody>
 													<tr>
 														<td class="text-center"><a href="#"><img
-																	src="img/products/01.jpg" alt="01" title="01"></a>
+																	src="/img/products/01.jpg" alt="01" title="01"></a>
 														</td>
 														<td class="text-left product-name"><a href="#">aliquam quaerat
 																voluptatem</a>
@@ -132,7 +137,8 @@
 								</div>
 							</div>
 							<span class="material-symbols-outlined">
-								favorite
+							<a href="/wishlist/wishlist"><i class="fa-solid fa-heart"></i>
+									</a>
 							</span>
 
 						</div>
@@ -172,7 +178,7 @@
 
 												<ul class="list-unstyled">
 													<li>
-														<span class="menu-banner"><img src="img/banner/menu-banner.jpg"
+														<span class="menu-banner"><img src="/img/banner/menu-banner.jpg"
 																alt="menu-banner" /></span>
 													</li>
 												</ul>
@@ -274,7 +280,7 @@
 		</div>
 	</header>
 	<nav aria-label="breadcrumb" class="w-100 float-left">
-		<ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
+		<ol class="breadcrumb parallax justify-content-center" data-source-url="/img/banner/parallax.jpg"
 			style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
 		</ol>
@@ -291,37 +297,33 @@
 								<th class="table-image text-uppercase">image</th>
 								<th class="table-p-name text-uppercase">product</th>
 								<th class="table-p-price text-uppercase">price</th>
-								<th class="table-p-qty text-uppercase">Stock Status</th>
 								<th class="table-total text-uppercase">add to cart</th>
 							</tr>
 						</thead>
 						<tbody>
+							<% if(wishlistProducts.length> 0){ %>
+								<% wishlistProducts.forEach((p)=> { %>
+									<% p.product.forEach((p2)=> { %>
+
 							<tr>
-								<td class="table-remove"><button><i class="material-icons">delete</i></button></td>
-								<td class="table-image"><a href="product-details.html"><img src="img/products/02.jpg"
-											alt=""></a></td>
-								<td class="table-p-name text-capitalize"><a href="product-details.html">aspetur autodit
-										autfugit</a></td>
+								<td class="table-remove"><<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%=p.item %>">
+															<i class="material-icons">delete</i>
+														</button></td>
+								<td class="table-image"><a href=""><img src="<%= p2.image[0].url %> "
+											alt="img"><%= p2.product_name %></a></td>
+								<td class="table-p-name text-capitalize"><a href="">
+										</a></td>
 								<td class="table-p-price">
-									<p>$100.00</p>
+									Rs.<span id="price<%= p.item %>">
+										<%= p2.product_price %></span>
 								</td>
-								<td class="table-p-qty">in stock</td>
-								<td class="table-addtocart"><a href="/cart" class="btn-primary btn">Add to
+								
+								<td class="table-addtocart"><a href="/cart/cart" class="btn-primary btn">Add to
 										cart</a></td>
 							</tr>
-							<tr>
-								<td class="table-remove"><button><i class="material-icons">delete</i></button></td>
-								<td class="table-image"><a href="product-details.html"><img src="img/products/03.jpg"
-											alt=""></a></td>
-								<td class="table-p-name text-capitalize"><a href="product-details.html">magni dolores
-										eosquies</a></td>
-								<td class="table-p-price">
-									<p>$100.00</p>
-								</td>
-								<td class="table-p-qty">in stock</td>
-								<td class="table-addtocart"><a href="/cart" class="btn-primary btn">Add to
-										cart</a></td>
-							</tr>
+							<% }) %>
+							<% }) %>
+							<% } %>
 						</tbody>
 					</table>
 				</div>
@@ -336,7 +338,7 @@
 			<div class="row">
 				<div class="col-md-2 footer-cms footer-column">
 					<div class="ttcmsfooter">
-						<div class="footer-logo"><img src="img/logos/footer-logo.png" alt="footer-logo"></div>
+						<div class="footer-logo"><img src="/img/logos/footer-logo.png" alt="footer-logo"></div>
 						<div class="footer-desc">At vero eos et accusamus et iusto odio dignissimos ducimus, duis
 							faucibus enim vitae</div>
 					</div>
@@ -447,16 +449,45 @@
 	</footer>
 	<!-- Footer -->
 
+		<% wishlistProducts.forEach((p)=>{ %>
+			<% p.product.forEach((p2)=> { %>
+				<div class="modal fade" id="exampleModal<%= p.item %>" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Remove Item</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								Do you want remove this Item from Wishlist ..?
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="button" onclick="itemDel('<%= p.item %>')" class="btn btn-danger"
+									data-dismiss="modal">
+									Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% }) }) %>
+
 
 
 
 	<!-- Bootstrap core JavaScript
-    ================================================== -->
+	    ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 	<script src="js/jquery.min.js"></script>
-	<script src="js/custom.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/custom.js"></script>
 	<script src="js/parallax.js"></script>
 	<script src="js/lightbox-2.6.min.js"></script>
 	<script src="js/ResizeSensor.min.js"></script>
@@ -467,7 +498,7 @@
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/imagesloaded.pkgd.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
-
+	
 
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
@@ -481,6 +512,36 @@
 			s0.parentNode.insertBefore(s1, s0);
 		})();
 	</script>
+
+<script>
+	function cartList(id) {
+		fetch('/cart/addToCart/' + id, {
+			method: 'get',
+			headers: {
+				'Content-type': 'application/json',
+				body: JSON.stringify({ hai: "jhj" })
+			}
+		})
+			.then(res => res.json())
+			.then(data => {
+				success: location.reload()
+			})
+	}
+	function deleteWishlist(id) {
+		fetch('/deleteWishlistItem/' + id, {
+			method: 'delete',
+			headers: {
+				'Content-type': 'application/json',
+				body: JSON.stringify({ hai: "jhj" })
+			}
+		})
+			.then(res => res.json())
+			.then(data => {
+				success: location.reload()
+			})
+	}
+</script>
+	
 	<!--End of Tawk.to Script-->
 </body>
 

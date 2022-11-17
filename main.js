@@ -13,6 +13,7 @@ const userRoute = require('./routes/userRoute')
 const categoryRoute = require('./routes/categoryRoute')
 const brandRoute = require('./routes/brandRoute')
 const cartRoute = require('./routes/cartRoute')
+const wishListRoute = require('./routes/wishListRoute')
 const productRoute = require('./routes/productRoute')
 const session = require("express-session");
 const multer=require('multer')
@@ -78,6 +79,7 @@ app.use('/category', categoryRoute)
 app.use('/brand', brandRoute)
 app.use('/cart', cartRoute)
 app.use('/product', productRoute)
+app.use('/wishlist',wishListRoute)
 
 
 
@@ -85,7 +87,7 @@ app.use('/product', productRoute)
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/victoria?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.4').then(() => {
-    app.listen(4007, () => { console.log("Server is running") })
+    app.listen(5000, () => { console.log("Server is running") })
 })
     .catch((err) => {
         console.log('there is error')

@@ -1,16 +1,22 @@
 require('dotenv').config()
-const User = require('../model/userchema')
-const Wishlist = require('../models/wishListSchema.js')
+const User = require('../models/userSchema')
+const Wishlist = require('../models/wishListSchema')
+const Product=require('../models/productSchema')
+
 const mongoose = require('mongoose')
 
 const addToWishlist = async (req, res) => {
     try {
-        if (req.session.user) {
+        if (req.session.email) {
+            // console.log(req.session.email);
             const prodId = req.params.id
             const productId = new mongoose.Types.ObjectId(prodId)
-            const userId = req.session.user._id
+            const email = req.session.email
+            const user = await User.find({ email })
+
+            const userId = user[0]._id;
             const detail = await User.findById({ _id: userId })
-            if (detail.state == false) {
+            if (detail.state == true) {
                 const userExist = await Wishlist.findOne({ userId })
                 if (userExist) {
                     const productExist = await Wishlist.findOne({
@@ -37,7 +43,7 @@ const addToWishlist = async (req, res) => {
                             res.send({ success: true })
                         })
                         .catch((err) => {
-                            res.render('error', { err })
+                            // res.render('error', { err })
                         })
                 }
             } else {
@@ -49,21 +55,31 @@ const addToWishlist = async (req, res) => {
             res.redirect('back')
         }
     } catch (err) {
-        res.render('error', { err })
+        // res.render('error', { err })
     }
 }
 
 const userWishlist = async (req, res) => {
+    console.log("vbnm,");
     try {
-        const userId = req.session.user._id
-        const { prodId } = req.params.id
-        const productId = new mongoose.Types.ObjectId(prodId)
+        const email = req.session.email
+        const user = await User.find({ email })
+        
+        const userId = user[0]._id;
+    console.log(userId);
+        // const  prodId  = req.params.id
+        // console.log(prodId);
+        // const productId = new mongoose.Types.ObjectId(prodId)
+        
         const wishlistProducts = await Wishlist.aggregate([{ $match: { userId } }, { $unwind: '$wishlistItems' },
         { $project: { item: '$wishlistItems.productId' } },
-        { $lookup: { from: process.env.PRODUCT_COLLECTION, localField: 'item', foreignField: '_id', as: 'product' } }]);
+        { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }
+    ]);
+        console.log("ghjk");
+        console.log(wishlistProducts[0]);
         res.render('userpages/wishlist', { wishlistProducts })
     } catch (err) {
-        res.render('error', { err })
+        // res.render('error', { err })
     }
 }
 
@@ -73,7 +89,7 @@ const deleteWishlist = async (req, res) => {
         const productId = new mongoose.Types.ObjectId(prodId)
         const userId = req.session.user._id
         const detail = await User.findById({ _id: userId })
-        if (detail.state== false) {
+        if (detail.state== true) {
             await Wishlist.updateOne({ userId }, { $pull: { wishlistItems: { "productId": productId } } })
             res.send({ success: true })
         } else {
@@ -81,7 +97,7 @@ const deleteWishlist = async (req, res) => {
             res.send({ success: false })
         }
     } catch (err) {
-        res.render('error', { err })
+        // res.render('error', { err })
     }
 }
 

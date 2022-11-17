@@ -85,14 +85,15 @@
 								</button>
 								<div id="user-dropdown" class="user-menu">
 									<ul>
-										<% if(user) { %>
+									<% if(user) { %>
 										<li><a href="/myaccount" class="text-capitalize">my account</a></li>
 
 
                                                <!-- <li>Welcome <% user%></li>   -->
 												<li> <a class="" href="/logout">Logout</a></li>
-												 <% }
+													 <% }
 												 else { %>
+
 
 										<li><a type="submit" class="modal-view button" data-toggle="modal"
 												data-target="#modalRegisterForm">Register</a></li>
@@ -100,12 +101,12 @@
 
 										<li><a href="#" class="modal-view button" data-toggle="modal"
 												data-target="#modalLoginForm">login</a></li>
-												<% } %>
+													<% } %>
 									</ul>
 								</div>
 							</div>
 						   <div class="cart-wrapper">
-								<button  class="btn"><a href="/cart/cart">
+								<button  class="btn"><a href="/cart/cartpage">
 									<i class="material-icons">shopping_cart</i>
 									</a>
 								</button> 
@@ -117,7 +118,7 @@
 												<tbody>
 													<tr>
 														<td class="text-center"><a href="#"><img
-																	src="<" alt="01" title="01"></a>
+																	src="<% %>" alt="01" title="01"></a>
 														</td>
 														<td class="text-left product-name"><a href="#">aliquam quaerat
 																voluptatem</a>
@@ -157,10 +158,15 @@
 								</div> 
 							</div>
 							<div>
+								<% if(user) { %>
+									
 								<i class="fa-solid fa-heart"></i>
-								<span class="material-symbols-outlined">
-									favorite
+								<span class="material-symbols-outlined"><a href="/wishlist/wishlist">
+									favorite</a>
 								</span>
+							
+								
+								<% }%>
 							</div>
 						</div>
 					</div>
@@ -247,34 +253,8 @@
 											data-target="#menu1" aria-controls="menu1" aria-expanded="false"
 											aria-label="Toggle navigation">
 											Home
-											<span class="sr-only">(current)</span> </a>
-										<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3"
-											id="menu1">
-											<div class="sub-menu mb-xl-0 mb-4">
-												<ul class="list-unstyled">
-													<li>
-														<a class="menu-item pl-0" href="index.html">
-															Home 1 </a>
-													</li>
-													<li>
-														<a class="menu-item pl-0" href="index2.html">
-															Home 2 </a>
-													</li>
-													<li>
-														<a class="menu-item pl-0" href="index3.html">
-															Home 3 </a>
-													</li>
-													<li>
-														<a class="menu-item pl-0" href="index4.html">
-															Home 4 </a>
-													</li>
-													<li>
-														<a class="menu-item pl-0" href="index5.html">
-															Home 5 </a>
-													</li>
-												</ul>
-											</div>
-										</div>
+											<span class="sr-only"></span> </a>
+									
 									</li>
 									<li class="nav-item dropdown mega-dropdown">
 										<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
@@ -349,28 +329,7 @@
 											<div class="sub-menu mb-xl-0 mb-4">
 												<h6 class="sub-title text-uppercase font-weight-bold white-text">
 													Featured</h6>
-												<ul class="list-unstyled">
-													<li>
-														<a class="menu-item pl-0" href="product-grid.html">
-															product grid </a>
-													</li>
-													<li>
-														<a class="menu-item pl-0" href="product-sticky-right.html">
-															sticky right </a>
-													</li>
-													<li>
-														<a class="menu-item pl-0" href="product-extended-layout.html">
-															Extended layout </a>
-													</li>
-													<li>
-														<a class="menu-item pl-0" href="product-details.html">
-															Default layout </a>
-													</li>
-													<li>
-														<a class="menu-item pl-0" href="product-compact.html">
-															compact layout </a>
-													</li>
-												</ul>
+												
 											</div>
 										</div>
 									</li>

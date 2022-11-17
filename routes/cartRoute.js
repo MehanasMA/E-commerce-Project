@@ -14,7 +14,7 @@ const {
 } = require('../middleware/auth')
 
 router.get('/cartpage', userCart)
-router.get('/addToCart/:id', sessionCheckCart, addToCart)
+router.post('/addToCart/:id', sessionCheckCart, addToCart)
 router.post('/itemInc/:id', itemInc)
 router.post('/itemDec/:id', itemDec)
 router.put('/itemDelete/:id', itemDelete)

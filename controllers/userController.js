@@ -111,6 +111,10 @@ const shop = async(req, res) => {
     const user = req.session.email
     const product=await Product.find()
     // console.log(product);
+    // const productId=product._id
+    
+    // console.log(product._id);
+    // console.log(product);
     res.render('userpages/shop',{user,product})
 }
 
@@ -127,9 +131,9 @@ const contact = (req, res) => {
 }
 
 
-const wishlist = (req, res) => {
-    res.render('userpages/wishlist')
-}
+// const wishlist = (req, res) => {
+//     res.render('userpages/wishlist')
+// }
 
 
 
@@ -237,7 +241,7 @@ exports.otpget = otpget
 exports.verify = verify
 exports.about = about
 exports.checkout = checkout
-exports.wishlist = wishlist
+
 exports.contact = contact
 exports.loginPost = loginPost;
 exports.signupPost = signupPost;

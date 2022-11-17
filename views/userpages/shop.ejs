@@ -115,7 +115,7 @@
 											</table>
 										</li>
 										<li class="buttons w-100 float-left">
-											<form action="cart_page.html">
+											<form action="/cart/cart">
 												<input class="btn pull-left mt_10 btn-primary btn-rounded w-100"
 													value="/cart/cart" type="submit">
 											</form>
@@ -349,11 +349,16 @@
 									<p class="card-text" value="<%= datas.product_description %>"><%= datas.product_description %>
 										</p>
 								 <h2 class="card-text" value="<%= datas.product_price %>">Rs.<%= datas.product_price %></h2>
-
-									<a href="/wishlist" class="btn btn-primary">Add to Wishlist</a>
+                                  
+								
+									<button data-toggle="modal" data-target="#exampleModal" onclick="wishlist('<%= datas._id %>')"
+										class="btn btn-primary">Add To wishlist</button>
+                                     
+									
+									
 
 									<!-- <a href="/cart/cart/<%=datas.id%>" onclick="cartList('<%= datas._id %>')" class="btn btn-primary">Add to Cart</a> -->
-									<button data-toggle="modal" data-target="#exampleModal" onclick="cartList('<%= product._id %>')"
+									<button data-toggle="modal" data-target="#exampleModal<%=datas._id%>" 
 										class="btn btn-primary"><i class="fas fa-shopping-cart text-primary "></i>Add To Cart</button>
 								</div>
 								<%j++ } %>
@@ -1339,7 +1344,39 @@
 			</div>
 		</div> -->
 
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Wishlist Item</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<% if(user) { %>
+				<div id="message" class="modal-body text-success">
+				</div>
+				<% } else { %>
+					<div class="modal-body text-danger">
+						You are not logged in !!!
+					</div>
+					<% } %>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+
+
+						</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+        <% for( let datas of product ){ %>
+		<div class="modal fade" id="exampleModal<%=datas._id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -1359,7 +1396,7 @@
 							</div>
 							<% } %>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+									<button type="button" class="btn btn-secondary" onclick="cartList('<%= datas._id %>')" data-dismiss="modal">OK</button>
 		
 		
 								</div>
@@ -1367,7 +1404,7 @@
 			</div>
 		</div>
 		
-			
+			<%}%>
 								
 
 
@@ -1453,8 +1490,8 @@
 		</script>
 		<script>
 			function cartList(id) {
-					fetch('/addToCart/' + id, {
-						method: 'get',
+					fetch('/cart/addToCart/' + id, {
+						method: 'post',
 						headers: {
 							'Content-type': 'application/json',
 							body: JSON.stringify({hey:"done"})
@@ -1463,6 +1500,27 @@
 						.then(res => res.json())
 				}
 		</script>
+
+					<script>
+						function wishlist(id) {
+							console.log(id);
+							fetch('/wishlist/addToWishlist/' + id, {
+								method: 'post',
+								headers: {
+									'Content-type': 'application/json',
+								},
+								body: JSON.stringify({ hai: "jhj" })
+							})
+								.then(res => res.json())
+								.then(data => {
+									if (data.success == true) {
+										document.getElementById('message').innerHTML = "<div class='text-success'> Item added to your Wishlist successfully...</div>"
+									} else {
+										document.getElementById('message').innerHTML = "<div class='text-danger'>Item already exist in your Wishlist !!!</div>"
+									}
+								})
+						}
+						</script>
 		<!-- <script>
 			function cartList(id) {
 				fetch('/addToCart/' + id, {
