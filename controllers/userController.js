@@ -25,10 +25,26 @@ let transporter = nodemailer.createTransport({
 const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
 
 
-const home = (req, res) => {
-    const user=req.session.email
-    res.render("userpages/home", { message: req.flash("invalid") ,user});
-};
+const home = async(req, res) => {
+    // try{
+    //     let cartItem
+    //     let cartCount
+    // console.log(req.session.email);
+        const email=req.session.email
+        const user=await User.find({email})
+        // const id=user[0]._id
+        
+        // console.log(id);
+        // if(req.session.user){
+            // cartItem= await cartController.findOne({id})
+            // console.log('item',cartItem);
+            // cartCount = await Cart.aggregate([{ $match: { id } }, { $project: { count: { $size: "$cartItem" } } }, { $project: { _id: 0 } }]);
+            res.render("userpages/home", { message: req.flash("invalid"),user});
+
+        // }
+// }catch{}
+}
+
 
 const loginPost = async (req, res, next) => {
     const { email, password } = req.body;
@@ -188,14 +204,12 @@ const otpget = (req, res) => {
 
 
 const verify = async (req, res) => {
-    console.log("jjjjh");
     const email = req.session.useremail;
-    console.log(req.session.useremail);
     console.log(req.body.otp);
     if (otp == req.body.otp) {
 
-        console.log("fghjk");
-        console.log(req.body.otp);
+        
+    
         await User.updateOne({ email: email }, { state: true });
         res.redirect("/");
 

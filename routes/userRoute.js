@@ -19,7 +19,7 @@ userRoute.get("/myaccount", userController.myaccount);
 
 userRoute.get("/category", userController.category);
 
-userRoute.get("/shop", sessionCheckHomePage,userController.shop);
+userRoute.get("/shop",userController.shop);
 
 userRoute.get("/blog", userController.blog);
 

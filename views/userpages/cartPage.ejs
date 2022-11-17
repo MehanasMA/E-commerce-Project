@@ -469,16 +469,19 @@
 													</div>
 												</div>
 											</td>
-											<% const total=parseInt(p.itemQuantity)*parseInt(p2.price) %>
+											<% const total=(p.itemQuantity)*(p2.price) %>
 												<td class="align-middle ">Rs.<span id="total<%= p.item %>">
-														<%= total %>
+														<% total %>
 													</span> </td>
 												<td class="align-middle">
 													<button type="button" data-toggle="modal" data-target="#exampleModal<%= p.item %>"
 														class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button>
 												</td>
+												<%}%>
+												<%}%>
 						
 					</tr>
+					<%}%>
                            
                         </tbody>
                     </table>

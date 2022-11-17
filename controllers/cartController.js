@@ -67,47 +67,53 @@ const addToCart = async (req, res) => {
     }
 }
 
-const userCart = async (req, res) => {
-    console.log("entered in cart");
-    try {
-        console.log("cart try");
-        if (req.session.email) {
-            console.log(req.session.email);
-            const email = req.session.email
-            const user=await User.find({email})
-            const id=user[0]._id;
-            console.log(id);
-            const cartList = await Cart.aggregate([{ $match: { id } }, { $unwind: '$cartItems' },
-            { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
-            { $lookup: {from:'products', localField: 'item', foreignField: '_id', as: 'product' } }]);
-            
-            console.log(cartList);
-            let total;
-            let subtotal = 0;
-
-            cartList.forEach((p) => {
-                p.product.forEach((p2) => {
-                    total = parseInt(p2.price) * parseInt(p.itemQuantity)
-                    subtotal += total
-                })
-            })
-
-            let shipping = 0;
-            if (subtotal < 15000) {
-                shipping = 150
-            } else {
-                shipping = 0
-            }
-            const grandtotal = subtotal + shipping
-            res.render('userpages/cartPage', { cartList, subtotal, total, shipping, grandtotal })
-        } else {
-            req.flash('error', 'you are not logged in')
-            res.redirect('/shop')
-        }
-    } catch (err) {
-        // res.render('error', { err })
-    }
+const userCart=(req,res)=>{
+    res.render('userpages/cartPage')
 }
+
+// const userCart = async (req, res) => {
+//     res.render('userpages/cartPage' )
+//     console.log("entered in cart");
+//     try {
+//         console.log("cart try");
+//         if (req.session.email) {
+//             console.log("email",req.session.email);
+//             const email = req.session.email
+//             const user=await User.find({email})
+//             console.log('user',user);
+//             const id=user[0]._id;
+//             console.log(id);
+//             const cartList = await Cart.aggregate([{ $match: { id } }, { $unwind: '$cartItems' },
+//             { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
+//             { $lookup: {from:'products', localField: 'item', foreignField: '_id', as: 'product' } }]);
+            
+//             console.log(cartList);
+//             let total;
+//             let subtotal = 0;
+
+//             cartList.forEach((p) => {
+//                 p.product.forEach((p2) => {
+//                     total = parseInt(p2.price) * parseInt(p.itemQuantity)
+//                     subtotal += total
+//                 })
+//             })
+
+//             let shipping = 0;
+//             if (subtotal < 15000) {
+//                 shipping = 150
+//             } else {
+//                 shipping = 0
+//             }
+//             const grandtotal = subtotal + shipping
+//             res.render('userpages/cartPage', { cartList, subtotal, total, shipping, grandtotal })
+//         } else {
+//             req.flash('error', 'you are not logged in')
+//             res.redirect('/')
+//         }
+//     } catch (err) {
+//         res.render('error', { err })
+//     }
+// }
 
 const itemInc = async (req, res) => {
     try {
