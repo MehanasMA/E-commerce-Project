@@ -26,23 +26,12 @@ const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
 
 
 const home = async(req, res) => {
-    // try{
-    //     let cartItem
-    //     let cartCount
-    // console.log(req.session.email);
+
         const email=req.session.email
         const user=await User.find({email})
-        // const id=user[0]._id
         
-        // console.log(id);
-        // if(req.session.user){
-            // cartItem= await cartController.findOne({id})
-            // console.log('item',cartItem);
-            // cartCount = await Cart.aggregate([{ $match: { id } }, { $project: { count: { $size: "$cartItem" } } }, { $project: { _id: 0 } }]);
             res.render("userpages/home", { message: req.flash("invalid"),user});
 
-        // }
-// }catch{}
 }
 
 
@@ -64,39 +53,6 @@ const loginPost = async (req, res, next) => {
 }
 
 
-// const signupPageGet = (req, res) => {
-
-//     res.render("userpages/signup");
-// };
-
-
-// const signupPost = async (req, res) => {
-//     console.log(req.body)
-//     try {
-//         const user = new User({
-//             name: req.body.name,
-//             mobile: req.body.mobile,
-//             email: req.body.email,
-//             password: req.body.password,
-//             confirmPassword: req.body.confirmPassword,
-
-//             is_admin: 0
-
-//         })
-//         const userData = await user.save()
-//         res.redirect("/home")
-
-
-//     } catch (error) {
-//         console.log(error.message)
-//         res.status(500).send(error)
-//     }
-
-// }
-
-
-
-
 
 
 const myaccount = (req, res) => {
@@ -110,11 +66,7 @@ const category = (req, res) => {
 const shop = async(req, res) => {
     const user = req.session.email
     const product=await Product.find()
-    // console.log(product);
-    // const productId=product._id
-    
-    // console.log(product._id);
-    // console.log(product);
+ 
     res.render('userpages/shop',{user,product})
 }
 
@@ -131,16 +83,11 @@ const contact = (req, res) => {
 }
 
 
-// const wishlist = (req, res) => {
-//     res.render('userpages/wishlist')
-// }
-
-
-
 
 const logout = (req, res) => {
     try {
         req.session.destroy()
+        console.log("logout");
         res.redirect("/");
     } catch (error) {
         console.log(error.message)
@@ -224,15 +171,14 @@ const verify = async (req, res) => {
 
 
 
-const checkout=(req,res)=>{
-    res.render('userpages/checkoutpage')
-}
+// const checkout=(req,res)=>{
+//     res.render('userpages/checkoutpage')
+// }
 
 
 
 
 exports.home = home;
-// exports.signup = signup;
 exports.myaccount = myaccount;
 exports.category = category
 exports.shop = shop
@@ -240,7 +186,7 @@ exports.blog = blog
 exports.otpget = otpget
 exports.verify = verify
 exports.about = about
-exports.checkout = checkout
+// exports.checkout = checkout
 
 exports.contact = contact
 exports.loginPost = loginPost;

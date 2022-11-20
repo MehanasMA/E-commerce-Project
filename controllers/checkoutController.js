@@ -2,56 +2,57 @@ require('dotenv').config()
 
 const User = require('../models/userSchema')
 const checkoutData = require('../models/checkoutSchema')
-// const coupenData = require('../models/coupenModel')
+const coupenData = require('../models/couponSchema')
 // const addressData = require('../models/addressModel')
-const Cart = require('../models/cartSxhema')
+const Cart = require('../models/cartSchema')
 const mongoose = require('mongoose')
 
-const {
-    generateRazorpay,
-    verifyPayment
-} = require('../utils/helpers')
-const { products } = require('./productController')
+// const {
+//     generateRazorpay,
+//     verifyPayment
+// } = require('../utils/helpers')
+// const { products } = require('./productController')
 
 const checkoutPage = async (req, res) => {
+    
     try {
         if (req.session.email) {
-
+            
             const email = req.session.email
             const users = await User.find({ email })
             const userId=users[0]._id
-
-            
-
             const user = await User.findById(userId)
-            // const address = await addressData.find({ userId })
-            const cartList = await Cart.aggregate([{ $match: { userId } }, { $unwind: '$cartItem' },
+            console.log("userId",userId);
+            const address = await addressData.find({ userId })
+            const cartList = await Cart.aggregate([{ $match: { id:userId } }, { $unwind: '$cartItem' },
             { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
-            { $lookup: { from: products, localField: 'item', foreignField: '_id', as: 'product' } }]);
+            { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }
+        ]);
+            console.log(cartList);
+        const items = await Cart.findOne({ userId })
+            let coupencode
+            if (items.coupenCode) {
+                coupencode = items.coupenCode
+            }
 
-            const items = await Cart.findOne({ userId })
-            // let coupencode
-            // if (items.coupenCode) {
-            //     coupencode = items.coupenCode
-            // }
-
-            // let discount;
-            // if (coupencode) {
-            //     const coupens = await coupenData.findOne({ code: coupencode })
-            //     discount = coupens.discount
-            // }
+            let discount;
+            if (coupencode) {
+                const coupens = await coupenData.findOne({ code: coupencode })
+                discount = coupens.discount
+            }
             let total;
             let subtotal = 0;
 
             cartList.forEach((p) => {
                 p.product.forEach((p2) => {
-                    total = (p2.price) * (p.itemQuantity)
+                    total = (p2.product_price) * (p.itemQuantity)
                     subtotal += total
                 })
+                console.log(total);
             })
             let shipping;
             if (subtotal < 15000) {
-                shipping = 50
+                shipping = 150
             } else {
                 shipping = 0
             }
@@ -59,25 +60,31 @@ const checkoutPage = async (req, res) => {
             if (discount) {
                 grandtotal = subtotal + shipping - discount
             } else {
+                
                 grandtotal = subtotal + shipping
             }
-            res.render('userpages/checkout', { user, address, cartList, grandtotal, shipping, subtotal, discount })
+          console.log("asdfg");
+
+            res.render('userpages/checkoutpage', { cartList,user, cartList, grandtotal,subtotal, shipping,discount })
         } else {
             req.flash('error', 'You are not logged in')
             res.redirect('back')
         }
     } catch (err) {
-        res.render('error', { err })
+        // res.render('error', { err })
     }
 }
 
 const placeOrder = async (req, res) => {
     try {
-        const usrId = req.session.user._id
+          console.log("place order");
+        const email=req.session.email
+        const user=await User.findOne({email})
+        const usrId = user._id
         const userId = new mongoose.Types.ObjectId(usrId)
         const prodId = req.body.cartId
         const cartId = new mongoose.Types.ObjectId(prodId)
-        const items = await cartData.findById({ _id: cartId })
+        const items = await Cart.findById({ _id: cartId })
         const coupencode = items.coupenCode
         let discount;
         if (coupencode) {
@@ -85,9 +92,9 @@ const placeOrder = async (req, res) => {
             discount = coupens.discount
 
         }
-        const cartList = await cartData.aggregate([{ $match: { userId: userId } }, { $unwind: '$cartItems' },
-        { $project: { item: '$cartItems.productId', itemQuantity: '$cartItems.quantity' } },
-        { $lookup: { from: products, localField: 'item', foreignField: '_id', as: 'product' } }]);
+        const cartList = await Cart.aggregate([{ $match: { userId: userId } }, { $unwind: '$cartItem' },
+        { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
+        { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }]);
 
         let total;
         let subtotal = 0;
@@ -104,7 +111,7 @@ const placeOrder = async (req, res) => {
 
         const orderData = new checkoutData({
             userId,
-            cartItems: items.cartItems,
+            cartItem: items.cartItem,
             address: {
                 name: req.body.name,
                 email: req.body.email,
@@ -138,22 +145,24 @@ const placeOrder = async (req, res) => {
 
             })
             .catch((err) => {
-                res.render('error', { err })
+                // res.render('error', { err })
             })
 
-        await cartData.deleteOne({ _id: cartId })
+        await Cart.deleteOne({ _id: cartId })
     } catch (err) {
-        res.render('error', { err })
+        // res.render('error', { err })
     }
 }
 
 const orderSuccess = async (req, res) => {
     try {
-        const userId = req.session.user._id
-        const productId = req.params
-        const cartList = await cartData.aggregate([{ $match: { _id: productId } }, { $unwind: '$cartItems' },
-        { $project: { item: '$cartItems.productId', itemQuantity: '$cartItems.quantity' } },
-        { $lookup: { from: process.env.PRODUCT_COLLECTION, localField: 'item', foreignField: '_id', as: 'product' } }]);
+        const email = req.session.email
+        const user = await User.findOne({ email })
+        const userId = user._id
+        const productId = req.params 
+        const cartList = await Cart.aggregate([{ $match: { _id: productId } }, { $unwind: '$cartItem' },
+        { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
+        { $lookup: { from: products, localField: 'item', foreignField: '_id', as: 'product' } }]);
         let total;
         let subtotal = 0;
 
@@ -171,9 +180,9 @@ const orderSuccess = async (req, res) => {
         }
         const bill = subtotal + shipping
         const orderData = await checkoutData.find({ userId })
-        res.render('user/orderSuccess', { cartList, bill, shipping, orderData })
+        res.render('userpages/orderSuccess', { cartList, bill, shipping, orderData })
     } catch (err) {
-        res.render('error', { err })
+        // res.render('error', { err })
     }
 }
 
@@ -185,7 +194,7 @@ const verifyPay = async (req, res) => {
             res.json({ status: false, errMsg: '' })
         })
     }).catch((err) => {
-        res.render('error', { err })
+        // res.render('error', { err })
     })
 }
 
@@ -199,7 +208,7 @@ function changePaymentStatus(orderId) {
         }).then(() => {
             resolve()
         }).catch((err) => {
-            res.render('error', { err })
+            // res.render('error', { err })
         })
 
     })
@@ -207,9 +216,11 @@ function changePaymentStatus(orderId) {
 
 const viewOrders = async (req, res) => {
     try {
-        userId = req.session.user._id
+        const email = req.session.email
+        const user = await User.findOne({ email })
+        const userId = user._id
         const orderData = await checkoutData.find({ userId }).sort({ 'orderStatus.date': -1 })
-        res.render('user/orderDetails', { orderData })
+        res.render('userpages/orderDetails', { orderData })
     } catch (err) {
         res.render('error', { err })
     }
@@ -217,24 +228,23 @@ const viewOrders = async (req, res) => {
 
 const orderedProducts = async (req, res) => {
     try {
-
         const cartId = mongoose.Types.ObjectId(req.body)
-        const cartList = await checkoutData.aggregate([{ $match: { _id: cartId } }, { $unwind: '$cartItems' },
-        { $project: { item: '$cartItems.productId', itemQuantity: '$cartItems.quantity' } },
-        { $lookup: { from: process.env.PRODUCT_COLLECTION, localField: 'item', foreignField: '_id', as: 'product' } }]);
+        const cartList = await checkoutData.aggregate([{ $match: { _id: cartId } }, { $unwind: '$cartItem' },
+        { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
+        { $lookup: { from: products, localField: 'item', foreignField: '_id', as: 'product' } }]);
 
         res.send({ cartList })
     } catch (err) {
-        res.render('error', { err })
+        // res.render('error', { err })
     }
 }
 
 const checkoutAddress = async (req, res) => {
     try {
         const userId = req.session.user._id
-        const cartList = await cartData.aggregate([{ $match: { userId: userId } }, { $unwind: '$cartItems' },
-        { $project: { item: '$cartItems.productId', itemQuantity: '$cartItems.quantity' } },
-        { $lookup: { from: process.env.PRODUCT_COLLECTION, localField: 'item', foreignField: '_id', as: 'product' } }]);
+        const cartList = await Cart.aggregate([{ $match: { userId: userId } }, { $unwind: '$cartItem' },
+        { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
+        { $lookup: { from: products, localField: 'item', foreignField: '_id', as: 'product' } }]);
 
         res.render('user/checkoutAddAddress', { cartList })
     } catch (err) {

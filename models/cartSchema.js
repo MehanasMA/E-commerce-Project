@@ -22,9 +22,9 @@ const cartSchema = mongoose.Schema({
             },
         }
     ],
-    // coupenCode: {
-    //     type: String
-    // }
+    coupenCode: {
+        type: String
+    }
 })
 
 module.exports = mongoose.model('CartItem', cartSchema)

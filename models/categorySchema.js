@@ -13,4 +13,4 @@ const categorySchema = new Schema({
 });
 categorySchema.plugin(validator);
 const Category = mongoose.model("Category", categorySchema);
-module.exports = Category;
+module.exports = Category;                                 

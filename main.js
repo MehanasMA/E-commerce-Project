@@ -15,6 +15,7 @@ const brandRoute = require('./routes/brandRoute')
 const cartRoute = require('./routes/cartRoute')
 const wishListRoute = require('./routes/wishListRoute')
 const productRoute = require('./routes/productRoute')
+const checkOutRoute = require('./routes/checkoutRoute')
 const session = require("express-session");
 const multer=require('multer')
 // const filestore = require("session-file-store")(session);
@@ -80,6 +81,9 @@ app.use('/brand', brandRoute)
 app.use('/cart', cartRoute)
 app.use('/product', productRoute)
 app.use('/wishlist',wishListRoute)
+app.use('/checkout', checkOutRoute)
+
+
 
 
 

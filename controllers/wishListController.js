@@ -60,7 +60,7 @@ const addToWishlist = async (req, res) => {
 }
 
 const userWishlist = async (req, res) => {
-    console.log("vbnm,");
+    
     try {
         const email = req.session.email
         const user = await User.find({ email })
