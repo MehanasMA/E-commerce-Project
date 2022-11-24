@@ -33,14 +33,23 @@ admin_route.get("/accounts", adminController.account);
 
 admin_route.get("/userManageget", adminController.userManageget)
 
-// admin_route.get("/userStateblock/:id", adminController.userStateblock);
-
-// admin_route.get("/userStateUnblock/:id", adminController.userStateUnblock);
 
 admin_route.put('/editUser/:id', adminController.editUser)
 
 admin_route.post('/logout', adminController.logout)
 
+
+admin_route.get('/orders', adminController. productOrders)
+
+admin_route.post('/orderitems', adminController.orderItems)
+
+// admin_route.get('/editOrders/:id', adminController.editOrder)
+
+admin_route.post('/updateOrder/:id', adminController.updateOrder)
+
+admin_route.get('/orders', adminController.productOrders)
+
+admin_route.post('/orderitems', adminController.orderItems)
 
 
 

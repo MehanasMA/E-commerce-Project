@@ -82,6 +82,66 @@ const contact = (req, res) => {
     res.render('userpages/contact')
 }
 
+const addAddress = async (req, res) => {
+
+    const email=req.session.email
+   
+    const user=await User.findOne({email})
+    // console.log(user);
+    try {
+        res.render('userpages/addaddress',{user})
+    } catch (err) {
+        res.render('error', { err })
+    }
+}
+
+
+const saveAddress = async (req, res) => {
+    
+    try {
+        const { id } = req.params
+        console.log(id);
+        if (!req.body) {
+            req.flash('error', 'Empty fields are not allowed')
+            res.redirect('back')
+        }
+        else {
+
+            const {name,email,mobile,address,district,statePlace,pincode} =req.body
+       
+            try{
+                
+               const tryyy= await User.findByIdAndUpdate(id, { $push: { useraddress:{name, email, mobile, address, district, statePlace, pincode } }})
+               console.log(tryyy);
+             
+                res.redirect('/checkout/checkout/:id')
+
+            }
+            
+            
+            catch(err){
+               
+                console.log("update failed");
+            }
+        }
+    } catch (err) {
+        res.render('error', { err })
+    }
+
+}
+
+const deleteAddress = async (req, res) => {
+    try {
+        const { id } = req.params
+        const deletion = await User.findOneAndDelete({ id })
+        deletion.remove()
+        res.send({ success: true })
+    } catch (err) {
+        res.render('error', { err })
+    }
+}
+
+
 
 
 const logout = (req, res) => {
@@ -186,8 +246,9 @@ exports.blog = blog
 exports.otpget = otpget
 exports.verify = verify
 exports.about = about
-// exports.checkout = checkout
-
+exports.deleteAddress = deleteAddress
+exports.addAddress=addAddress
+exports.saveAddress=saveAddress
 exports.contact = contact
 exports.loginPost = loginPost;
 exports.signupPost = signupPost;

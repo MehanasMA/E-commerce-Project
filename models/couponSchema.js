@@ -15,4 +15,4 @@ const coupenSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Coupen', coupenSchema)/shareef1977/eShop/blob/main/FrontEnd/routes/coupenRouter.js
+module.exports = mongoose.model('Coupen', coupenSchema) 

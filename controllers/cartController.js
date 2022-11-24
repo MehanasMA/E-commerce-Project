@@ -27,7 +27,6 @@ const addToCart = async (req, res) => {
                 
                 const userExist = await Cart.findOne({ id })
                 
-                console.log("try");
                 if (userExist) {
                     const productExist = await Cart.findOne({
                         $and: [{ id }, {
@@ -64,7 +63,7 @@ const addToCart = async (req, res) => {
                     .catch((err) => {
                         res.render('error', { err })
                     })
-                    console.log('cart',cart);
+                
                 }
 
             } else {
@@ -89,7 +88,7 @@ const userCart = async (req, res) => {
     try {
         
         if (req.session.email) {
-            console.log(req.session.email);
+            
             const email = req.session.email
             const user=await User.find({email})
         

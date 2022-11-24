@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Accounts - Product Admin Template</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+  <!-- https://fonts.google.com/specimen/Roboto -->
+  <link rel="stylesheet" href="css/fontawesome.min.css" />
+  <!-- https://fontawesome.com/ -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- https://getbootstrap.com/ -->
+  <link rel="stylesheet" href="css/templatemo-style.css">
+  <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+</head>
+
+<body id="reportsPage">
+  <div class="" id="home">
+    <nav class="navbar navbar-expand-xl">
+      <div class="container h-100">
+        <a class="navbar-brand" href="/dashboard">
+          <h1 class="tm-site-title mb-0">Product Admin</h1>
+        </a>
+        <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fas fa-bars tm-nav-icon"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto h-100">
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/dashboard">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-file-alt"></i>
+                <span> Managment<i class="fas fa-angle-down"></i> </span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/admin/userManageget">User Managment</a>
+                <a class="dropdown-item" href="#">Order Managment</a>
+                <a class="dropdown-item" href="#">Product Managment</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/product/products">
+                <i class="fas fa-shopping-cart"></i> Products
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="/admin/accounts">
+                <i class="far fa-user"></i> Accounts
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cog"></i>
+                <span> Settings <i class="fas fa-angle-down"></i> </span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Billing</a>
+                <a class="dropdown-item" href="#">Customize</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link d-block" href="/adminlogin">
+                Admin, <b>Logout</b>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+  
+  
+        <div class="container mt-5">
+          <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+              <tr>
+                <th>Order Id</th>
+  
+                <th>Name</th>
+                <th>Address</th>
+                <th>Payment Method</th>
+                <th>Payment Status</th>
+                <th>Bill</th>
+                <th>Order Status</th>
+                <th>Date</th>
+                <th>Items</th>
+              </tr>
+            </thead>
+  
+  
+            <tbody>
+              <% for(let order of orderData) { %>
+                <tr>
+                  <td>
+                    <% if(order.orderStatus[0].type=='Delivered' || order.orderStatus[0].type=='Cancelled' ){ %>
+                      <%= order._id %>
+                        <% } else { %>
+                          <a href="/editOrders/<%= order._id %> ">#<%= order._id %></a>
+                  </td>
+                  <% } %>
+                    <td>
+                      <%= order.address.name %>
+                    </td>
+                    <td>
+                      <%= order.address.addressLine %> Pcs
+                    </td>
+                    <td>
+                      <%= order.paymentStatus %>
+                    </td>
+                    <% if(order.isCompleted==true) { %>
+                      <td>Completed</td>
+                      <% } else{ %>
+                        <td>Pending</td>
+                        <% } %>
+                          <td>Rs.<%= order.bill %>
+                          </td>
+                          <td>
+                            <%= order.orderStatus[0].type %>
+                          </td>
+                          <td>
+                            <%= order.orderStatus[0].date.toLocaleDateString() %>
+                          </td>
+                          <td> <button data-bs-toggle="modal" class="btn btn-success rounded"
+                              onclick="products('<%= order._id %>')" data-bs-target="#exampleModal">Items</button></td>
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+        </div>
+  
+  
+  
+        <div class="container-fluid pt-4 px-4">
+          <div class="bg-light rounded-top p-4">
+            <div class="row">
+              <div class="col-12 col-sm-6 text-center text-sm-start">
+                <h6> &copy; <a href="#">www.eShop.com</a>, All Right Reserved.</h6>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+  
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-l" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Products</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="table">
+  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+  
+  
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/admin/chart.min.js"></script>
+    <script src="js/admin/easing.min.js"></script>
+    <script src="js/admin/waypoints.min.js"></script>
+    <script src="js/admin/owl.carousel.min.js"></script>
+    <script src="js/admin/moment.min.js"></script>
+    <script src="js/admin/moment-timezone.min.js"></script>
+    <script src="js/admin/tempusdominus-bootstrap-4.min.js"></script>
+  
+  
+    <script src="js/admin/main.js"></script>
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+  
+  
+  
+    <script>
+      $(document).ready(function () {
+        $('#example').DataTable();
+      });
+
+    </script>
+    <script>
+      function products(id) {
+        let tableMain = document.getElementById('table')
+
+        fetch('/checkout/orderitems', {
+          method: 'post',
+          headers: {
+            'Content-type': 'application/json',
+
+          }, body: JSON.stringify({ id })
+        })
+          .then(res => res.json())
+          .then(data => {
+            const items = data.cartList
+
+            let table = `<table class="table table-striped table-hover"><thead><tr><th>product</th>
+                                      <th>product name</th>
+                                          <th>product price</th>
+                                          <th>quantity</th>
+                                          </tr><thead><tbody>`
+            items.forEach(p => {
+              p.product.forEach(p1 => {
+
+                table += `<tr><td><div class="mb-3" style="background-image:url(${p1.images[0].url}); width:50px;height:50px;background-size:cover;background-repeat:no-repeat "></div></td>
+                              <td>${p1.name}</td>
+                              <td>₹${p1.price}</td>
+                              <td>${p.itemQuantity}</td></tr>`
+
+              })
+            })
+
+            table += `</tbody></table>`
+            tableMain.innerHTML = table
+
+
+          })
+      }
+    </script>
+  
+  </body>
+  
+  </html>
+    <footer class="tm-footer row tm-mt-small">
+      <div class="col-12 font-weight-light">
+        <p class="text-center text-white mb-0 px-4 small">
+          Copyright &copy; <b>2018</b> All rights reserved.
+
+          Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <!-- https://jquery.com/download/ -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- https://getbootstrap.com/ -->
+</body>
+
+</html>

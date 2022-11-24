@@ -25,7 +25,14 @@ userRoute.get("/blog", userController.blog);
 
 userRoute.get("/about", userController.about);
 
+userRoute.delete('/deleteAddress/:id', userController.deleteAddress)
+
+
 userRoute.get("/contact", userController.contact);
+
+userRoute.get("/addAddress", userController.addAddress);
+
+userRoute.post("/saveAddress/:id", userController.saveAddress);
 
 userRoute.post("/verify", userController.verify);
 

@@ -20,8 +20,8 @@ function compareOTP(raw, hash) {
 }
 
 const instance = new Razorpay({
-    key_id: process.env.KEY_ID,
-    key_secret: process.env.KEY_SECRET
+    key_id: 'rzp_test_oUvkyEUOA6xs5U',
+    key_secret: '2ybL5wm4EfClD7PyCsHJg7Cr'
 })
 
 function generateRazorpay(orderId, bill) {
@@ -46,8 +46,8 @@ function generateRazorpay(orderId, bill) {
 function verifyPayment(details) {
     return new Promise((resolve, reject) => {
         const crypto = require('crypto')
-        let hmac = crypto.createHmac('sha256', process.env.KEY_SECRET)
-        hmac.update(details.payment.razorpay_order_id + '|' + details.payment.razorpay_payment_id, process.env.KEY_SECRET)
+        let hmac = crypto.createHmac('sha256', '2ybL5wm4EfClD7PyCsHJg7Cr')
+        hmac.update(details.payment.razorpay_order_id + '|' + details.payment.razorpay_payment_id, '2ybL5wm4EfClD7PyCsHJg7Cr')
         hmac = hmac.digest('hex')
         if (hmac == details.payment.razorpay_signature) {
             resolve()

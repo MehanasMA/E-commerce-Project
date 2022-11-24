@@ -245,68 +245,68 @@
 					<div class="table-responsive">
 						<table class="table product-table text-center">
 							<thead>
-								<tr>
-									<th class="table-remove text-capitalize">remove</th>
-									<th class="table-image text-capitalize">image</th>
-									<th class="table-p-name text-capitalize">product</th>
-									<th class="table-p-price text-capitalize">price</th>
-									<th class="table-p-qty text-capitalize">quantity</th>
-									<th class="table-total text-capitalize">total</th>
-								</tr>
+								<% if(cartList.length>0){ %>
+									<tr>
+										<th class="table-remove text-capitalize">remove</th>
+										<th class="table-image text-capitalize">image</th>
+										<th class="table-p-name text-capitalize">product</th>
+										<th class="table-p-price text-capitalize">price</th>
+										<th class="table-p-qty text-capitalize">quantity</th>
+										<th class="table-total text-capitalize">total</th>
+									</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<% if(cartList.length>0){ %>
-										<% cartList.forEach((p)=>{ %>
-											<% p.product.forEach((p2)=> { %>
-												<td 
-												class="table-remove">
+
+									<% cartList.forEach((p)=>{ %>
+										<% p.product.forEach((p2)=> { %>
+											<td class="table-remove">
 												<!-- <button data-toggle="modal"
 														data-target="#exampleModal<%= p.item %>"><i
 															class="material-icons">delete</i></button> -->
-														
-														<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%=p.item %>">
-															<i class="material-icons">delete</i>
+
+												<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+													data-bs-target="#exampleModal<%=p.item %>">
+													<i class="material-icons">delete</i>
+												</button>
+
+											</td>
+
+
+											<td id="row<%= p.item %>" class="align-middle"><img
+													src="<%= p2.image[0].url %> " alt="img" style="width: 50px;">
+
+											</td>
+											<td class="align-middle">
+												<%= p2.product_name %>
+											</td>
+											<td class="align-middle "> Rs.<span id="price<%= p.item %>">
+													<%= p2.product_price %>
+												</span> </td>
+											<td class="align-middle">
+												<div class="input-group quantity mx-auto" style="width: 100px;">
+													<div class="input-group-btn">
+														<button type="button" id="minus" onclick="dec('<%= p.item %>')"
+															class="btn btn-sm  btn-minus">
+															<i class="fa fa-minus"></i>
 														</button>
-
-														</td>
-
-
-												<td id="row<%= p.item %>" class="align-middle"><img
-														src="<%= p2.image[0].url %> " alt="img" style="width: 50px;">
-
-												</td>
-												<td class="align-middle">
-													<%= p2.product_name %>
-												</td>
-												<td class="align-middle "> Rs.<span id="price<%= p.item %>">
-														<%= p2.product_price %>
-													</span> </td>
-												<td class="align-middle">
-													<div class="input-group quantity mx-auto" style="width: 100px;">
-														<div class="input-group-btn">
-															<button type="button" id="minus"
-																onclick="dec('<%= p.item %>')"
-																class="btn btn-sm  btn-minus">
-																<i class="fa fa-minus"></i>
-															</button>
-														</div>
-														<input type="text" readonly
-															class="form-control form-control-sm text-center"
-															value="<%= p.itemQuantity %> " id="<%= p.item %>">
-														<div class="input-group-btn">
-															<button type="button" onclick="inc('<%= p.item %>')"
-																class="btn btn-sm  btn-plus" id="plus">
-																<i class="fa fa-plus"></i>
-															</button>
-														</div>
 													</div>
-												</td>
-												<% const total=(p.itemQuantity)*(p2.product_price) %>
-													<td class="align-middle ">Rs.<span id="total<%= p.item %>">
-															<%= total %>
-														</span> </td>
-													<!-- <td class="align-middle">
+													<input type="text" readonly
+														class="form-control form-control-sm text-center"
+														value="<%= p.itemQuantity %> " id="<%= p.item %>">
+													<div class="input-group-btn">
+														<button type="button" onclick="inc('<%= p.item %>')"
+															class="btn btn-sm  btn-plus" id="plus">
+															<i class="fa fa-plus"></i>
+														</button>
+													</div>
+												</div>
+											</td>
+											<% const total=(p.itemQuantity)*(p2.product_price) %>
+												<td class="align-middle ">Rs.<span id="total<%= p.item %>">
+														<%= total %>
+													</span> </td>
+												<!-- <td class="align-middle">
 														<button type="button" data-toggle="modal"
 															data-target="#exampleModal<%= p.item %>"
 															class="btn btn-sm btn-primary"><i
@@ -318,7 +318,7 @@
 									<%})%>
 
 
-										<%}%>
+
 							</tbody>
 						</table>
 					</div>
@@ -328,7 +328,7 @@
 							<input type="text" placeholder="Coupon code">
 							<button type="submit" class="btn-primary btn">Apply coupon</button>
 						</div>
-						
+
 					</div>
 				</div>
 				<div
@@ -355,21 +355,34 @@
 									<%= grandtotal %>
 								</span>
 							</div>
-							<a href="/checkout/checkout/<%= cartList[0]._id %>" class="btn btn-primary float-left w-100 text-center">Proceed to
+							<a href="/checkout/checkout/<%= cartList[0]._id %>"
+								class="btn btn-primary float-left w-100 text-center">Proceed to
 								checkout</a>
 						</div>
 					</div>
+
+					<%} else {%>
+						<div class=" text-center">
+
+							<h2>
+								Your cart is currently empty</h2><br>
+							<p> Before proceed to checkout you must add some products to your shopping cart. You will
+								find a lot of interesting
+								products on our "Shop" page.</p>
+
+								<button class="btn btn-primary"><a href="/shop">Shop Now</a></button>
+							<%}%>
+						</div>
 				</div>
 			</div>
+
 		</div>
-
 	</div>
-
 	<!-- Footer -->
 	<div class="block-newsletter">
 		<div class="parallax" data-source-url="img/banner/parallax.jpg"
 			style="background-image:url(img/banner/parallax.jpg); background-position:50% 65.8718%;">
-			<div class="container">
+			<!-- <div class="container">
 				<div class="tt-newsletter col-sm-7">
 					<h2 class="text-uppercase">Subscribe to our Newsletter</h2>
 				</div>
@@ -385,15 +398,16 @@
 						</div>
 					</form>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<footer class="page-footer font-small footer-default">
-		<div class="container text-center text-md-left">
+		<div class="container-fluid">
+		<div class="container-fluid text-center text-md-left">
 			<div class="row">
 				<div class="col-md-2 footer-cms footer-column">
 					<div class="ttcmsfooter">
-						<div class="footer-logo"><img src="img/logos/footer-logo.png" alt="footer-logo"></div>
+						<div class="footer-logo"><img src="/img/logos/footer-logo.png" alt="footer-logo"></div>
 						<div class="footer-desc">At vero eos et accusamus et iusto odio dignissimos ducimus, duis
 							faucibus enim vitae</div>
 					</div>
@@ -500,7 +514,7 @@
 		<a href="#" id="goToTop" title="Back to top" class="btn-primary"><i
 				class="material-icons arrow-up">keyboard_arrow_up</i></a>
 
-
+</div>
 	</footer>
 	<!-- Footer -->
 
@@ -741,48 +755,48 @@
 				</div>
 			</div>
 			<% }) %>
-		<% }) %>
+				<% }) %>
 
 
 
-				<!-- Bootstrap core JavaScript
+					<!-- Bootstrap core JavaScript
     ================================================== -->
-				<!-- Placed at the end of the document so the pages load faster -->
-				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-					integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-					crossorigin="anonymous"></script>
-				<script src="js/jquery.min.js"></script>
-				<script src="js/bootstrap.min.js"></script>
-				<script src="js/owl.carousel.min.js"></script>
-				<script src="js/custom.js"></script>
-				<script src="js/parallax.js"></script>
-				<script src="js/lightbox-2.6.min.js"></script>
-				<script src="js/ResizeSensor.min.js"></script>
-				<script src="js/theia-sticky-sidebar.min.js"></script>
-				<script src="js/inview.js"></script>
-				<script src="js/cookiealert.js"></script>
-				<script src="js/jquery.countdown.min.js"></script>
-				<script src="js/masonry.pkgd.min.js"></script>
-				<script src="js/imagesloaded.pkgd.min.js"></script>
-				<script src="js/jquery.zoom.min.js"></script>
-				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-					integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-					crossorigin="anonymous"></script>
+					<!-- Placed at the end of the document so the pages load faster -->
+					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+						integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+						crossorigin="anonymous"></script>
+					<script src="js/jquery.min.js"></script>
+					<script src="js/bootstrap.min.js"></script>
+					<script src="js/owl.carousel.min.js"></script>
+					<script src="js/custom.js"></script>
+					<script src="js/parallax.js"></script>
+					<script src="js/lightbox-2.6.min.js"></script>
+					<script src="js/ResizeSensor.min.js"></script>
+					<script src="js/theia-sticky-sidebar.min.js"></script>
+					<script src="js/inview.js"></script>
+					<script src="js/cookiealert.js"></script>
+					<script src="js/jquery.countdown.min.js"></script>
+					<script src="js/masonry.pkgd.min.js"></script>
+					<script src="js/imagesloaded.pkgd.min.js"></script>
+					<script src="js/jquery.zoom.min.js"></script>
+					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+						integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+						crossorigin="anonymous"></script>
 
-				<!--Start of Tawk.to Script-->
-				<script type="text/javascript">
-					var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-					(function () {
-						var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-						s1.async = true;
-						s1.src = 'https://embed.tawk.to/5ac1aabb4b401e45400e4197/default';
-						s1.charset = 'UTF-8';
-						s1.setAttribute('crossorigin', '*');
-						s0.parentNode.insertBefore(s1, s0);
-					})();
-				</script>
+					<!--Start of Tawk.to Script-->
+					<script type="text/javascript">
+						var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+						(function () {
+							var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+							s1.async = true;
+							s1.src = 'https://embed.tawk.to/5ac1aabb4b401e45400e4197/default';
+							s1.charset = 'UTF-8';
+							s1.setAttribute('crossorigin', '*');
+							s0.parentNode.insertBefore(s1, s0);
+						})();
+					</script>
 
-				<script>
+					<script>
 					function inc(id) {
 						// let discount = document.getElementById('discount').innerHTML
 						// let count = document.getElementById(id).value
@@ -869,7 +883,7 @@
 
 
 				</script>
-				<!--End of Tawk.to Script-->
+					<!--End of Tawk.to Script-->
 
 </body>
 

@@ -91,7 +91,7 @@ app.use('/checkout', checkOutRoute)
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/victoria?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.4').then(() => {
-    app.listen(5000, () => { console.log("Server is running") })
+    app.listen(3000, () => { console.log("Server is running") })
 })
     .catch((err) => {
         console.log('there is error')

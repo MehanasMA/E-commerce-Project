@@ -1,302 +1,561 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
+    <title>Fashion Template for Bootstrap</title>
+
     <meta charset="utf-8">
-    <title>Order Details</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"
-        integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-
-
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/owl-carousel.css" rel="stylesheet">
+    <link href="/css/lightbox.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid">
-        <div class="row bg-secondary py-2 px-xl-5">
-            <div class="col-lg-6 d-none d-lg-block">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-dark" href="">FAQs</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Help</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Support</a>
-                </div>
+
+    <header class="header-area header-sticky text-center header-default">
+        <div class="header-main-sticky">
+            <div class="header-nav">
+
             </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-dark pl-2" href="">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+            <div class="header-main-head">
+
+                <div class="header-main">
+                    <div class="container">
+                        <div class="header-left float-left d-flex d-lg-flex d-md-block d-xs-block">
+
+
+                            <div class="contact">
+                                <i class="material-icons">phone</i>
+                                <span>1234567890</span>
+                            </div>
+                        </div>
+                        <div class="header-middle float-left">
+                            <div class="logo">
+                                <a href="/"><img src="/img/logos/logo.png" alt="NatureCircle"></a>
+                            </div>
+                        </div>
+                        <div class="header-right d-flex d-xs-block d-sm-flex justify-content-end float-right">
+                            <div class="search-wrapper">
+                                <a>
+                                    <i class="material-icons search">search</i>
+                                    <i class="material-icons close">close</i>
+                                </a>
+                                <form autocomplete="off" action="/action_page.php" class="search-form">
+                                    <div class="autocomplete" style="width:300px;">
+                                        <input id="myInput" type="text" name="myCountry" placeholder="Search here">
+                                        <button type="button"><i class="material-icons">search</i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="user-info">
+                                <button type="button" class="btn">
+                                    <i class="material-icons">perm_identity</i>
+                                </button>
+                                <div id="user-dropdown" class="user-menu">
+                                    <ul>
+                                        <li><a href="/myaccount" class="text-capitalize">my account</a></li>
+                                        <li><a href="#" class="modal-view button" data-toggle="modal"
+                                                data-target="#modalRegisterForm">Register</a></li>
+                                        <li><a href="#" class="modal-view button" data-toggle="modal"
+                                                data-target="#modalLoginForm">login</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cart-wrapper">
+                                <button type="button" class="btn">
+                                    <i class="material-icons">shopping_cart</i>
+                                    <span class="ttcount">2</span>
+                                </button>
+                                <div id="cart-dropdown" class="cart-menu">
+                                    <ul class="w-100 float-left">
+                                        <li>
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center"><a href="#"><img
+                                                                    src="img/products/01.jpg" alt="01" title="01"></a>
+                                                        </td>
+                                                        <td class="text-left product-name"><a href="#">aliquam quaerat
+                                                                voluptatem</a>
+                                                            <div class="quantity float-left w-100">
+                                                                <span class="cart-qty">1 × </span>
+                                                                <span class="text-left price"> $20.00</span>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center close"><a class="close-cart"><i
+                                                                    class="material-icons">close</i></a></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table class="table price mb-30">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-left"><strong>Total</strong></td>
+                                                        <td class="text-right"><strong>$2,122.00</strong></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li class="buttons w-100 float-left">
+                                            <form action="cart_page.html">
+                                                <input class="btn pull-left mt_10 btn-primary btn-rounded w-100"
+                                                    value="/cart/cart" type="submit">
+                                            </form>
+                                            <form action="checkout_page.html">
+                                                <input class="btn pull-right mt_10 btn-primary btn-rounded w-100"
+                                                    value="/Checkout" type="submit">
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="container">
+                        <!-- Navbar -->
+                        <nav class="navbar navbar-expand-lg navbar-light d-sm-none d-xs-none d-lg-block">
+
+                            <!-- Navbar brand -->
+                            <a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
+
+                            <!-- Collapse button -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <!-- Collapsible content -->
+                            <div class="collapse navbar-collapse">
+
+                                <!-- Links -->
+                                <ul class="navbar-nav m-auto justify-content-center">
+
+                                    <!-- Features -->
+                                    <li class="nav-item active">
+                                        <a class="nav-link  text-uppercase" href="/">
+                                            Home
+                                            <span class="sr-only"></span> </a>
+                                        <div class=" mega-menu v-2 z-depth-1 special-color py-3 px-3">
+                                            <div class="sub-menu mb-xl-0 mb-4">
+                                                <h6 class="sub-title text-uppercase font-weight-normal white-text">
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link  text-uppercase" href="/category">
+                                            Category
+                                            <span class="sr-only"></span> </a>
+                                        <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
+                                            <div class="sub-menu mb-xl-0 mb-4">
+                                                <h6 class="sub-title text-uppercase font-weight-normal white-text">
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Technology -->
+                                    <li class="nav-item">
+                                        <a class="nav-link  text-uppercase" href="/shop">Shop</a>
+                                        <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
+                                            <div class="row">
+                                                <div class="col-md-12 col-xl-4 sub-menu mb-xl-0 mb-4">
+                                                    <h6 class="sub-title text-uppercase font-weight-normal white-text">
+                                                        Product page</h6>
+                                                    <!--Featured image-->
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link  text-uppercase" href="/category">Blog</a>
+
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-uppercase" href="/contact">contact us</a>
+                                    </li>
+                                </ul>
+                                <!-- Links -->
+                            </div>
+                            <!-- Collapsible content -->
+
+                        </nav>
+                        <!-- Navbar -->
+                        <nav class="navbar navbar-expand-lg navbar-light d-lg-none navbar-responsive">
+
+                            <!-- Navbar brand -->
+                            <a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
+
+                            <!-- Collapse button -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"><i class='material-icons'>sort</i></span>
+                            </button>
+
+
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row align-items-center py-3 px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
+    </header>
+
+    <nav aria-label="breadcrumb" class="w-100 float-left">
+        <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
+            style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">cart</li>
+
+        </ol>
+    </nav>
+
+    <body>
+        <!-- Topbar Start -->
+        <div class="container-fluid">
+            <div class="row bg-secondary py-2 px-xl-5">
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-dark" href="">FAQs</a>
+                        <span class="text-muted px-2">|</span>
+                        <a class="text-dark" href="">Help</a>
+                        <span class="text-muted px-2">|</span>
+                        <a class="text-dark" href="">Support</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center text-lg-right">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-dark px-2" href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-dark px-2" href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-dark px-2" href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-dark px-2" href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-dark pl-2" href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center py-3 px-xl-5">
+                <!-- <div class="col-lg-3 d-none d-lg-block">
                 <a href="" class="text-decoration-none">
                     <h1 class="m-0 display-5 font-weight-semi-bold"><span
                             class="text-primary font-weight-bold border px-3 mr-1">E</span>Shop</h1>
                 </a>
+            </div> -->
+
+
             </div>
-
-
         </div>
-    </div>
-    <!-- Topbar End -->
+        <!-- Topbar End -->
 
 
 
-    <div class="col-lg-9">
-        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-            <a href="" class="text-decoration-none d-block d-lg-none">
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                <!-- <a href="" class="text-decoration-none d-block d-lg-none">
                 <h1 class="m-0 display-5 font-weight-semi-bold"><span
                         class="text-primary font-weight-bold border px-3 mr-1">E</span>Shop</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav mr-auto py-0">
-                    <a href="/" class="nav-item nav-link">Home</a>
+            </a> -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="/" class="nav-item nav-link">Home</a>
 
+
+                    </div>
 
                 </div>
+            </nav>
+        </div>
+        </div>
+        </div>
+        <!-- Navbar End -->
 
-            </div>
-        </nav>
-    </div>
-    </div>
-    </div>
-    <!-- Navbar End -->
+        <div class="container-fluid px-5">
+            <div class="row">
+                <div class="col-md-12">
 
-    <div class="container-fluid px-5">
-        <div class="row">
-            <div class="col-md-12">
-
-            </div>
-            <% if(orderData.length> 0) { %>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Order Id</th>
-                            <th>Payment <br> Method</th>
-                            <th>Payment <br> Status</th>
-                            <th>Address</th>
-                            <th>Order Status</th>
-                            <th>Bill</th>
-                            <th>Date</th>
-                            <th>Items</th>
-
-                            <th>Cancel Order</th>
-
-                        </tr>
-
-                    </thead>
-                    <tbody>
-                        <% for(let data of orderData) { %>
+                </div>
+                <% if(orderData.length> 0) { %>
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <td>
-                                    <%= data._id %>
-                                </td>
-                                <td>
-                                    <%= data.paymentStatus %>
-                                </td>
-                                <% if(data.isCompleted==true) { %>
-                                    <td>Completed</td>
-                                    <% } else { %>
-                                        <td>Pending</td>
-                                        <% } %>
-                                            <td>
-                                                <%= data.address.addressLine %>
-                                            </td>
-                                            <td>
-                                                <%= data.orderStatus[0].type %>
-                                            </td>
-                                            <td>Rs.<%= data.bill %>
-                                            </td>
-                                            <td>
-                                                <%= data.orderStatus[0].date.toLocaleDateString() %>
-                                            </td>
-                                            <td>
-                                                <button data-toggle="modal" class="btn btn-success rounded"
-                                                    onclick="products('<%= data._id %>')"
-                                                    data-target="#exampleModal">Items</button>
+                                <th>Order Id</th>
+                                <th>Payment <br> Method</th>
+                                <th>Payment <br> Status</th>
+                                <th>Address</th>
+                                <th>Order Status</th>
+                                <th>Bill</th>
+                                <th>Date</th>
+                                <th>Items</th>
 
-                                            </td>
-                                            <td>
-                                                <% if(data.orderStatus[0].type !='Cancelled' && data.orderStatus[0].type
-                                                    !='Delivered' ) { %>
+                                <th>Cancel Order</th>
 
-                                                    <button type="button" class=" btn btn-danger rounded"
-                                                        data-toggle="modal"
-                                                        data-target="#exampleModal<%= data._id %>">Cancel </button>
-
-                                                    <% } else if(data.orderStatus[0].type=='Delivered' ) { %>
-                                                        Delivered
-                                                        <% } else { %>
-                                                            Cancelled
-                                                            <% } %>
-
-
-                                            </td>
                             </tr>
 
+                        </thead>
+                        <tbody>
+                            <% for(let data of orderData) { %>
+                                <tr>
+                                    <td>
+                                        <%= data._id %>
+                                    </td>
+                                    <td>
+                                        <%= data.paymentStatus %>
+                                    </td>
+                                    <% if(data.isCompleted==true) { %>
+                                        <td>Completed</td>
+                                        <% } else { %>
+                                            <td>Pending</td>
+                                            <% } %>
+                                                <td>
+                                                    <%= data.address %>
+                                                </td>
+                                                <td>
+                                                    <%= data.orderStatus[0].type %>
+                                                </td>
+                                                <td>Rs.<%= data.bill %>
+                                                </td>
+                                                <td>
+                                                    <%= data.orderStatus[0].date.toLocaleDateString() %>
+                                                </td>
+                                                <td>
+                                                    <button data-toggle="modal" class="btn btn-success rounded"
+                                                        onclick="products('<%= data._id %>')"
+                                                        data-target="#exampleModal">Items</button>
 
-                            <% } %>
-                    </tbody>
-                </table>
+                                                </td>
+                                                <td>
+                                                    <% if(data.orderStatus[0].type !='Cancelled' &&
+                                                        data.orderStatus[0].type !='Delivered' ) { %>
+
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-danger rounded"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModalCenter<%= data._id%>">
+                                                            cancel
+                                                        </button>
+
+
+
+
+                                                        <!-- <button type="button" class=" btn btn-danger rounded"
+                                                        data-toggle="modal"
+                                                        data-target="#exampleModal<%= data._id %>">Cancel </button> -->
+
+                                                        <% } else if(data.orderStatus[0].type=='Delivered' ) { %>
+                                                            Delivered
+                                                            <% } else { %>
+                                                                Cancelled
+                                                                <% } %>
+
+
+                                                </td>
+                                </tr>
+
+
+                                <% } %>
+                        </tbody>
+                    </table>
+            </div>
         </div>
-    </div>
 
-    <% } else { %>
-        <div class="col-md-12 text-center ">
-            <h4 class="text-danger">No Orders Available Here !!!</h4>
-        </div>
-        <% } %>
-
+        <% } else { %>
+            <div class="col-md-12 text-center ">
+                <h4 class="text-danger">No Orders Available Here !!!</h4>
+            </div>
+            <% } %>
 
 
 
 
 
-            <% for(let data of orderData) { %>
-                <div class="modal fade" id="exampleModal<%= data._id %>" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Cancel Order</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-danger">
-                                Are you sure to cancel the order...?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" onclick="cancelOrder('<%= data._id %>') "
-                                    class="btn btn-primary">Sure</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <% } %>
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-l" role="document">
+
+
+
+                <!-- Modal -->
+                <% for(let data of orderData) { %>
+
+                    <div class="modal fade" id="exampleModalCenter<%= data._id %>" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Products</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">cancel order</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body" id="table">
-
+                                <div class="modal-body">
+                                    Are you sure to cancel the order...?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary"
+                                        onclick="cancelOrder('<%= data._id %>') ">Sure</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-</body></html>
+
+                    <% } %>
 
 
 
-                    <script>
-                        function products(id) {
-                            let tableMain = document.getElementById('table')
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-l" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Products</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="table">
 
-                            fetch('/orderedProducts', {
-                                method: 'post',
-                                headers: {
-                                    'Content-type': 'application/json',
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success"
+                                            data-bs-dismiss="modal">Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                }, body: JSON.stringify({ id })
-                            })
-                                .then(res => res.json())
-                                .then(data => {
-                                    const items = data.cartList
+    </body>
 
-                                    let table = `<table class="table table-striped table-hover"><thead><tr><th>product</th>
+</html>
+
+
+
+<script>
+    function products(id) {
+        let tableMain = document.getElementById('table')
+        console.log("paid", id);
+
+        fetch('/checkout/orderedProducts', {
+            method: 'post',
+            headers: {
+                'Content-type': 'application/json',
+
+            }, body: JSON.stringify({ id })
+        })
+            .then(res => res.json())
+            .then(data => {
+                const items = data.cartList
+
+                let table = `<table class="table table-striped table-hover"><thead><tr><th>product</th>
                                                     <th>product name</th>
                                                         <th>product price</th>
                                                         <th>quantity</th>
                                                         </tr><thead><tbody>`
-                                    items.forEach(p => {
-                                        p.product.forEach(p1 => {
+                items.forEach(p => {
+                    p.product.forEach(p1 => {
 
-                                            table += `<tr><td><div class="mb-3" style="background-image:url(${p1.images[0].url}); width:50px;height:50px;background-size:cover;background-repeat:no-repeat "></div></td>
-                                            <td>${p1.name}</td>
-                                            <td>₹${p1.price}</td>
+                        table += `<tr><td><div class="mb-3" style="background-image:url(${p1.image[0].url}); width:50px;height:50px;background-size:cover;background-repeat:no-repeat "></div></td>
+                                            <td>${p1.product_name}</td>
+                                            <td>₹${p1.product_price}</td>
                                             <td>${p.itemQuantity}</td></tr>`
 
-                                        })
-                                    })
+                    })
+                })
 
-                                    table += `</tbody></table>`
-                                    tableMain.innerHTML = table
+                table += `</tbody></table>`
+                tableMain.innerHTML = table
 
 
-                                })
-                        }
+            })
+    }
 
-                        function cancelOrder(id) {
-                            fetch('/cancelOrder/' + id, {
-                                method: 'put',
-                                headers: {
-                                    'Content-type': 'application/json',
-                                    body: JSON.stringify({ hai: "jhj" })
-                                }
-                            })
-                                .then(res => res.json())
-                                .then(data => {
-                                    success: location.reload()
+    function cancelOrder(id) {
+        console.log(id);
+        fetch('/checkout/cancelOrder/' + id, {
+            method: 'put',
+            headers: {
+                'Content-type': 'application/json',
+                body: JSON.stringify({ hai: "jhj" })
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                success: location.reload()
 
-                                })
-                        }
-                    </script>
+            })
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/lightbox-2.6.min.js"></script>
+<script src="js/ResizeSensor.min.js"></script>
+<script src="js/theia-sticky-sidebar.min.js"></script>
+<script src="js/inview.js"></script>
+<script src="js/cookiealert.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-               
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/5ac1aabb4b401e45400e4197/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
