@@ -142,7 +142,7 @@ const placeOrder = async (req, res) => {
         })
         
 
-        orderData
+         orderData
         .save()
         .then((orderData) => {
                
@@ -163,7 +163,7 @@ const placeOrder = async (req, res) => {
 
             })
             .catch((err) => {
-                // res.render('error', { err })
+                res.render('error', { err })
             })
 
         await Cart.deleteOne({ _id: prodId })
@@ -174,18 +174,20 @@ const placeOrder = async (req, res) => {
 }
 
 const orderSuccess = async (req, res) => {
-    console.log("order");
+   
     try {
         const email = req.session.email
         const user = await User.findOne({ email })
         const userId = user._id
-        const productId = req.params
-        const cartList = await Cart.aggregate([{ $match: { _id: productId } }, { $unwind: '$cartItem' },
+        // const productId = req.params
+        
+        const cartList = await Cart.aggregate([{ $match: { _id: userId } }, { $unwind: '$cartItem' },
         { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
-        { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }]);
+        { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }
+    ]);
+    console.log("caaarrrtttt",cartList);
         let total;
         let subtotal = 0;
-
         cartList.forEach((p) => {
             p.product.forEach((p2) => {
                 total = parseInt(p2.product_price) * parseInt(p.itemQuantity)
@@ -241,6 +243,7 @@ const viewOrders = async (req, res) => {
         const user = await User.findOne({ email })
         const userId = user._id
         const orderData = await checkoutData.find({ userId }).sort({ 'orderStatus.date': -1 })
+    
         res.render('userpages/orderDetails', { orderData })
     } catch (err) {
         // res.render('error', { err })
@@ -254,6 +257,8 @@ const orderedProducts = async (req, res) => {
         { $project: { item: '$cartItems.productId', itemQuantity: '$cartItems.quantity' } },
         { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }]);
         
+     console.log("orderdetails",cartList);
+
         res.send({ cartList })
         
     } catch (err) {

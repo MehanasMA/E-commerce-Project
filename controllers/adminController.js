@@ -30,6 +30,9 @@ const addadmin = (req, res) => {
 
 
 const adminhome = async (req, res) => {
+      
+
+
     try {
         const dailySale = await checkoutData.find({ $and: [{ createdAt: { $lt: Date.now(), $gt: Date.now() - 86400000 } }, { 'orderStatus.type': { $ne: 'Cancelled' } }] })
         let todaySale = 0
@@ -91,9 +94,9 @@ const productOrders = async (req, res) => {
         console.log("cvfdcc")
         const orderData = await checkoutData.find({}).sort({ 'orderStatus.date': -1 })
         console.log(orderData);
-        orderId = mongoose.Types.ObjectId(orderData._Id)
-        console.log(orderId);
-        res.render('orderManagment', { orderData, orderId })
+        // orderId = mongoose.Types.ObjectId(orderData._Id)
+        // console.log(orderId);
+        res.render('orderManagment', { orderData })
     } catch (err) {
         // res.render('error', { err })
     }

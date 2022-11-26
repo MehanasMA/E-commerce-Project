@@ -229,14 +229,14 @@
 		</div>
 	</header>
 
-	<nav aria-label="breadcrumb" class="w-100 float-left">
+	<!-- <nav aria-label="breadcrumb" class="w-100 float-left">
 		<ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
 			style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
 			<li class="breadcrumb-item active" aria-current="page">cart</li>
 
 		</ol>
-	</nav>
+	</nav> -->
 
 	<div class="cart-area table-area pt-110 pb-95 float-left w-100">
 		<div class="container">
@@ -328,6 +328,10 @@
 							<input type="text" placeholder="Coupon code">
 							<button type="submit" class="btn-primary btn">Apply coupon</button>
 						</div>
+						<div class=" d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left">
+							
+							<button type="button" class=" btn btn-primary"><a href="/shop">Continue Shopping</a></button>
+						</div>
 
 					</div>
 				</div>
@@ -338,7 +342,9 @@
 						<div class="table-total-amount">
 							<div class="single-total-content d-flex justify-content-between float-left w-100">
 								<strong>Subtotal</strong>
-								<span class="c-total-price" id="subtotal">Rs.<%= subtotal %></span>
+								<h6>Rs.<span class="c-total-price" id="subtotal">
+									<%= subtotal %>
+								</span></h6>
 							</div>
 							<div class="single-total-content d-flex justify-content-between float-left w-100">
 								<strong>Shipping</strong>
@@ -800,7 +806,7 @@
 					function inc(id) {
 						// let discount = document.getElementById('discount').innerHTML
 						// let count = document.getElementById(id).value
-						// let price = document.getElementById('price' + id).innerHTML
+						let price = document.getElementById('price' + id).innerHTML
 						fetch('/cart/itemInc/' + id, {
 							method: 'post',
 							headers: {
@@ -813,13 +819,15 @@
 						.then(data => {
 							document.getElementById(id).value++
 							document.getElementById('total' + id).innerHTML = parseInt(price) * parseInt(document.getElementById(id).value)
+							console.log(price);
 							document.getElementById('subtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('price' + id).innerHTML)
-							document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML) - parseInt(document.getElementById('discount').innerHTML)
+							console.log(typeof(document.getElementById('subtotal').innerHTML));
+							document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML) 
 						})
 					}
 
 					function dec(id) {
-							// let price = document.getElementById('price' + id).innerHTML
+							let price = document.getElementById('price' + id).innerHTML
 							let count = document.getElementById(id).value
 							// let row = document.getElementById('row' + id)
 							if (count > 1) {
@@ -850,7 +858,7 @@
 										document.getElementById(id).value--
 										document.getElementById('total' + id).innerHTML = parseInt(price) * parseInt(document.getElementById(id).value)
 										document.getElementById('subtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) - parseInt(document.getElementById('price' + id).innerHTML)
-										document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML) - parseInt(document.getElementById('discount').innerHTML)
+										document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML) 
 									})
 							}
 					}
@@ -882,7 +890,7 @@
 
 
 
-				</script>
+				</script> 
 					<!--End of Tawk.to Script-->
 
 </body>

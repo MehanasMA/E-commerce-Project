@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Add Product </title>
+  <title>Edit Product </title>
   <link rel="stylesheet" href="../https://fonts.googleapis.com/css?family=Roboto:400,700" />
   <!-- https://fonts.google.com/specimen/Roboto -->
   <link rel="stylesheet" href="../css/fontawesome.min.css" />
@@ -93,7 +93,7 @@
         <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
           <div class="row">
             <div class="col-12">
-              <h2 class="tm-block-title d-inline-block">Add Product</h2>
+              <h2 class="tm-block-title d-inline-block">Edit Product</h2>
             </div>
           </div>
           <div class="row tm-edit-product-row">
@@ -106,8 +106,8 @@
                     value="<%= datas.product_name %>" required />
                 </div>
                 <div class="form-group mb-3">
-                  <label for="productDescription">Description</label>
-                  <textarea class="form-control validate" name="description" rows="3"
+                  <label for="product_description">Description</label>
+                  <textarea class="form-control validate" id="description" name="description" type="text" rows="3"
                     value="<%= datas.product_description %>" required></textarea>
                 </div>
                 <div class="form-group mb-3">
@@ -127,9 +127,9 @@
                 </div>
                 <div class="row">
                   <div class="form-group mb-3 col-xs-12 col-sm-6">
-                    <label for="productPrice">Price
+                    <label for="product_price">Price
                     </label>
-                    <input id="price" name="price" type="text" class="form-control" 
+                    <input id="price" name="product_price" type="text" class="form-control" 
                       value="<%= datas.product_price %>" required />
                   </div>
                   <div class="form-group mb-3 col-xs-12 col-sm-6">
@@ -154,7 +154,7 @@
             </div>
 
             <div class="col-12">
-              <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+              <button type="submit" class="btn btn-primary btn-block text-uppercase">Update</button>
             </div>
             </form>
           </div>

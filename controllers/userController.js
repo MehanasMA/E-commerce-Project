@@ -6,7 +6,10 @@ const Product=require('../models/productSchema')
 const flash = require('connect-flash')
 const cartItems=require('../models/cartSchema')
 const cartController=require('./cartController')
-
+const checkoutData=require('../models/checkoutSchema')
+const wishlistData=require('../models/wishListSchema')
+const categoryData=require('../models/categorySchema')
+const bannerData=require('../models/bannerSchema')
 
 
 
@@ -25,14 +28,56 @@ let transporter = nodemailer.createTransport({
 const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
 
 
-const home = async(req, res) => {
+// const home = async(req, res) => {
 
-        const email=req.session.email
-        const user=await User.find({email})
+//         const email=req.session.email
+//         const user=await User.find({email})
         
-            res.render("userpages/home", { message: req.flash("invalid"),user});
+//             res.render("userpages/home", { message: req.flash("invalid"),user});
 
+// }
+
+
+const home = async (req, res) => {
+    const email = req.session.email
+        const user=await User.find({email})
+    try {
+        let cartCount;
+        let wishlistCount
+        let cartItems;
+        let wishlistItems
+        let orderData
+        if (req.session.user) {
+            const userId = req.session.user._id
+            orderData = await checkoutData.find({ userId: userId })
+            cartItems = await cartItems.findOne({ userId })
+            wishlistItems = await wishlistData.findOne({ userId })
+            cartCount = await cartItems.aggregate([{ $match: { userId } }, { $project: { count: { $size: "$cartItem" } } }, { $project: { _id: 0 } }]);
+            wishlistCount = await wishlistData.aggregate([{ $match: { userId } }, { $project: { count: { $size: "$wishlistItems" } } }, { $project: { _id: 0 } }]);
+        }
+        const products = await Product.find({ deleted: false }).limit(4)
+        const categories = await categoryData.find({})
+        const banner = await bannerData.find({}).sort({ date: -1 })
+        const justArrived = await Product.find({
+            $and: [{
+                expiresAt: { $gte: Date.now() }
+            }, { deleted: false }]
+        }).limit(4)
+        res.render('userpages/home', { products, categories, justArrived, cartCount, wishlistCount, cartItems, wishlistItems, orderData, banner,user })
+    } catch (err) {
+        res.render('error', { err })
+    }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 const loginPost = async (req, res, next) => {
@@ -55,8 +100,15 @@ const loginPost = async (req, res, next) => {
 
 
 
-const myaccount = (req, res) => {
-    res.render("userpages/myaccount")
+const myaccount = async(req, res) => {
+    // const user=await User.find({})
+    const email = req.session.email
+    const user = await User.findOne({ email })
+    // const userId = users[0]._id
+    // const user = await User.findById(userId)
+    const useraddress = user.useraddress
+    console.log("address",user.useraddress);
+    res.render("userpages/myaccount",{user,useraddress})
 }
 
 const category = (req, res) => {
