@@ -51,6 +51,12 @@ admin_route.get('/orders', adminController.productOrders)
 
 admin_route.post('/orderitems', adminController.orderItems)
 
+// admin_route.post("/coupon", couponController.couponAdd);
+
+// admin_route.delete("/coupon", couponController.couponDelete);
+
+// admin_route.post('/applyCoupen/:id', couponController.applyCoupen)
+
 
 
 module.exports = admin_route

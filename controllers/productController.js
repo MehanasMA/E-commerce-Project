@@ -11,6 +11,7 @@ const { aggregate } = require("../models/productSchema");
 // const Subcategory = require("../models/subCategorySchema");
 const mongoose = require('mongoose');
 const multer = require('multer');
+const User = require("../models/userSchema");
 const upload = multer({ cloudinary });
 
 
@@ -162,4 +163,19 @@ const deleteProduct = async (req, res) => {
 }
 
 
-module.exports = { products, addproduct, addProduct, editproduct, editProduct, deleteProduct,productManageget }
+const viewProductDetails = async (req, res) => {
+    const email=req.session.email
+    const user=await User.findOne({email})
+    try {
+        const { id } = req.params
+        const details = await Product.findById(id)
+        res.render('userpages/productDetails', { details ,user})
+    } catch (err) {
+        res.render('error', { err })
+    }
+
+}
+
+
+
+module.exports = { products, addproduct, addProduct, editproduct, editProduct, deleteProduct, productManageget, viewProductDetails }

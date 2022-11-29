@@ -32,6 +32,8 @@ product_route.post("/editProduct/:id", productController.editProduct)
 
 product_route.put("/deleteProduct/:id", productController.deleteProduct)
 
+product_route.get('/productDetails/:id', productController.viewProductDetails)
+
 
 
 module.exports = product_route

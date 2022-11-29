@@ -887,6 +887,48 @@
 					}
 
 
+					 function coupen() {
+
+							const usercode = document.getElementById('usercode').value
+							console.log("usercode", usercode);
+							let disc = document.getElementById('discount').innerHTML
+
+							console.log("kgjkjgkejrg", disc);
+							fetch('/admin/applyCoupen/' + usercode, {
+								method: 'post',
+								headers: {
+									'Content-Type': 'application/json',
+
+
+								},
+								body: JSON.stringify({ disc })
+
+							})
+								.then(res => res.json())
+								.then(data => {
+									discount = data.success
+										;
+									if (parseInt(document.getElementById('grandtotal').innerHTML) > 15000) {
+
+										if (parseInt(document.getElementById('discount').innerHTML) > 0) {
+											console.log("disssssssssss");
+											document.getElementById('button').disabled = true
+											console.log("hfhfhghg");
+										} else {
+											coupen = Math.round(document.getElementById('grandtotal').innerHTML * (discount.discountPercentage / 100))
+											console.log("cpn", coupen);
+											document.getElementById('discount').innerHTML = coupen
+											document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('grandtotal').innerHTML) - parseInt(coupen)
+
+											console.log("heyyyyy");
+										}
+									}
+									else if (parseInt(document.getElementById('grandtotal').innerHTML) < 15000) {
+										document.getElementById('discount').innerHTML = '0'
+									}
+								})
+						}
+
 
 
 

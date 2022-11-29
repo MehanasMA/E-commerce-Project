@@ -3,13 +3,21 @@
 
 <head>
     <meta charset="utf-8">
-    <title>E-Shop Banners</title>
+    <title> Banners</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<!-- https://fonts.google.com/specimen/Roboto -->
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+<!-- https://fontawesome.com/ -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<!-- https://getbootstrap.com/ -->
+<link rel="stylesheet" href="/css/templatemo-style.css">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,58 +46,110 @@
 </head>
 
 <body>
-    <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner"
+        <!-- <div id="spinner"
             class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
-        </div>
+        </div> -->
         <!-- Spinner End -->
 
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-light navbar-light">
-                <a href="/adminHome" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>E-SHOP</h3>
+   
+    <div class="" id="home">
+        <nav class="navbar navbar-expand-xl">
+            <div class="container h-100">
+                <a class="navbar-brand" href="/dashboard">
+                    <h1 class="tm-site-title mb-0">Product Admin</h1>
                 </a>
-                <div class="d-flex align-items-center ms-4 mb-4">
-
-                    <div class="ms-3">
-                        <% if(locals.admin) { %>
-                            <h6 class="mb-0">
-                                <%= admin.email %>
-                            </h6>
-                            <% } %>
-
-                    </div>
+                <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars tm-nav-icon"></i>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto h-100">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/admin/dashboard">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+    
+                            <a class="nav-link " href="/admin/userManageget" id="navbar" role="button" data-toggle=""
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-file-alt"></i>
+                                <span>
+                                    User Managment
+                                </span>
+                            </a>
+                            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/admin/userManageget">User Managment</a>
+                                    <a class="dropdown-item" href="#">Order Managment</a>
+                                    <a class="dropdown-item" href="/product/productManageget">Product Managment</a>
+                                </div> -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/product/products">
+                                <i class="fas fa-shopping-cart"></i>
+                                Product Managment
+                            </a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/orders">
+                                <i class="far fa-user"></i>
+                                Order Managment
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/banner/setBanner">
+                                <i class="far fa-user"></i>
+                                Banner Managment
+                            </a>
+                        </li>
+                        <!--    <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-cog"></i>
+                                    <span>
+                                        Settings <i class="fas fa-angle-down"></i>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="#">Billing</a>
+                                    <a class="dropdown-item" href="#">Customize</a>
+                                </div>
+                            </li> -->
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <form class="" action="/admin/logout" method="post">
+                                <button class="button" type="submit">
+                                    Admin, <b>Logout</b>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
-                <div class="navbar-nav w-100">
-                    <a href="/adminHome" class="nav-item nav-link "><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            </div>
+    
+        </nav>
 
-                    <a href="/adminProducts" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Products</a>
-                    <a href="/adminCategory" class="nav-item nav-link "><i
-                            class="fa fa-keyboard me-2"></i>Categories</a>
-                    <a href="/adminBrand" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Brands</a>
-                    <a href="/adminUser" class="nav-item nav-link "><i class="fa fa-chart-bar me-2"></i>Users</a>
-                    <a href="/orders" class="nav-item nav-link "><i class="fa fa fa-th me-2"></i>Product Orders</a>
-                    <a href="/setBanner" class="nav-item nav-link active"><i
-                            class="fa fa-chart-bar me-2"></i>Banners</a>
-                    <a href="/coupons" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Coupons</a>
-
-                </div>
-            </nav>
-        </div>
+        
         <!-- Sidebar End -->
 
 
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+            <!-- <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
@@ -120,11 +180,11 @@
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav> -->
             <!-- Navbar End -->
 
             <div class="m-4 d-flex">
-                <a href="/addbanner" class="btn btn-primary">New banner</a>
+                <a href="/banner/addbanner" class="btn btn-primary">New banner</a>
 
             </div>
             <div class="container">
@@ -155,26 +215,35 @@
 
 
             <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start">
-                            <h6> &copy; <a href="#">www.eShop.com</a>, All Right Reserved.</h6>
-                        </div>
-
-                    </div>
-                </div>
+        <footer class="tm-footer row tm-mt-small">
+            <div class="col-12 font-weight-light">
+                <p class="text-center text-white mb-0 px-4 small">
+                    Copyright &copy; <b>2018</b> All rights reserved.
+        
+        
+                </p>
             </div>
+        </footer>
             <!-- Footer End -->
         </div>
         <!-- Content End -->
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> -->
     </div>
 
     <!-- JavaScript Libraries -->
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/moment.min.js"></script>
+    <!-- https://momentjs.com/ -->
+    <script src="js/Chart.min.js"></script>
+    <!-- http://www.chartjs.org/docs/latest/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script src="js/tooplate-scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/admin/chart.min.js"></script>
