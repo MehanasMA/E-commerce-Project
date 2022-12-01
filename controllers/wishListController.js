@@ -77,7 +77,7 @@ const userWishlist = async (req, res) => {
     ]);
         console.log("ghjk");
         console.log(wishlistProducts[0]);
-        res.render('userpages/wishlist', { wishlistProducts })
+        res.render('userpages/wishlist', { wishlistProducts,user })
     } catch (err) {
         // res.render('error', { err })
     }

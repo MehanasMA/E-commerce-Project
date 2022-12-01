@@ -25,11 +25,11 @@ const checkoutPage = async (req, res) => {
             const email = req.session.email
             const users = await User.find({ email })
             const userId = users[0]._id
-            console.log("sjcbcbbcdbc",userId);
+            // console.log("sjcbcbbcdbc",userId);
             const user = await User.findById(userId)
             const useraddress=user.useraddress
             
-            console.log("useraddddressss",useraddress);
+            // console.log("useraddddressss",useraddress);
             
             // const address = await addressData.find({ userId })
             const cartList = await Cart.aggregate([{ $match: { id: userId } }, { $unwind: '$cartItem' },
@@ -38,11 +38,11 @@ const checkoutPage = async (req, res) => {
             ]);
           console.log("listt=====",cartList);
             const items = await Cart.findOne({ userId })
-            console.log("items!!!!!!",items);
+            // console.log("items!!!!!!",items);
             let coupencode
             if (items.coupenCode) {
                 coupencode = items.coupenCode
-                console.log("coupppppooooonnnn",coupencode);
+                // console.log("coupppppooooonnnn",coupencode);
             }
 
             let discount;
@@ -51,7 +51,7 @@ const checkoutPage = async (req, res) => {
 
                 const discountt = coupens.discountPercentage
 
-                console.log(discountt);
+                // console.log(discountt);
             
             let total;
             let subtotal = 0;
@@ -74,7 +74,7 @@ const checkoutPage = async (req, res) => {
             }else{
                 discount=0
             }
-            console.log("subtotal",discount);
+            // console.log("subtotal",discount);
 
 
             let grandtotal
@@ -85,7 +85,7 @@ const checkoutPage = async (req, res) => {
             grandtotal = subtotal + shipping
             }
           
-        console.log("fghjklllvbnmmmvbnm");
+        // console.log("fghjklllvbnmmmvbnm");
 
             res.render('userpages/checkoutpage', { user, cartList, grandtotal, subtotal, shipping,discount ,useraddress})
         } else {
@@ -109,7 +109,7 @@ const placeOrder = async (req, res) => {
         // const cartId = new mongoose.Types.ObjectId(prodId)
         // console.log(cartId);
         const items = await Cart.findById({ _id: prodId })
-        console.log("lkjhgghjbjbjvjhqdvjhqdv",items);
+        // console.log("lkjhgghjbjbjvjhqdvjhqdv",items);
         // const coupencode = items.coupenCode
         // let discount;
         // if (coupencode) {
@@ -139,7 +139,7 @@ const placeOrder = async (req, res) => {
         const bill = subtotal + shipping
         let status = req.body.payment === 'cod' ? false : true
         
-       
+       console.log("addresssssss",req.body.address);
         const orderData = new checkoutData({
             userId:id,
             cartItems: items.cartItem,
@@ -159,9 +159,10 @@ const placeOrder = async (req, res) => {
             isCompleted: status
 
         })
-        
 
-         orderData
+        console.log("orderrrrrrrrrrr",orderData);
+
+         await orderData
         .save()
         .then((orderData) => {
                

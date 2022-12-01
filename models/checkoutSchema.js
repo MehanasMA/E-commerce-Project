@@ -17,12 +17,12 @@ const checkoutSchema = new mongoose.Schema({
             }
         }
     ],
-    address: {
+    address: [{
        
             type: String,
             required: true,
             trim: true
-    },
+    }],
     paymentStatus: {
         type: String,
         enum: ["cod", "online"],

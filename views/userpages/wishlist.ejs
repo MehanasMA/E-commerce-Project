@@ -256,87 +256,80 @@
 <body>
 
 	
-	<!-- <nav aria-label="breadcrumb" class="w-100 float-left">
-		<ol class="breadcrumb parallax justify-content-center" data-source-url="/img/banner/parallax.jpg"
-			style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-		</ol>
-	</nav> -->
 
-	<div class="cart-area table-area pt-110 pb-95 float-left w-100">
-		<div class="container">
-			<div class=" cart-wrapper float-left w-100">
+
+<div class="cart-area table-area pt-110 pb-95 float-left w-100">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-12 col-sm-12 float-left cart-wrapper">
 				<div class="table-responsive">
-					<!-- wishlist Section Begin -->
-					<section class="shopping-cart spad  ">
-						<div class="container text-center">
-							<div class="row ">
-								<div class="col ">
-									<div class="shopping_cart_table  ">
-										<table>
-											<thead>
-												<tr>
-													<th>Product</th>
-					
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-					
-													<% if (wishlistProducts.length>0){ %>
-														<% wishlistProducts.forEach((p)=>{%>
-															<% p.product.forEach((p2)=>{%>
-					
-																<td class="product_cart_item text-center">
-																	<div class="product_cartitem_pic ">
-																		<img src="<%= p2.image[0].url %>" alt="" style="width: 60px;">
-																	</div>
-																	<div class="product_cartitem_text">
-																		<h6>
-																			<%= p2.product_name %>
-																		</h6>
-																		<h5>₹<span id="product_price<%=p.item %>">
-																				<%= p2.product_price %>
-																			</span>
-					
-																		</h5>
-																<td><a href="#" class="text-danger" onclick="cartList('<%= p.item %>')">Add
-																		To Cart</a></td>
-					
-									</div>
-					
-									</td>
-					
-					
-					
-					
-					
-					
-					
-									<td type="button" class="cart__close " data-bs-toggle="modal"
-										data-bs-target="#exampleModal<%=p.item %>"><i class="fa fa-close"></i>
-					
-										</button>
-									</td>
-					
-									</tr>
-									<%})%>
-										<%})%>
-					
-											<%}%>
-												</tbody>
-												</table>
-								</div>
-							</div>
-						</div>
-						</div>
-					</section>
-				</div>
-			</div>
-		</div>
+					<table class="table product-table text-center">
+						<thead>
+							
+								<tr>
+									<th class="table-remove text-capitalize">remove</th>
+									<th class="table-image text-capitalize">image</th>
+									<th class="table-p-name text-capitalize">product</th>
+									<th class="table-p-price text-capitalize"></th>
+									
+								</tr>
+						</thead>
+						<tbody>
+							<tr>
+                          <% if (wishlistProducts.length>0){ %>
+	                         <% wishlistProducts.forEach((p)=>{%>
+	                         	<% p.product.forEach((p2)=>{%>
+										<td class="table-remove">
+											<!-- <button data-toggle="modal"
+														data-target="#exampleModal<%= p.item %>"><i
+															class="material-icons">delete</i></button> -->
 
-	</div>
+											<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+												data-bs-target="#exampleModal<%=p.item %>">
+												<i class="material-icons">delete</i>
+											</button>
+
+										</td>
+                                       
+                                        <td>
+										<div class="product_cartitem_pic ">
+											<img src="<%= p2.image[0].url %>" alt=""  style="width: 50px;">
+										</div>
+										</td>
+										<td><div class="product_cartitem_text">
+											<h6>
+												<%= p2.product_name %>
+											</h6>
+										</td>
+										<td><button data-bs-toggle="modal" data-bs-target="#exampleModal1<%=p.item%>" class="btn btn-primary"><i
+													class="fas fa-shopping-cart text-primary "></i>Add To Cart</button></td>
+											<!-- <td><button class="btn btn-primary" type="submit" class="text-white" onclick="cartList('<%= p.item %>')">Add
+													To Cart</button></td> -->
+										
+										</div>
+										
+										
+										
+											<!-- <td class="align-middle">
+														<button type="button" data-toggle="modal"
+															data-target="#exampleModal<%= p.item %>"
+															class="btn btn-sm btn-primary"><i
+																class="fa fa-times"></i></button>
+													</td> -->
+													
+													<%})%>
+													<%})%>
+													<%}%>
+												</tr>
+
+
+
+						</tbody>
+					</table>
+				</div>
+				</div></div></div></div>
+
+
 
 	<!-- Footer -->
 	<footer class="page-footer fixed-bottom font-small">
@@ -484,6 +477,40 @@
 		<% }) %>
 			<% }) %>
 
+			<% wishlistProducts.forEach((p)=>{ %>
+				<% p.product.forEach((p2)=>{%>
+				<div class="modal fade" id="exampleModal1<%=p.item%>" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Cart Item</h5>
+								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<% if(user){ %>
+								<div class="modal-body text-success">
+									Item added to your Cart successfully...
+								</div>
+								<% } else { %>
+									<div class="modal-body text-danger">
+										You are not logged in !!!
+									</div>
+									<% } %>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" onclick="cartList('<%= p.item %>')"
+												data-bs-dismiss="modal">OK</button>
+			
+			
+										</div>
+						</div>
+					</div>
+				</div>
+			
+				<% }) %>
+					<% }) %>
+
 
 
 			
@@ -496,9 +523,9 @@
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
 	<script src="js/jquery.min.js"></script>
+	<script src="js/custom.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/custom.js"></script>
 	<script src="js/parallax.js"></script>
 	<script src="js/lightbox-2.6.min.js"></script>
 	<script src="js/ResizeSensor.min.js"></script>
@@ -509,7 +536,6 @@
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/imagesloaded.pkgd.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
-	
 
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
