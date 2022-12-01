@@ -55,15 +55,16 @@ const home = async (req, res) => {
             cartCount = await cartItems.aggregate([{ $match: { userId } }, { $project: { count: { $size: "$cartItem" } } }, { $project: { _id: 0 } }]);
             wishlistCount = await wishlistData.aggregate([{ $match: { userId } }, { $project: { count: { $size: "$wishlistItems" } } }, { $project: { _id: 0 } }]);
         }
-        const products = await Product.find({ deleted: false }).limit(4)
+        const products = await Product.find({}).limit(4)
+        // console.log(products);
         const categories = await categoryData.find({})
         const banner = await bannerData.find({}).sort({ date: -1 })
-        const justArrived = await Product.find({
-            $and: [{
-                expiresAt: { $gte: Date.now() }
-            }, { deleted: false }]
-        }).limit(4)
-        res.render('userpages/home', { products, categories, justArrived, cartCount, wishlistCount, cartItems, wishlistItems, orderData, banner,user })
+        // const justArrived = await Product.find({
+        //     $and: [{
+        //         expiresAt: { $gte: Date.now() }
+        //     }, { deleted: false }]
+        // }).limit(4)
+        res.render('userpages/home', { products, categories, cartCount, wishlistCount, cartItems, wishlistItems, orderData, banner,user })
     } catch (err) {
         res.render('error', { err })
     }
@@ -81,8 +82,8 @@ const home = async (req, res) => {
 
 
 const loginPost = async (req, res, next) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const { Email, password } = req.body;
+    const user = await User.findOne({ Email });
     const validPassword = await bcrypt.compare(password, user.password);
     if (validPassword) {
         req.session.email = user.email;
@@ -104,11 +105,12 @@ const myaccount = async(req, res) => {
     // const user=await User.find({})
     const email = req.session.email
     const user = await User.findOne({ email })
-    // const userId = users[0]._id
+    const userId = user._id
     // const user = await User.findById(userId)
     const useraddress = user.useraddress
-    console.log("address",user.useraddress);
-    res.render("userpages/myaccount",{user,useraddress})
+    const orderData = await checkoutData.find({ userId, paymentStatus: { $in: ["done", "COD"] } }).limit(4)
+    // console.log("address",user.useraddress);
+    res.render("userpages/myaccount",{user,useraddress,orderData})
 }
 
 const category = (req, res) => {
@@ -152,7 +154,7 @@ const saveAddress = async (req, res) => {
     
     try {
         const { id } = req.params
-        console.log(id);
+        // console.log(id);
         if (!req.body) {
             req.flash('error', 'Empty fields are not allowed')
             res.redirect('back')
@@ -164,7 +166,7 @@ const saveAddress = async (req, res) => {
             try{
                 
                const tryyy= await User.findByIdAndUpdate(id, { $push: { useraddress:{name, email, mobile, address, district, statePlace, pincode } }})
-               console.log(tryyy);
+            //    console.log(tryyy);
              
                 res.redirect('/checkout/checkout/:id')
 
@@ -185,8 +187,10 @@ const saveAddress = async (req, res) => {
 const deleteAddress = async (req, res) => {
     try {
         const { id } = req.params
+        console.log("delete",id);
         const deletion = await User.findOneAndDelete({ id })
         deletion.remove()
+        console.log("deleted",deletion);
         res.send({ success: true })
     } catch (err) {
         res.render('error', { err })
@@ -214,7 +218,7 @@ const logout = (req, res) => {
 
 
 const signupPost = async (req, res) => {
-    const { name, mobile, email, password, state, } = req.body;
+    const { name,mobile,email,password,confirmpassword,state } = req.body;
 
     const hash = await bcrypt.hash(password, 12);
     const user = new User({

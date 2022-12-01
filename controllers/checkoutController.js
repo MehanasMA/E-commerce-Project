@@ -4,10 +4,13 @@ require('dotenv').config()
 
 const User = require('../models/userSchema')
 const checkoutData = require('../models/checkoutSchema')
-// const coupenData = require('../models/couponSchema')
+const coupen = require('../models/couponSchema')
 
 const Cart = require('../models/cartSchema')
 const mongoose = require('mongoose')
+
+
+
 
 const {
     generateRazorpay,
@@ -19,31 +22,37 @@ const checkoutPage = async (req, res) => {
    
     try {
         if (req.session.email) {
-           
             const email = req.session.email
             const users = await User.find({ email })
             const userId = users[0]._id
+            console.log("sjcbcbbcdbc",userId);
             const user = await User.findById(userId)
             const useraddress=user.useraddress
- 
-           
+            
+            console.log("useraddddressss",useraddress);
+            
             // const address = await addressData.find({ userId })
             const cartList = await Cart.aggregate([{ $match: { id: userId } }, { $unwind: '$cartItem' },
             { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
             { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }
             ]);
-          
+          console.log("listt=====",cartList);
             const items = await Cart.findOne({ userId })
-            // let coupencode
-            // if (items.coupenCode) {
-            //     coupencode = items.coupenCode
-            // }
+            console.log("items!!!!!!",items);
+            let coupencode
+            if (items.coupenCode) {
+                coupencode = items.coupenCode
+                console.log("coupppppooooonnnn",coupencode);
+            }
 
-            // let discount;
-            // if (coupencode) {
-            //     const coupens = await coupenData.findOne({ code: coupencode })
-            //     discount = coupens.discount
-            // }
+            let discount;
+            if (coupencode) {
+                const coupens = await coupen.findOne({ couponCode: coupencode })
+
+                const discountt = coupens.discountPercentage
+
+                console.log(discountt);
+            
             let total;
             let subtotal = 0;
 
@@ -59,28 +68,37 @@ const checkoutPage = async (req, res) => {
             } else {
                 shipping = 0
             }
+            
+            if(subtotal>15000){
+                discount = (subtotal) * (discountt/100)
+            }else{
+                discount=0
+            }
+            console.log("subtotal",discount);
+
+
             let grandtotal
-            // if (discount) {
-            //     grandtotal = subtotal + shipping - discount
-            // } else {
+            if (discount) {
+                grandtotal = subtotal + shipping - discount
+            } else {
 
             grandtotal = subtotal + shipping
-            // }
+            }
           
-        
+        console.log("fghjklllvbnmmmvbnm");
 
-            res.render('userpages/checkoutpage', { user, cartList, grandtotal, subtotal, shipping ,useraddress})
+            res.render('userpages/checkoutpage', { user, cartList, grandtotal, subtotal, shipping,discount ,useraddress})
         } else {
             req.flash('error', 'You are not logged in')
-            res.redirect('back')
+            // res.redirect('back')
         }
-    } catch (err) {
+    }} catch (err) {
         // res.render('error', { err })
     }
 }
 
 const placeOrder = async (req, res) => {
-   
+   console.log("inside");
     try {
         const email = req.session.email
         const user = await User.findOne({ email })
@@ -91,6 +109,7 @@ const placeOrder = async (req, res) => {
         // const cartId = new mongoose.Types.ObjectId(prodId)
         // console.log(cartId);
         const items = await Cart.findById({ _id: prodId })
+        console.log("lkjhgghjbjbjvjhqdvjhqdv",items);
         // const coupencode = items.coupenCode
         // let discount;
         // if (coupencode) {
@@ -202,6 +221,7 @@ const orderSuccess = async (req, res) => {
         }
         const bill = subtotal + shipping
         const orderData = await checkoutData.find({ userId })
+        console.log("orderrrrrrrr",orderData);
         res.render('userpages/orderSuccess', { cartList, bill, shipping, orderData })
     } catch (err) {
         // res.render('error', { err })

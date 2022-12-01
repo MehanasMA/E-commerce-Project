@@ -21,10 +21,11 @@ const cartSchema = mongoose.Schema({
                 required: true
             },
         }
-    ],
+    ], 
     coupenCode: {
         type: String
-    }
+    },
+ 
 })
 
 module.exports = mongoose.model('CartItem', cartSchema)

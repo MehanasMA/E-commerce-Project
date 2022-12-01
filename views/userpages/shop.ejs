@@ -21,7 +21,24 @@
 	<link href="css/owl-carousel.css" rel="stylesheet">
 	<link href="css/lightbox.css" rel="stylesheet">
 	<link href="css/slick-slider.css" rel="stylesheet">
+	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-----google fonts cdn-------->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="img/favicon.ico" rel="icon">
+
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+	rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
 </head>
 
@@ -307,18 +324,17 @@
 						<div class="card" style="width: 24rem;">
 				
 				
-							<img src="<%= datas.image[0].url %>" class="card-img-top" alt="...">
+							<img src="<%= datas.image[0].url %>" class="card-img-top" alt="..."><button class="btn btn-dark"><a href="/product/productDetails/<%= datas._id %> "><i class="fas fa-eye  mr-1"></i>View Detail</a></button>
 							<div class="card-body">
 								<h5 class="card-title" value="<%= datas.product_name %>">
 									<%= datas.product_name %>
 								</h5>
-								<p class="card-text" value="<%= datas.product_description %>">
+								<!-- <p class="card-text" value="<%= datas.product_description %>">
 									<%= datas.product_description %>
-								</p>
+								</p> -->
 								<h2 class="card-text" value="<%= datas.product_price %>">Rs.<%= datas.product_price %>
 								</h2>
-								<a href="/product/productDetails/<%= datas._id %> " class="btn btn-sm text-dark p-0"><i
-										class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+								
 				
 								<button data-toggle="modal" data-target="#exampleModal" onclick="wishlist('<%= datas._id %>')"
 									class="btn btn-primary">Add To wishlist</button>
@@ -973,12 +989,13 @@
 		</script>
 		<script>
 			function cartList(id) {
+				console.log("id",id);
 					fetch('/cart/addToCart/' + id, {
 						method: 'post',
 						headers: {
 							'Content-type': 'application/json',
 							body: JSON.stringify({hey:"done"})
-						}
+						},
 					})
 						.then(res => res.json())
 				}

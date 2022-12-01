@@ -89,9 +89,9 @@ const adminhome = async (req, res) => {
 
 
 const productOrders = async (req, res) => {
-    console.log("vbn");
+   
     try {
-        console.log("cvfdcc")
+        
         const orderData = await checkoutData.find({}).sort({ 'orderStatus.date': -1 })
         console.log(orderData);
         // orderId = mongoose.Types.ObjectId(orderData._Id)
@@ -104,12 +104,18 @@ const productOrders = async (req, res) => {
 
 const orderItems = async (req, res) => {
     try {
-        const carId = req.body
-        const cartId = mongoose.Types.ObjectId(carId)
-        const cartList = await checkoutData.aggregate([{ $match: { _id: cartId } }, { $unwind: '$cartItems' },
+        const cartId = req.body
+        const email=req.session.email
+        console.log("hellooo",email);
+        const user=await User.findOne({email})
+        const userId=user._id
+        // const cartId = mongoose.Types.ObjectId(carId)
+        console.log(cartId);
+        const cartList = await checkoutData.aggregate([{ $match: {userId } }, { $unwind: '$cartItems' },
         { $project: { item: '$cartItems.productId', itemQuantity: '$cartItems.quantity' } },
-        { $lookup: { from: products, localField: 'item', foreignField: '_id', as: 'product' } }]);
-
+        { $lookup: { from: 'products', localField: 'item' , foreignField: '_id', as: 'product' } }
+    ]);
+                console.log("cartlist*****",cartList);
         res.send({ cartList })
     } catch (err) {
         // res.render('error', { err })

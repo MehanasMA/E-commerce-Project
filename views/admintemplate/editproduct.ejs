@@ -107,41 +107,51 @@
                 </div>
                 <div class="form-group mb-3">
                   <label for="product_description">Description</label>
-                  <textarea class="form-control validate" id="description" name="description" type="text" rows="3"
-                    value="<%= datas.product_description %>" required></textarea>
+                  <input class="form-control validate" id="description" name="description" type="text" rows="3"
+                    value="<%= datas.product_description %>" required />
                 </div>
-                <div class="form-group mb-3">
-                  <label for="category">Category</label>
 
-
-                  <select class="custom-select tm-select-accounts" name="categoryid" id="category_id">
-                                            <%for(datas of categoryFind){%>
-                                              <option value="<%=datas._id%>" 
-                                                <%if(categorylook[0].category[0].category==(datas.category)){ %> selected
-                                                <%}%>>
-                                                  <%=datas.category%>
-                                              </option>
-                                              <% } %>
-                  </select>
-
-                </div>
+                
                 <div class="row">
                   <div class="form-group mb-3 col-xs-12 col-sm-6">
-                    <label for="product_price">Price
+                    <!-- <label for="price">Price
                     </label>
-                    <input id="price" name="product_price" type="text" class="form-control" 
-                      value="<%= datas.product_price %>" required />
+                    <input id="price" name="price" type="text" class="form-control validate" 
+                    value="<%= datas.product_price %>" required /> -->
+                    <label for="price">Price
+                    </label>
+                    <input id="price" name="price" type="text" class="form-control" placeholder=""
+                    value="<%= datas.product_price %>" />
+                    
                   </div>
+                  
                   <div class="form-group mb-3 col-xs-12 col-sm-6">
                     <label for="stock">Units In Stock
                     </label>
-                    <input id="stock" name="stock" type="text" class="form-control validate"
-                      value="<%= datas.stock %>" required />
+                    <input class="form-control validate" id="stock" name="stock" type="text" value="<%= datas.stock %>"
+                    required />
+                    
                   </div>
                 </div>
-
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                <div class="form-group mb-3">
+                  <label for="category">Category</label>
+  
+  
+                  <select class="custom-select tm-select-accounts" name="categoryid" id="category_id">
+                    <%for(datas of categoryFind){%>
+                      <option value="<%=datas._id%>" <%if(categorylook[0].category[0].category==(datas.category)){ %>
+                        selected<%}%> 
+                      >
+                          <%=datas.category%>
+                      </option>
+                      <% } %>
+                  </select>
+                  <%= datas.product_price %>
+  
+                </div>
+                
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
               <div class="tm-product-img-dummy mx-auto">
                 <i class="fas fa-cloud-upload-alt tm-upload-icon"
                   onclick="document.getElementById('fileInput').click();"></i>
@@ -171,6 +181,12 @@
       </p>
     </div>
   </footer>
+  <script>
+    console.log(document.getElementById("price"));
+    console.log(document.getElementById("description"));
+    console.log(document.getElementById("stock"));
+
+  </script>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <!-- https://jquery.com/download/ -->

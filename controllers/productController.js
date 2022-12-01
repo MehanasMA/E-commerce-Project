@@ -50,7 +50,7 @@ const editproduct = async (req, res) => {
     const datas = await Product.findById(id)
     const categories = await Category.find({})
     
-    console.log(datas);
+    console.log("datasssyrfhg6",datas);
     const productId = datas._id
     const category_id = datas._id
 
@@ -70,7 +70,7 @@ const editproduct = async (req, res) => {
             },
         },
     ]);
-    //  console.log(categorylook);
+     console.log(categorylook);
     // console.log(categorylook[0].category[0]);
 
     const categoryFind = await Category.find({});

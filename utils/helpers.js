@@ -25,6 +25,7 @@ const instance = new Razorpay({
 })
 
 function generateRazorpay(orderId, bill) {
+    console.log("billl",bill);
     return new Promise((resolve, reject) => {
         const options = {
             amount: bill * 100,

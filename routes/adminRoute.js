@@ -17,6 +17,7 @@ admin_route.use(bodyParser.json())
 admin_route.use(bodyParser.urlencoded({ extended: true }))
 
 const adminController = require('../controllers/adminController')
+const couponController=require("../controllers/couponController")
 
 
 admin_route.get("/adminlogin", adminController.addadmin);
@@ -51,11 +52,14 @@ admin_route.get('/orders', adminController.productOrders)
 
 admin_route.post('/orderitems', adminController.orderItems)
 
-// admin_route.post("/coupon", couponController.couponAdd);
+admin_route.get("/coupon", couponController.adminCouponPage);
 
-// admin_route.delete("/coupon", couponController.couponDelete);
 
-// admin_route.post('/applyCoupen/:id', couponController.applyCoupen)
+admin_route.post("/coupon", couponController.couponAdd);
+
+admin_route.delete("/coupon", couponController.couponDelete);
+
+admin_route.post('/applyCoupen/:id', couponController.applyCoupen)
 
 
 

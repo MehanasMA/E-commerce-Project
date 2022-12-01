@@ -2,34 +2,59 @@
 <html lang="en">
 
 <head>
-	<title>My Account</title>
+	<title>Victoriia</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+	<link rel="icon" href="../../../../favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,900" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
 	<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<!-----google fonts cdn-------->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="img/favicon.ico" rel="icon">
+
+	<!-- Google Web Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
 	<link href="css/styles.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/owl-carousel.css" rel="stylesheet">
 	<link href="css/lightbox.css" rel="stylesheet">
+	<link href="css/cookiealert.css" rel="stylesheet">
+
 	<!-- Custom styles for this template -->
 </head>
 
-<body>
+<body class="index layout5">
 
 	<header class="header-area header-sticky text-center header-default">
 		<div class="header-main-sticky">
-			<div class="header-nav">
-
+			<div class="header-nav d-none">
+				<!-- <div class="container">
+					<div class="nav-left float-left">
+						<% if(user) {%>
+						<div class="ttheader-service">WELCOME....!!!!!
+					
+							<div class="nav-right float-right d-flex">
+								<div class="ttheader-mail"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></div>
+							<%}%></div>
+					</div>
+				</div>
+				</div> -->
 			</div>
 			<div class="header-main-head">
 
@@ -37,18 +62,20 @@
 					<div class="container">
 						<div class="header-left float-left d-flex d-lg-flex d-md-block d-xs-block">
 
+							<div class="currency-wrapper toggle">
 
+							</div>
 							<div class="contact">
 								<i class="material-icons">phone</i>
 								<span>1234567890</span>
 							</div>
 						</div>
-						<div class="header-middle float-left">
+						<div class="header-middle float-lg-left float-md-left float-sm-left float-xs-none">
 							<div class="logo">
 								<a href="/"><img src="img/logos/logo.png" alt="NatureCircle"></a>
 							</div>
 						</div>
-						<div class="header-right d-flex d-xs-block d-sm-flex justify-content-end float-right">
+						<div class="header-right d-flex d-xs-flex d-sm-flex justify-content-end float-right">
 							<div class="search-wrapper">
 								<a>
 									<i class="material-icons search">search</i>
@@ -67,27 +94,40 @@
 								</button>
 								<div id="user-dropdown" class="user-menu">
 									<ul>
-										<li><a href="/userpages/myaccount" class="text-capitalize">my account</a></li>
-										<li><a href="#" class="modal-view button" data-toggle="modal"
+
+										<li><a href="/myaccount" class="text-capitalize">my account</a></li>
+
+
+										<!-- <li>Welcome <% user%></li>   -->
+										<li> <a class="" href="/logout">Logout</a></li>
+
+
+
+
+										<li><a type="submit" class="modal-view button" data-toggle="modal"
 												data-target="#modalRegisterForm">Register</a></li>
+
+
 										<li><a href="#" class="modal-view button" data-toggle="modal"
 												data-target="#modalLoginForm">login</a></li>
+
 									</ul>
 								</div>
 							</div>
 							<div class="cart-wrapper">
-								<button type="button" class="btn">
-									<i class="material-icons">shopping_cart</i>
-									<span class="ttcount">2</span>
+								<button class="btn"><a href="/cart/cartpage">
+										<i class="material-icons">shopping_cart</i>
+									</a>
 								</button>
+
 								<div id="cart-dropdown" class="cart-menu">
 									<ul class="w-100 float-left">
 										<li>
 											<table class="table table-striped">
 												<tbody>
 													<tr>
-														<td class="text-center"><a href="#"><img
-																	src="img/products/01.jpg" alt="01" title="01"></a>
+														<td class="text-center"><a href="#"><img src="<% %>" alt="01"
+																	title="01"></a>
 														</td>
 														<td class="text-left product-name"><a href="#">aliquam quaerat
 																voluptatem</a>
@@ -114,11 +154,11 @@
 											</table>
 										</li>
 										<li class="buttons w-100 float-left">
-											<form action="cart_page.html">
+											<form action="/cart/cartpage" method="get">
 												<input class="btn pull-left mt_10 btn-primary btn-rounded w-100"
 													value="View cart" type="submit">
 											</form>
-											<form action="checkout_page.html">
+											<form action="/checkout/checkout">
 												<input class="btn pull-right mt_10 btn-primary btn-rounded w-100"
 													value="Checkout" type="submit">
 											</form>
@@ -126,166 +166,87 @@
 									</ul>
 								</div>
 							</div>
+							<div>
+								<% if(user) { %>
+
+									<i class="fa-solid fa-heart"></i>
+									<span class="material-symbols-outlined"><a href="/wishlist/wishlist">
+											favorite</a>
+									</span>
+
+
+									<% }%>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="menu">
-					<!-- Navbar -->
-					<nav class="navbar navbar-expand-lg navbar-light d-sm-none d-xs-none d-lg-block navbar-full">
+					<div class="container">
+						<!--- Navbar -->
+						<nav class="navbar navbar-expand-lg navbar-light d-sm-none d-xs-none d-lg-block navbar-full">
 
-						<!-- Navbar brand -->
-						<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
+							<!-- Navbar brand -->
+							<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
 
-						<!-- Collapse button -->
-						<button class="navbar-toggler" type="button" data-toggle="collapse"
-							data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span> </button>
+							<!-- Collapse button -->
+							<button class="navbar-toggler" type="button" data-toggle="collapse"
+								data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
+								aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
 
-						<!-- Collapsible content -->
-						<div class="collapse navbar-collapse">
+							<!-- Collapsible content -->
+							<div class="collapse navbar-collapse">
 
-							<!-- Links -->
-							<ul class="navbar-nav m-auto justify-content-center">
-								<li class="nav-item  active">
-									<a class="nav-link  text-uppercase" href="/">
-										Home
-										<span class="sr-only">(current)</span> </a>
+								<!-- Links -->
+								<ul class="navbar-nav m-auto justify-content-center">
+									<li class="nav-item  active">
+										<a class="nav-link text-uppercase" href="/">
+											Home
+											<span class="sr-only">(current)</span> </a>
 
-								</li>
-								<li class="nav-item mega-dropdown">
-									<a class="nav-link  text-uppercase" href="/category">Category</a>
-									<div class="mega-menu v-2 z-depth-1 special-color py-3 px-3">
-										<div class="row">
+									</li>
+									<!-- <li class="nav-item">
+										<a class="nav-link text-uppercase" href="/category">Category</a>
 
-
-											<div class="col-md-6 col-xl-4 sub-menu mb-0">
-
-
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link text-uppercase" href="/shop">
-										Shop
-										<span class="sr-only">(current)</span> </a>
-
-								</li>
-								<li class="nav-item">
-									<a class="nav-link text-uppercase" href="/blog">Blog</a>
-
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle text-uppercase" href="/about">About Us</a>
-
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link text-uppercase" href="/contact">contact us</a>
-								</li>
-							</ul>
-							<!-- Links -->
-						</div>
-						<!-- Collapsible content -->
-					</nav>
-					<!-- Navbar -->
-					<nav class="navbar navbar-expand-lg navbar-dark d-lg-none navbar-responsive">
-
-						<!-- Navbar brand -->
-						<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
-
-						<!-- Collapse button -->
-						<button class="navbar-toggler" type="button" data-toggle="collapse"
-							data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"><i class='material-icons'>sort</i></span>
-						</button>
-
-						<!-- Collapsible content -->
-						<div class="collapse navbar-collapse" id="navbarSupportedContent2">
-
-							<!-- Links -->
-							<ul class="navbar-nav m-auto justify-content-center">
-
-								<!-- Features -->
-								<li class="nav-item dropdown active">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu1" aria-controls="menu1" aria-expanded="false"
-										aria-label="Toggle navigation" href="#">
-										Home
-										<span class="sr-only">(current)</span> </a>
-									<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3"
-										id="menu1">
-										<div class="sub-menu mb-xl-0 mb-4">
-											
-											
-										</div>
-									</div>
-								</li>
-								<li class="nav-item dropdown mega-dropdown">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu3" aria-controls="menu3" aria-expanded="false"
-										aria-label="Toggle navigation" href="#">Category</a>
-									
-								</li>
-
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu2" aria-controls="menu2" aria-expanded="false"
-										aria-label="Toggle navigation" href="#">
-										Shop
-										<span class="sr-only">(current)</span> </a>
-									<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3"
-										id="menu2">
-										<div class="sub-menu mb-xl-0 mb-4">
-											<h6 class="sub-title text-uppercase font-weight-bold white-text">Featured
-											</h6>
-											
-										</div>
-									</div>
-								</li>
-								<!-- Technology -->
+									</li> -->
+									<li class="nav-item ">
+										<a class="nav-link text-uppercase" href="/about">About us</a>
+									</li>
 
 
+									<li class="nav-item">
+										<a class="nav-link text-uppercase" href="/shop">
+											Shop
+											<span class="sr-only">(current)</span> </a>
 
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu4" aria-controls="menu4" aria-expanded="false"
-										aria-label="Toggle navigation" href="#">Blog</a>
-									<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3"
-										id="menu4">
-										<div class="sub-menu">
-											<h6 class="sub-title text-uppercase font-weight-bold white-text d-none">
-												Featured</h6>
-											
-											
-										</div>
-									</div>
-								</li>
+									</li>
 
-								<li class="nav-item dropdown">
-									<a class="nav-link text-uppercase" href="contact-us.html">contact us</a>
-								</li>
+									<li class="nav-item ">
+										<a class="nav-link text-uppercase" href="/contact">Contact us</a>
+									</li>
+									<!-- <li class="nav-item">
+										<a class="nav-link text-uppercase" href="/blog">Blog</a>
 
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu5" aria-controls="menu5" aria-expanded="false"
-										aria-label="Toggle navigation" href="#">Pages</a>
-									<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3"
-										id="menu5">
-										<div class="sub-menu">
-											<h6 class="sub-title text-uppercase font-weight-bold white-text d-none">
-												Featured</h6>
-											
-										</div>
-									</div>
-								</li>
-							</ul>
-							<!-- Links -->
-						</div>
-						<!-- Collapsible content -->
+									</li> -->
+									<!-- <li class="nav-item dropdown">
 
-					</nav>
+										<ul class="list-unstyled"> -->
+									<!-- <li>
+												<a class="menu-item pl-0" href="/about">
+													About us </a>
+											</li> -->
+
+									<!-- <li class="nav-item dropdown">
+												<a class="nav-link text-uppercase" href="/contact">contact us</a>
+											</li> -->
+								</ul>
+								<!-- Links -->
+							</div>
+							<!-- Collapsible content -->
+
+						</nav>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -302,7 +263,7 @@
 			<div class="row">
 
 				<div class="products-grid col-xl-9 col-lg-8 order-lg-2">
-					<div class="row">
+					<div class="row mt-5">
 						<div class="col-lg-12 order-lg-last account-content">
 							<h4>Edit Account Information</h4>
 							<form action="#" class="myacoount-form">
@@ -367,18 +328,10 @@
 
 
 	<div class="row">
-		<div class="col-md-6 mb-3">
+		<div class="col-md-6 mb-3 mx-auto">
 	
-			<table>
-				<thead>
-					<tr>
-						<th></th>
-						<th>Address</th>
-						<th>Delete</th>
-	
-					</tr>
-	
-				</thead>
+			<table class="container text-center">
+				
 				<tbody>
 					<%  for( let add of useraddress) { %>
 						<tr>
@@ -395,7 +348,7 @@
 								</label>
 							</th>
 							<td>
-								<div class="control_indicator"></div>
+								<div class="control_indicator mr-5"></div>
 								</label>
 								</th>
 							<td>
@@ -406,8 +359,7 @@
 								<p>
 									<%= add.address +" , "+" "+add.district+" ,"+add.statePlace +","+add.pincode %>
 	
-								</p>
-								<p>
+								
 									<%=add.email +", "+add.mobile %>
 											             </p>
 											                                                         
@@ -423,127 +375,143 @@
 		</div>
 		</tbody>
 		</table>
-							<div class="btn btn-primary"><a href="/addAddress">Add New Address</div>
+		
+		<div class="btn btn-primary " ><a href="/addAddress">Add New Address</div>
+	</div>
 
+	<div class="container-fluid ">
+		<div class="row">
+			<div class="col-md-12">
+	
+			</div>
+			<% if(orderData.length> 0) { %>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Order Id</th>
+							<th>Payment <br> Method</th>
+							<th>Payment <br> Status</th>
+							<th>Address</th>
+							<th>Order Status</th>
+							<th>Bill</th>
+							<th>Date</th>
+							<th>Items</th>
+	
+							<th>Cancel Order</th>
+	
+						</tr> 
+	
+					</thead>
+					<tbody>
+						<% for(let data of orderData) { %>
+							<tr>
+								<td>
+									<%= data._id %>
+								</td>
+								<td>
+									<%= data.paymentStatus %>
+								</td>
+								<% if(data.isCompleted==true) { %>
+									<td>Completed</td>
+									<% } else { %>
+										<td>Pending</td>
+										<% } %>
+											<td>
+												<%= data.address %>
+											</td>
+											<td>
+												<%= data.orderStatus[0].type %>
+											</td>
+											<td>Rs.<%= data.bill %>
+											</td>
+											<td>
+												<%= data.orderStatus[0].date.toLocaleDateString() %>
+											</td>
+											<td>
+												<button type="button" class="btn btn-success rounded" data-bs-toggle="modal"
+													data-bs-target="#exampleModal1<%= data._id %>">Items</button>
+	
+											</td>
+											<td>
+												<% if(data.orderStatus[0].type !='Cancelled' && data.orderStatus[0].type
+													!='Delivered' ) { %>
+	
+													<!-- Button trigger modal -->
+													<button type="button" class="btn btn-danger rounded"
+														data-bs-toggle="modal"
+														data-bs-target="#exampleModalCenter<%= data._id %>">
+														cancel
+													</button>
+	
+	
+	
+	
+													<button type="button" class=" btn btn-danger rounded"
+	                                                        data-toggle="modal"
+	                                                        data-target="#exampleModal<%= data._id %>">Cancel </button>
+
+													<% } else if(data.orderStatus[0].type=='Delivered' ) { %>
+														Delivered -->
+														<% } else { %>
+															Cancelled
+															<% } %>
+	
+	
+											</td>
+							</tr>
+	
+	
+							<% } %>
+					</tbody>
+				</table>
+		</div>
+	</div> 
+	
+	<% } else { %>
+		<div class="col-md-12 text-center ">
+			<h4 class="text-danger">No Orders Available Here !!!</h4>
+		</div>
+		<% } %>
 	</div>
 
 	<!-- Footer -->
 	
 
 	<footer class="page-footer font-small footer-default">
-		<div class="container text-center text-md-left">
-			<div class="row">
-				<div class="col-md-2 footer-cms footer-column">
-					<div class="ttcmsfooter">
-						<div class="footer-logo"><img src="img/logos/footer-logo.png" alt="footer-logo"></div>
-						<div class="footer-desc">At vero eos et accusamus et iusto odio dignissimos ducimus, duis
-							faucibus enim vitae</div>
-					</div>
-				</div>
-				<div class="col-md-2 footer-column">
-					<div class="title">
-						<a href="#company" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-							aria-expanded="false">company</a>
-					</div>
-					<ul id="company" class="list-unstyled collapse">
-						<li>
-							<a href="#">search</a>
-						</li>
-						<li>
-							<a href="#">New Products</a>
-						</li>
-						<li>
-							<a href="category.html">Best Collection</a>
-						</li>
-						<li>
-							<a href="wishlist.html">wishlist</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-2 footer-column">
-					<div class="title">
-						<a href="#products" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-							aria-expanded="false">products</a>
-					</div>
-					<ul id="products" class="list-unstyled collapse">
-						<li>
-							<a href="blog-details.html">blog</a>
-						</li>
-						<li>
-							<a href="about-us.html">about us</a>
-						</li>
-						<li>
-							<a href="contact-us.html">contact us</a>
-						</li>
-						<li>
-							<a href="my-account.html">my account</a>
-						</li>
-					</ul>
-
-				</div>
-				<div class="col-md-2 footer-column">
-					<div class="title">
-						<a href="#account" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-							aria-expanded="false">your account</a>
-					</div>
-					<ul id="account" class="list-unstyled collapse">
-						<li>
-							<a href="blog-details.html">personal info</a>
-						</li>
-						<li>
-							<a href="#">orders</a>
-						</li>
-						<li>
-							<a href="contact-us.html">addresses</a>
-						</li>
-						<li>
-							<a href="my-account.html">my wishlists</a>
-						</li>
-					</ul>
-
-				</div>
-				<div class="col-md-2 footer-column">
-					<div class="title">
-						<a href="#information" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-							aria-expanded="false">store information</a>
-					</div>
-					<ul id="information" class="list-unstyled collapse">
-						<li class="contact-detail links">
-							<span class="address">
-								<span class="icon"><i class="material-icons">location_on</i></span>
-								<span class="data"> 4030, Central Bazzar, opp. Varachha Police Station, Varachha Main
-									Road, Surat, Gujarat 395006, India</span> </span>
-						</li>
-						<li class="links">
-							<span class="contact">
-								<span class="icon"><i class="material-icons">phone</i></span>
-								<span class="data"><a href="tel:(99)55669999">+ (99) 55-669-999</a></span> </span>
-						</li>
-						<li class="links">
-							<span class="email">
-								<span class="icon"><i class="material-icons">email</i></span>
-								<span class="data"><a
-										href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></span></span>
-						</li>
-					</ul>
-				</div>
+		
+			
+	<div class="container-fluid  mt-2 pt-2 ">
+		<div class="row px-xl-5 pt-5">
+			<div class="col-lg-12 col-md-12 mb-5 pr-3 pr-xl-5 text-center">
+				<a href="" class="text-decoration-none">
+					<h1 class="mb-4 display-5 font-weight-semi-bold"><span
+							class=" px-3 mr-1">
+							<div class="footer-logo"><img src="img/logos/footer-logo.png" alt="footer-logo"></div></span></h1>
+				</a>
+				<p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum dolore
+					amet erat.</p>
+				<p class="mb-2"><i class="fa fa-map-marker-alt  mr-3"></i>123 Street, KERALA, INDIA</p>
+				<p class="mb-2"><i class="fa fa-envelope  mr-3"></i>victoria@example.com</p>
+				<p class="mb-0"><i class="fa fa-phone-alt  mr-3"></i>+012 345 67890</p>
+			</div>
+	
+		</div>
+		<div class="row border-top border-light mx-xl-5 py-4">
+			<div class="col-lg-12 px-xl-0 text-center">
+				<p class="mb-md-0  text-dark">
+					&copy; <a class="text-dark font-weight-semi-bold" href="/">www.eShop.com</a>. All Rights Reserved.
+					Designed
+					by
+					<a class="text-dark font-weight-semi-bold" href="https://htmlcodex.com">Developers of victoria</a><br>
+					Distributed By <a href="https://themewagon.com" target="_blank"> victoria</a>
+				</p>
+			</div>
+			<div class="col-md-6 px-xl-0 text-center text-md-right">
+				<img class="img-fluid" src="img/payments.png" alt="">
 			</div>
 		</div>
-		<!-- Copyright -->
-		<div class="footer-bottom-wrap">
-			<div class="container">
-				<div class="row">
-					<div class="footer-copyright text-center py-3">
-						© 2019 - Boostrap theme by store™
-					</div>
-				</div>
-			</div>
-		</div>
-		<a href="#" id="goToTop" title="Back to top" class="btn-primary"><i
-				class="material-icons arrow-up">keyboard_arrow_up</i></a>
-
-
-	</footer>
+	</div>
+ </footer>
 	<!-- Footer -->
 
 	<!-- Register modal -->

@@ -26,7 +26,7 @@ product_route.get("/productManageget", productController.productManageget)
 
 product_route.get("/editproduct/:id", productController.editproduct)
 
-product_route.post("/editProduct/:id", productController.editProduct)
+product_route.post("/editProduct/:id", upload.array('image') ,productController.editProduct)
 
 // product_route.get("/showProduct", productController.showProduct)
 
