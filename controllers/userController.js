@@ -200,18 +200,18 @@ console.log(catagoryId);
 
 }
 
-const deleteAddress = async (req, res) => {
-    try {
-        const { id } = req.params
-        console.log("delete",id);
-        const deletion = await User.findOneAndDelete({ id })
-        deletion.remove()
-        console.log("deleted",deletion);
-        res.send({ success: true })
-    } catch (err) {
-        res.render('error', { err })
-    }
-}
+// const deleteAddress = async (req, res) => {
+//     try {
+//         const { id } = req.params
+//         console.log("delete",id);
+//         const deletion = await User.findOneAndDelete({ id })
+//         deletion.remove()
+//         console.log("deleted",deletion);
+//         res.send({ success: true })
+//     } catch (err) {
+//         res.render('error', { err })
+//     }
+// }
 
 
 
@@ -235,7 +235,7 @@ const logout = (req, res) => {
 
 const signupPost = async (req, res) => {
     const { name,mobile,email,password,confirmpassword,state } = req.body;
-
+  console.log(req.body);
     const hash = await bcrypt.hash(password, 12);
     const user = new User({
         name,
@@ -319,7 +319,7 @@ exports.blog = blog
 exports.otpget = otpget
 exports.verify = verify
 exports.about = about
-exports.deleteAddress = deleteAddress
+// exports.deleteAddress = deleteAddress
 exports.addAddress=addAddress
 exports.saveAddress=saveAddress
 exports.contact = contact

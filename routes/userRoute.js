@@ -25,7 +25,7 @@ userRoute.get("/blog", userController.blog);
 
 userRoute.get("/about", userController.about);
 
-userRoute.delete('/deleteAddress/:id', userController.deleteAddress)
+// userRoute.delete('/deleteAddress/:id', userController.deleteAddress)
 
 
 userRoute.get("/contact", userController.contact);
