@@ -28,7 +28,7 @@ const deleteCategory = async (req, res) => {
         const { id } = req.params
         const category = await Category.findByIdAndDelete(id)
 
-        res.redirect("/product/products");
+        res.redirect("/admin/categoryBrand");
 
     } catch (err) {
         console.log(err);

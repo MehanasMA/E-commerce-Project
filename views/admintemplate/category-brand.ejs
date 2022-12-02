@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Product Page - Admin HTML Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+</head>
+
+<body id="reportsPage">
+    <nav class="navbar navbar-expand-xl">
+        <div class="container h-100">
+            <a class="navbar-brand" href="/admin/products">
+                <h1 class="tm-site-title mb-0"> Admin</h1>
+            </a>
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars tm-nav-icon"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto h-100">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/dashboard">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="far fa-file-alt"></i>
+                            <span> Managment <i class="fas fa-angle-down"></i> </span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/admin/userManageget">User Managment</a>
+                            <a class="dropdown-item" href="#">Order Managment</a>
+                            <a class="dropdown-item" href="/product/productManageget">Product Managment </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/product/products">
+                            <i class="fas fa-shopping-cart"></i> Products
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/accounts">
+                            <i class="far fa-user"></i> Accounts
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                            <span> Settings <i class="fas fa-angle-down"></i> </span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Billing</a>
+                            <a class="dropdown-item" href="#">Customize</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link d-block" href="/admin/logout">
+                            Admin, <b>Logout</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+
+
+    <div class="container mt-5">
+    
+        <div class="row tm-content-row">
+            <!-- table container -->
+    
+            <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+                <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+                    <h2 class="tm-block-title">Product Brand</h2>
+                    <div class="tm-product-table-container">
+                        <table class="table tm-table-small tm-product-table">
+                            <tbody>
+    
+                                <% let m=1; for(let datas of brand){ %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%=m %>
+                                        </th>
+                                        <td>
+                                            <%=datas.brand %>
+                                        </td>
+                                        <td>
+                                            <form action="/brand/deleteBrand/<%= datas._id %>?_method=PUT" method="post">
+                                                <button class="btn btn-primary" type="submit"
+                                                    onclick="return confirm('Do you want to delete <%= datas.brand%>?')">Remove</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <%m++}%>
+    
+    
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- table container -->
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add new Brand
+                    </button>
+                </div>
+            </div>
+    
+    
+            <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+                <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+                    <h2 class="tm-block-title">Product Categories</h2>
+                    <div class="tm-product-table-container">
+                        <table class="table tm-table-small tm-product-table">
+                            <tbody>
+                                <% let i=1; for(let datas of categorys) {%>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= i %>
+                                        </th>
+                                        <td>
+                                            <%= datas.category %>
+                                        </td>
+    
+                                        <td>
+    
+                                            <!-- <button class="btn btn-secondary"> delete</button> -->
+                                            <form action="/category/deleteCategory/<%= datas._id %>?_method=PUT"
+                                                method="post"><button class="btn btn-primary" type="submit"
+                                                    onclick="return confirm('Do you want to delete <%= datas.category%>?')">Remove</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <%i++}%>
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- table container -->
+                    <button class="btn btn-primary  " data-bs-toggle="modal" data-bs-target="#examplecategory">
+                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#examplecategory"> -->
+                        Add new category
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Modal -->
+            <form action="/category/addCategory" method="post">
+                <div class="modal fade" id="examplecategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class=" form-group">
+                                    <label class="text-dark" for="name">Brand</label>
+                                    <input name="category" type="text" class="form-control validate" id="category" value=""
+                                        required>
+                                </div>
+    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Add Category</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+            </form>
+    
+    
+            
+    
+    
+    
+    
+                    <!-- table container -->
+
+                </div>
+            </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/category/addCategory" method="post">
+                    <div class="form-group">
+                        <label for="Name">Category Name</label>
+                        <input name="category" placeholder="Category" type="text" class="form-control validate"
+                            id="Name" value="" required />
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add Category</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+        $(function () {
+            $(".tm-product-name").on("click", function () {
+                window.location.href = "edit-product.html";
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

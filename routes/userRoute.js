@@ -38,6 +38,8 @@ userRoute.post("/verify", userController.verify);
 
 userRoute.get("/otpget", userController.otpget)
 
+userRoute.post("/catagorySort", userController.catagorySort);
+
 userRoute.get("/logout", userController.logout);
 
 

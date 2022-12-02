@@ -2,52 +2,61 @@
 <html lang="en">
 
 <head>
-	<title>Shop</title>
+	<title>Victoriia</title>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+	<link rel="icon" href="../../../../favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,900" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
 	<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<!-----google fonts cdn-------->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="img/favicon.ico" rel="icon">
+
+	<!-- Google Web Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
 	<link href="css/styles.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/owl-carousel.css" rel="stylesheet">
 	<link href="css/lightbox.css" rel="stylesheet">
-	<link href="css/slick-slider.css" rel="stylesheet">
-	
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- Bootstrap core CSS -->
-<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-<!-----google fonts cdn-------->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link href="css/cookiealert.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="img/favicon.ico" rel="icon">
-
-<!-- Google Web Fonts -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-	rel="stylesheet">
-
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
 </head>
 
-<body id="product-compact">
+<body class="index layout5">
 
 	<header class="header-area header-sticky text-center header-default">
 		<div class="header-main-sticky">
-			<div class="header-nav">
-
+			<div class="header-nav d-none">
+				<!-- <div class="container">
+					<div class="nav-left float-left">
+						<% if(user) {%>
+						<div class="ttheader-service">WELCOME....!!!!!
+					
+							<div class="nav-right float-right d-flex">
+								<div class="ttheader-mail"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></div>
+							<%}%></div>
+					</div>
+				</div>
+				</div> -->
 			</div>
 			<div class="header-main-head">
 
@@ -55,18 +64,20 @@
 					<div class="container">
 						<div class="header-left float-left d-flex d-lg-flex d-md-block d-xs-block">
 
+							<div class="currency-wrapper toggle">
 
+							</div>
 							<div class="contact">
 								<i class="material-icons">phone</i>
 								<span>1234567890</span>
 							</div>
 						</div>
-						<div class="header-middle float-left">
+						<div class="header-middle float-lg-left float-md-left float-sm-left float-xs-none">
 							<div class="logo">
 								<a href="/"><img src="img/logos/logo.png" alt="NatureCircle"></a>
 							</div>
 						</div>
-						<div class="header-right d-flex d-xs-block d-sm-flex justify-content-end float-right">
+						<div class="header-right d-flex d-xs-flex d-sm-flex justify-content-end float-right">
 							<div class="search-wrapper">
 								<a>
 									<i class="material-icons search">search</i>
@@ -85,243 +96,160 @@
 								</button>
 								<div id="user-dropdown" class="user-menu">
 									<ul>
+
 										<li><a href="/myaccount" class="text-capitalize">my account</a></li>
-										<li><a href="#" class="modal-view button" data-toggle="modal"
+
+
+										<!-- <li>Welcome <% user%></li>   -->
+										<li> <a class="" href="/logout">Logout</a></li>
+
+
+
+
+										<li><a type="submit" class="modal-view button" data-toggle="modal"
 												data-target="#modalRegisterForm">Register</a></li>
+
+
 										<li><a href="#" class="modal-view button" data-toggle="modal"
 												data-target="#modalLoginForm">login</a></li>
+
 									</ul>
 								</div>
 							</div>
 							<div class="cart-wrapper">
-								<button type="button" class="btn">
-									<i class="material-icons">shopping_cart</i>
-									<span class="ttcount">2</span>
-								</button>
-								<div id="cart-dropdown" class="cart-menu">
-									<ul class="w-100 float-left">
-										<li>
-											<table class="table table-striped">
-												<tbody>
-													<tr>
-														<td class="text-center"><a href="#"><img
-																	src="img/products/01.jpg" alt="01" title="01"></a>
-														</td>
-														<td class="text-left product-name"><a href="#">aliquam quaerat
-																voluptatem</a>
-															<div class="quantity float-left w-100">
-																<span class="cart-qty">1 × </span>
-																<span class="text-left price"> $20.00</span>
-															</div>
-														</td>
-														<td class="text-center close"><a class="close-cart"><i
-																	class="material-icons">close</i></a></td>
-													</tr>
+								<form action="/cart/cartpage" method="get">
 
-												</tbody>
-											</table>
-										</li>
-										<li>
-											<table class="table price mb-30">
-												<tbody>
-													<tr>
-														<td class="text-left"><strong>Total</strong></td>
-														<td class="text-right"><strong>$2,122.00</strong></td>
-													</tr>
-												</tbody>
-											</table>
-										</li>
-										<li class="buttons w-100 float-left">
-											<form action="/cart/cart">
+									<button class="btn" type="submit"><a href="/cart/cartpage">
+											<i class="material-icons">shopping_cart</i>
+										</a>
+									</button>
+									</form>
+									<div id="cart-dropdown" class="cart-menu">
+										<ul class="w-100 float-left">
+
+
+											<!-- <li class="buttons w-100 float-left">
+											<form action="/cart/cartpage" method="get">
 												<input class="btn pull-left mt_10 btn-primary btn-rounded w-100"
-													value="/cart/cart" type="submit">
+													value="View cart" type="submit">
 											</form>
-											<form action="/checkout">
-												<input class="btn pull-right mt_10 btn-secondary btn-rounded w-100"
+											<form action="/checkout/checkout">
+												<input class="btn pull-right mt_10 btn-primary btn-rounded w-100"
 													value="Checkout" type="submit">
 											</form>
-										</li>
-									</ul>
-								</div>
+										</li> -->
+										</ul>
+									</div>
+							</div>
+							<div>
+								<% if(user) { %>
+
+									<i class="fa-solid fa-heart"></i>
+									<span class="material-symbols-outlined"><a href="/wishlist/wishlist">
+											favorite</a>
+									</span>
+
+
+									<% }%>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="menu">
-					<!-- Navbar -->
-					<nav class="navbar navbar-expand-lg navbar-light d-sm-none d-xs-none d-lg-block navbar-full">
+					<div class="container">
+						<!--- Navbar -->
+						<nav class="navbar navbar-expand-lg navbar-light d-sm-none d-xs-none d-lg-block navbar-full">
 
-						<!-- Navbar brand -->
-						<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
+							<!-- Navbar brand -->
+							<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
 
-						<!-- Collapse button -->
-						<button class="navbar-toggler" type="button" data-toggle="collapse"
-							data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span> </button>
+							<!-- Collapse button -->
+							<button class="navbar-toggler" type="button" data-toggle="collapse"
+								data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
+								aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
 
-						<!-- Collapsible content -->
-						<div class="collapse navbar-collapse">
+							<!-- Collapsible content -->
+							<div class="collapse navbar-collapse">
 
-							<ul class="navbar-nav m-auto justify-content-center">
-								<li class="nav-item  active">
-									<a class="nav-link text-uppercase" href="/">
-										Home
-										<span class="sr-only">(current)</span> </a>
+								<!-- Links -->
+								<ul class="navbar-nav m-auto justify-content-center">
+									<li class="nav-item  active">
+										<a class="nav-link text-uppercase" href="/">
+											Home
+											<span class="sr-only">(current)</span> </a>
 
-								</li>
-								<li class="nav-item">
-									<a class="nav-link text-uppercase" href="/category">Category</a>
+									</li>
+									<!-- <li class="nav-item">
+										<a class="nav-link text-uppercase" href="/category">Category</a>
 
-								</li>
-								<li class="nav-item">
-									<a class="nav-link text-uppercase" href="/shop">
-										Shop
-										<span class="sr-only">(current)</span> </a>
-
-								</li>
-								<li class="nav-item">
-									<a class="nav-link text-uppercase" href="/blog">Blog</a>
-
-								</li>
-								<li class="nav-item dropdown">
-
-									<ul class="list-unstyled">
-										<li>
-											<a class="menu-item pl-0" href="/about">
-												About us </a>
-										</li>
-
-										<li class="nav-item dropdown">
-											<a class="nav-link text-uppercase" href="/contact">contact us</a>
-										</li>
-									</ul>
-									<!-- Links -->
-						</div>
-						<!-- Collapsible content -->
-					</nav>
-					<!-- Navbar -->
-					<nav class="navbar navbar-expand-lg navbar-dark d-lg-none navbar-responsive">
-
-						<!-- Navbar brand -->
-						<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
-
-						<!-- Collapse button -->
-						<button class="navbar-toggler" type="button" data-toggle="collapse"
-							data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"><i class='material-icons'>sort</i></span>
-						</button>
-
-						<!-- Collapsible content -->
-						<div class="collapse navbar-collapse" id="navbarSupportedContent2">
-
-							<!-- Links -->
-							<ul class="navbar-nav m-auto justify-content-center">
-
-								<!-- Features -->
-								<li class="nav-item dropdown active">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu1" aria-controls="menu1" aria-expanded="false"
-										aria-label="Toggle navigation" href="/">
-										Home
-										<span class="sr-only">(current)</span> </a>
-								
-								</li>
-								<li class="nav-item ">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu3" aria-controls="menu3" aria-expanded="false"
-										aria-label="Toggle navigation" href="/category">Category</a>
-									<div class="mega-menu v-2 z-depth-1 special-color py-3 px-3"
-										id="menu3">
-
-									</div>
-								</li>
-
-								<li class="nav-item ">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu2" aria-controls="menu2" aria-expanded="false"
-										aria-label="Toggle navigation" href="/shop">
-										Shop
-										<span class="sr-only">(current)</span> </a>
-									<div class="mega-menu v-2 z-depth-1 special-color py-3 px-3"
-										id="menu2">
-										
-									</div>
-								</li>
-								<!-- Technology -->
+									</li> -->
+									<li class="nav-item ">
+										<a class="nav-link text-uppercase" href="/about">About us</a>
+									</li>
 
 
+									<li class="nav-item">
+										<a class="nav-link text-uppercase" href="/shop">
+											Shop
+											<span class="sr-only">(current)</span> </a>
 
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu4" aria-controls="menu4" aria-expanded="false"
-										aria-label="Toggle navigation" href="#">Blog</a>
-									<div class=" mega-menu v-2 z-depth-1 special-color py-3 px-3"
-										id="menu4">
-										
-									</div>
-								</li>
+									</li>
 
-								<li class="nav-item dropdown">
-									<a class="nav-link text-uppercase" href="/contact">contact us</a>
-								</li>
+									<li class="nav-item ">
+										<a class="nav-link text-uppercase" href="/contact">Contact us</a>
+									</li>
+									<!-- <li class="nav-item">
+										<a class="nav-link text-uppercase" href="/blog">Blog</a>
 
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse"
-										data-target="#menu5" aria-controls="menu5" aria-expanded="false"
-										aria-label="Toggle navigation" href="#">Pages</a>
-									<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3"
-										id="menu5">
-										<div class="sub-menu">
-											<h6 class="sub-title text-uppercase font-weight-bold white-text d-none">
-												Featured</h6>
-											<ul class="list-unstyled">
-												<li>
-													<a class="menu-item pl-0" href="about-us.html">
-														About us </a>
-												</li>
-												<li>
-													<a class="menu-item pl-0" href="accordions.html">
-														Accordions </a>
-												</li>
-												<li>
-													<a class="menu-item pl-0" href="buttons.html">
-														Buttons </a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<!-- Links -->
-						</div>
-						<!-- Collapsible content -->
+									</li> -->
+									<!-- <li class="nav-item dropdown">
 
-					</nav>
+										<ul class="list-unstyled"> -->
+									<!-- <li>
+												<a class="menu-item pl-0" href="/about">
+													About us </a>
+											</li> -->
+
+									<!-- <li class="nav-item dropdown">
+												<a class="nav-link text-uppercase" href="/contact">contact us</a>
+											</li> -->
+								</ul>
+								<!-- Links -->
+							</div>
+							<!-- Collapsible content -->
+
+						</nav>
+					</div>
 				</div>
 			</div>
 		</div>
 	</header>
 
-	<!-- <nav aria-label="breadcrumb" class="w-100 float-left">
-		<ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
-			style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Shop</li>
-		</ol>
-	</nav> -->
-	<div class="row">
-	<div class="product-deatils-section float-left w-100">
-		<div class="container">
-			<div class="row">
+
+	
+	<div class="product-deatils-section col-12">
+		<div class="container-fluid">
+			<div class="row ">
+			<div class="shop_sidebar_categories">
+				<% let n=1; for(datas of newCategory) { %>
+					<div class="nice-scroll">
+					<li class="main-nav-list"><a style="cursor:pointer;" onclick="selectCategory('<%= datas._id %>')"><span
+								class="Inr Inr-arrow-right"></span>
+							<%= datas.category %>
+						</a>
+					</li>
+			</div>
 			
+					<% n++ }%>
+			</div>
 							
-				<div class="col-4">
-					<% let j=1; for(datas of product){ %>
+				<div class="row" id="product"> 
+					<% for(let datas of product){ %>
 				
 				
-						<div class="card" style="width: 24rem;">
+						<div class="card col-4 mx-auto mt-5" style="width: 24rem;">
 				
 				
 							<img src="<%= datas.image[0].url %>" class="card-img-top" alt="..."><button class="btn btn-dark"><a href="/product/productDetails/<%= datas._id %> "><i class="fas fa-eye  mr-1"></i>View Detail</a></button>
@@ -332,167 +260,88 @@
 								<!-- <p class="card-text" value="<%= datas.product_description %>">
 									<%= datas.product_description %>
 								</p> -->
-								<h2 class="card-text" value="<%= datas.product_price %>">Rs.<%= datas.product_price %>
-								</h2>
+								<h3 class="card-text my-3" value="<%= datas.product_price %>">Rs.<%= datas.product_price %>
+								</h3>
 								
 				
-								<button data-toggle="modal" data-target="#exampleModal" onclick="wishlist('<%= datas._id %>')"
+								<button data-bs-toggle="modal" data-bs-target="#exampleModal1<%=datas._id%>" 
 									class="btn btn-primary">Add To wishlist</button>
 									
 									
 
-									<button data-toggle="modal" data-target="#exampleModal<%=datas._id%>" 
+									<button data-bs-toggle="modal" data-bs-target="#exampleModal<%=datas._id%>" 
 										class="btn btn-primary"><i class="fas fa-shopping-cart text-primary "></i>Add To Cart</button>
 								</div>
-								<%j++ } %>
-						</div>
+							</div>
+								<% } %>
 						
 				</div>
 			</div>
 		</div>
-		</div></div>
+		</div>
+	<!-- </div> -->
+
+		
+			<!-- <div class="tabs">
+									<ul class="nav nav-tabs justify-content-center">
+										<li class="nav-item"><a class="nav-link active" data-toggle="tab"
+												href="#ttfeatured-main" id="featured-tab">
+												<div class="tab-title">Featured</div>
+											</a></li>
+										<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#ttnew-main"
+												id="new-tab">
+												<div class="tab-title">Latest</div>
+											</a></li>
+										<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#ttbestseller-main"
+												id="bestseller-tab">
+												<div class="tab-title">Bestseller</div>
+											</a></li>
+									</ul>
+								</div> -->
+		
+		</div>
+		</div>
 		
 		
 
 
-		<!-- Footer -->
-		<!-- <div class="block-newsletter">
-			<div class="parallax" data-source-url="img/banner/parallax.jpg"
-				style="background-image:url(img/banner/parallax.jpg); background-position:50% 65.8718%;">
-				<div class="container">
-					<div class="tt-newsletter col-sm-7">
-						<h2 class="text-uppercase">Subscribe to our Newsletter</h2>
-					</div>
-					<div class="block-content col-sm-5">
-						<form method="post" action="contact-us.html">
-							<div class="input-group">
-								<input type="email" name="email" value="" placeholder="Email address.." required=""
-									class="form-control">
-								<span class="input-group-btn">
-									<button class="btn btn-theme text-uppercase btn-primary"
-										type="submit">Subscribe</button>
-								</span>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div> -->
+
 		<footer class="page-footer font-small footer-default">
-			<div class="container text-center text-md-left">
-				<div class="row">
-					<div class="col-md-2 footer-cms footer-column">
-						<div class="ttcmsfooter">
-							<div class="footer-logo"><img src="img/logos/footer-logo.png" alt="footer-logo"></div>
-							<div class="footer-desc">At vero eos et accusamus et iusto odio dignissimos ducimus, duis
-								faucibus enim vitae</div>
-						</div>
+		
+		
+			<div class="container-fluid  mt-2 pt-2 ">
+				<div class="row px-xl-5 pt-5">
+					<div class="col-lg-12 col-md-12 mb-5 pr-3 pr-xl-5 text-center text-white">
+						<a href="" class="text-decoration-none">
+							<h1 class="mb-4 display-5 font-weight-semi-bold"><span class=" px-3 mr-1">
+									<div class="footer-logo"><img src="img/logos/footer-logo.png" alt="footer-logo"></div>
+								</span></h1>
+						</a>
+						<p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum
+							dolore
+							amet erat.</p>
+						<p class="mb-2"><i class="fa fa-map-marker-alt  mr-3"></i>123 Street, KERALA, INDIA</p>
+						<p class="mb-2"><i class="fa fa-envelope  mr-3"></i>victoria@example.com</p>
+						<p class="mb-0"><i class="fa fa-phone-alt  mr-3"></i>+012 345 67890</p>
 					</div>
-					<div class="col-md-2 footer-column">
-						<div class="title">
-							<a href="#company" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-								aria-expanded="false">company</a>
-						</div>
-						<ul id="company" class="list-unstyled collapse">
-							<li>
-								<a href="#">search</a>
-							</li>
-							<li>
-								<a href="#">New Products</a>
-							</li>
-							<li>
-								<a href="/category">Best Collection</a>
-							</li>
-							<li>
-								<a href="/wishlist">wishlist</a>
-							</li>
-						</ul>
+		
+				</div>
+				<div class="row border-top border-light mx-xl-5 py-4">
+					<div class="col-lg-12 px-xl-0 text-center">
+						<p class="mb-md-0  text-white">
+							&copy; <a class="text-white font-weight-semi-bold" href="/">www.eShop.com</a>. All Rights Reserved.
+							Designed
+							by
+							<a class="text-white font-weight-semi-bold" href="https://htmlcodex.com">Developers of
+								victoria</a><br>
+							Distributed By <a href="https://themewagon.com" target="_blank"> victoria</a>
+						</p>
 					</div>
-					<div class="col-md-2 footer-column">
-						<div class="title">
-							<a href="#products" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-								aria-expanded="false">products</a>
-						</div>
-						<ul id="products" class="list-unstyled collapse">
-							<li>
-								<a href="/blog">blog</a>
-							</li>
-							<li>
-								<a href="/about">about us</a>
-							</li>
-							<li>
-								<a href="/contact">contact us</a>
-							</li>
-							<li>
-								<a href="/myaccount">my account</a>
-							</li>
-						</ul>
-
-					</div>
-					<div class="col-md-2 footer-column">
-						<div class="title">
-							<a href="#account" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-								aria-expanded="false">your account</a>
-						</div>
-						<ul id="account" class="list-unstyled collapse">
-							<li>
-								<a href="blog-details.html">personal info</a>
-							</li>
-							<li>
-								<a href="#">orders</a>
-							</li>
-							<li>
-								<a href="contact-us.html">addresses</a>
-							</li>
-							<li>
-								<a href="my-account.html">my wishlists</a>
-							</li>
-						</ul>
-
-					</div>
-					<div class="col-md-2 footer-column">
-						<div class="title">
-							<a href="#information" class="font-weight-normal text-capitalize mb-10"
-								data-toggle="collapse" aria-expanded="false">store information</a>
-						</div>
-						<ul id="information" class="list-unstyled collapse">
-							<li class="contact-detail links">
-								<span class="address">
-									<span class="icon"><i class="material-icons">location_on</i></span>
-									<span class="data"> 4030, Central Bazzar, opp. Varachha Police Station, Varachha
-										Main
-										Road, Surat, Gujarat 395006, India</span> </span>
-							</li>
-							<li class="links">
-								<span class="contact">
-									<span class="icon"><i class="material-icons">phone</i></span>
-									<span class="data"><a href="tel:(99)55669999">+ (99) 55-669-999</a></span> </span>
-							</li>
-							<li class="links">
-								<span class="email">
-									<span class="icon"><i class="material-icons">email</i></span>
-									<span class="data"><a
-											href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></span>
-								</span>
-							</li>
-						</ul>
+					<div class="col-md-6 px-xl-0 text-center text-md-right">
+						<img class="img-fluid" src="img/payments.png" alt="">
 					</div>
 				</div>
 			</div>
-			<!-- Copyright -->
-			<div class="footer-bottom-wrap">
-				<div class="container">
-					<div class="row">
-						<div class="footer-copyright text-center py-3">
-							© 2019 - Boostrap theme by store™
-						</div>
-					</div>
-				</div>
-			</div>
-			<a href="#" id="goToTop" title="Back to top" class="btn-primary"><i
-					class="material-icons arrow-up">keyboard_arrow_up</i></a>
-
-
 		</footer>
 		<!-- Footer -->
 
@@ -570,279 +419,11 @@
 			</div>
 		</div>
 
-		<!-- product_view modal -->
-		<div class="modal fade product_view" id="product_view" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title w-100w-100w-100 font-weight-bold d-none">Quick view</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-md-6 left-columm">
-								<div class="product-large-image tab-content">
-									<div class="tab-pane active" id="product-1" role="tabpanel"
-										aria-labelledby="product-tab-1">
-										<div class="single-img img-full">
-											<a href="img/products/01.jpg"><img src="img/products/01.jpg"
-													class="img-fluid" alt=""></a>
-										</div>
-									</div>
-									<div class="tab-pane" id="product-2" role="tabpanel"
-										aria-labelledby="product-tab-2">
-										<div class="single-img">
-											<a href="img/products/02.jpg"><img src="img/products/02.jpg"
-													class="img-fluid" alt=""></a>
-										</div>
-									</div>
-									<div class="tab-pane" id="product-3" role="tabpanel"
-										aria-labelledby="product-tab-3">
-										<div class="single-img">
-											<a href="img/products/03.jpg"><img src="img/products/03.jpg"
-													class="img-fluid" alt=""></a>
-										</div>
-									</div>
-									<div class="tab-pane" id="product-4" role="tabpanel"
-										aria-labelledby="product-tab-4">
-										<div class="single-img">
-											<a href="img/products/04.jpg"><img src="img/products/04.jpg"
-													class="img-fluid" alt=""></a>
-										</div>
-									</div>
-									<div class="tab-pane" id="product-5" role="tabpanel"
-										aria-labelledby="product-tab-5">
-										<div class="single-img">
-											<a href="img/products/05.jpg"><img src="img/products/05.jpg"
-													class="img-fluid" alt=""></a>
-										</div>
-									</div>
-								</div>
-								<div class="small-image-list float-left w-100">
-									<div class="nav-add small-image-slider-single-product-tabstyle-3 owl-carousel"
-										role="tablist">
-										<div class="single-small-image img-full">
-											<a data-toggle="tab" id="product-tab-1" href="#product-1"
-												class="img active"><img src="img/products/01.jpg" class="img-fluid"
-													alt=""></a>
-										</div>
-										<div class="single-small-image img-full">
-											<a data-toggle="tab" id="product-tab-2" href="#product-2" class="img"><img
-													src="img/products/02.jpg" class="img-fluid" alt=""></a>
-										</div>
-										<div class="single-small-image img-full">
-											<a data-toggle="tab" id="product-tab-3" href="#product-3" class="img"><img
-													src="img/products/03.jpg" class="img-fluid" alt=""></a>
-										</div>
-										<div class="single-small-image img-full">
-											<a data-toggle="tab" id="product-tab-4" href="#product-4" class="img"><img
-													src="img/products/04.jpg" class="img-fluid" alt=""></a>
-										</div>
-										<div class="single-small-image img-full">
-											<a data-toggle="tab" id="product-tab-5" href="#product-5" class="img"><img
-													src="img/products/05.jpg" class="img-fluid" alt=""></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 product_content">
-								<h4 class="product-title text-capitalize">aliquam quaerat voluptatem</h4>
-								<div class="rating">
-									<div class="product-ratings d-inline-block align-middle">
-										<span class="fa fa-stack"><i class="material-icons">star</i></span>
-										<span class="fa fa-stack"><i class="material-icons">star</i></span>
-										<span class="fa fa-stack"><i class="material-icons">star</i></span>
-										<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-										<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-									</div>
-								</div>
-								<span class="description float-left w-100">Lorem Ipsum is simply dummy text of the
-									printing
-									and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-									ever
-									since the 1500s, when an unknown printer took a galley of type and scrambled it to
-									make
-									a type specimen book.</span>
-								<h3 class="price float-left w-100"><span
-										class="regular-price align-middle">$75.00</span><span
-										class="old-price align-middle">$60.00</span></h3>
-
-								<div class="product-variants float-left w-100">
-									
-									<div class="color-option d-flex align-items-center">
-										<h5>color :</h5>
-										<ul class="color-categories">
-											<li class="active">
-												<a class="tt-pink" href="#" title="Pink"></a>
-											</li>
-											<li>
-												<a class="tt-blue" href="#" title="Blue"></a>
-											</li>
-											<li>
-												<a class="tt-yellow" href="#" title="Yellow"></a>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="btn-cart d-flex align-items-center float-left w-100">
-									<h5>qty:</h5>
-									<input value="1" type="number">
-									<button type="button" class="btn btn-primary"><i
-											class="material-icons" onclick="cartList('<%= datas._id %>')" >shopping_cart</i> Add To Cart</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-<!-- 
-		cart-pop modal
-         <a href="/cart/cart/<%=datas.id%>" onclick="cartList('<%= datas._id %>')" class="btn btn-primary">Add to Cart</a> -->
-
-		<!-- <div class="modal fade" id="cart-pop" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header alert-success">
-						<h4 class="modal-title w-100w-100w-100">Product successfully added to your shopping cart</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-md-6 divide-right">
-								<div class="row">
-									<div class="col-md-5 col-xs-4 product-img float-left">
-										<img src="img/products/01.jpg" class="img-responsive" alt="01">
-									</div>
-									<div class="col-md-7 col-xs-8 product-desc float-left">
-										<h4 class="product-title text-capitalize">aliquam quaerat voluptatem</h4>
-										<div class="rating">
-											<div class="product-ratings d-inline-block align-middle">
-												<span class="fa fa-stack"><i class="material-icons">star</i></span>
-												<span class="fa fa-stack"><i class="material-icons">star</i></span>
-												<span class="fa fa-stack"><i class="material-icons">star</i></span>
-												<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-												<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-											</div>
-										</div>
-										<h3 class="price float-left w-100"><span
-												class="regular-price align-middle">$75.00</span><span
-												class="old-price align-middle">$60.00</span></h3>
-									</div>
-								</div>
-							</div> 
-							<div class="col-md-6 divide-left">
-								<p class="cart-products-count">There are 2 items in your cart.</p>
-								<p class="total-products float-left w-100">
-									<strong>Total products:</strong> $150.00
-								</p>
-								<p class="shipping float-left w-100">
-									<strong>Total shipping:</strong> free
-								</p>
-								<p class="total-price float-left w-100">
-									<strong>Total:</strong> $150.00(tax incl.)
-								</p>
-								<div class="cart-content-btn float-left w-100">
-									<form action="#">
-										<input class="btn pull-right mt_10 btn-primary" value="Continue shopping"
-											type="submit">
-									</form>
-									<form action="checkout_page.html">
-										<input class="btn pull-right mt_10 btn-secondary" value="Proceed to checkout"
-											type="submit">
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>  -->
-
-
-
-		<!-- product_view modal -->
-		<!-- <div class="modal fade product_view" id="product_view" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title w-100w-100w-100 font-weight-bold d-none">Quick view</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-md-6 left-columm">
-								<div class="product-large-image tab-content">
-									<div class="tab-pane active" id="product-1" role="tabpanel" aria-labelledby="product-tab-1">
 		
-									</div>
-		
-								</div>
-								<div class="small-image-list float-left w-100">
-									<div class="nav-add small-image-slider-single-product-tabstyle-3 owl-carousel"
-										role="tablist">
-		
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 product_content">
-								<h4 class="product-title text-capitalize">aliquam quaerat voluptatem</h4>
-								<div class="rating">
-									<div class="product-ratings d-inline-block align-middle">
-										<span class="fa fa-stack"><i class="material-icons">star</i></span>
-										<span class="fa fa-stack"><i class="material-icons">star</i></span>
-										<span class="fa fa-stack"><i class="material-icons">star</i></span>
-										<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-										<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-									</div>
-								</div>
-								<span class="description float-left w-100">Lorem Ipsum is simply dummy text of the printing and
-									typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-									1500s, when an unknown printer took a galley of type and scrambled it to make a type
-									specimen book.</span>
-								<h3 class="price float-left w-100"><span class="regular-price align-middle">$75.00</span><span
-										class="old-price align-middle">$60.00</span></h3>
-		
-								<div class="product-variants float-left w-100">
-		
-									<div class="color-option d-flex align-items-center">
-										<h5>color :</h5>
-										<ul class="color-categories">
-											<li class="active">
-												<a class="tt-pink" href="#" title="Pink"></a>
-											</li>
-											<li>
-												<a class="tt-blue" href="#" title="Blue"></a>
-											</li>
-											<li>
-												<a class="tt-yellow" href="#" title="Yellow"></a>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="btn-cart d-flex align-items-center float-left w-100">
-									<h5>qty:</h5>
-									<input value="1" type="number">
-									<button type="button" class="btn btn-primary"><i class="material-icons">shopping_cart</i>
-										Add To Cart</button>
-										<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><i class="material-icons">shopping_cart</i>
-											<span aria-hidden="true">×</span>Add to Cart
-										</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+<% for( let datas of product ){ %>
+<div class="modal fade" id="exampleModal1<%=datas._id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -862,14 +443,14 @@
 					</div>
 					<% } %>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="wishlist('<%= datas._id %>')">OK</button>
 
 
 						</div>
 		</div>
 	</div>
 </div>
-
+<%}%>
 
 
 
@@ -895,7 +476,7 @@
 							</div>
 							<% } %>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" onclick="cartList('<%= datas._id %>')" data-dismiss="modal">OK</button>
+									<button type="button" class="btn btn-secondary" onclick="cartList('<%= datas._id %>')" data-bs-dismiss="modal">OK</button>
 		
 		
 								</div>
@@ -1050,6 +631,54 @@
 				}
 			}
 		</script>
+		<script>
+			function selectCategory(catagoryId) {
+				console.log("jbhhjbjhbb",catagoryId);
+				const datas = document.getElementById("product")
+				console.log(("HEYYYPPP", datas));
+				let allProducts = '';
+				fetch("/catagorySort", {
+					method: "post",
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ catagoryId })
+				}).then(res => res.json()).then(data => {
+					for (product of data.product) {
+						allProducts += `
+		                            
+
+		                                  <div class="card col-4 mx-auto mt-5" style="width: 24rem;">
+				
+				
+							<img src="${product.image[0].url }" class="card-img-top" alt="..."><button class="btn btn-dark"><a href="/product/productDetails/${product._id }"><i class="fas fa-eye  mr-1"></i>View Detail</a></button>
+							<div class="card-body">
+								<h5 class="card-title" value="<%= datas.product_name %>">
+									${product.product_name }
+								</h5>
+								<!-- <p class="card-text" value="<%= datas.product_description %>">
+									${ product.product_description}
+								</p> -->
+								<h3 class="card-text my-3" value="<%= datas.product_price %>">Rs.${product.product_price }
+								</h3>
+								
+				
+								<button data-bs-toggle="modal" data-bs-target="#exampleModal1${product._id} 
+									class="btn btn-primary">Add To wishlist</button>
+									
+									
+
+									<button data-bs-toggle="modal" data-bs-target="#exampleModal${product._id}" 
+										class="btn btn-primary"><i class="fas fa-shopping-cart text-primary "></i>Add To Cart</button>
+								</div>
+							</div>`
+								
+						datas.innerHTML = allProducts
+					}
+				})
+			}
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"></script>
 		<!--End of Tawk.to Script-->
 </body>
 

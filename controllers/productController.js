@@ -31,11 +31,11 @@ const products = async (req, res) => {
 
 
 
-const productManageget=async(req,res)=>{
-    res.render('admintemplate/productManagment')
+// const productManageget=async(req,res)=>{
+//     res.render('admintemplate/products')
     
 
-}
+// }
 
 // const showProduct = async (req, res) => {
 //     showproduct = await Product.find()
@@ -82,7 +82,7 @@ const editproduct = async (req, res) => {
 
 const editProduct = async (req, res) => {
     const { id } = req.params
-    // console.log('edited')
+    console.log('edited')
     const edit = req.body
     await Product.findByIdAndUpdate(id, { $set: edit })
     res.redirect('/product/product')
@@ -178,4 +178,4 @@ const viewProductDetails = async (req, res) => {
 
 
 
-module.exports = { products, addproduct, addProduct, editproduct, editProduct, deleteProduct, productManageget, viewProductDetails }
+module.exports = { products, addproduct, addProduct, editproduct, editProduct, deleteProduct, viewProductDetails }

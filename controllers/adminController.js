@@ -10,6 +10,7 @@ const Product = require("../models/productSchema");
 const checkoutData = require("../models/checkoutSchema")
 const { Store } = require("express-session");
 const User = require("../models/userSchema");
+const Brand = require("../models/brandSchema");
 
 
 
@@ -85,6 +86,13 @@ const adminhome = async (req, res) => {
 }
 
 
+
+const categoryBrand=async(req,res)=>{
+    console.log("bnm");
+    const categorys = await Category.find({});
+    const brand=await Brand.find({})
+    res.render('category-brand',{categorys,brand})
+}
 
 
 
@@ -256,6 +264,7 @@ const editUser = async (req, res) => {
 
 const logout = (req, res) => {
     try {
+        console.log("logouting");
         req.session.destroy()
         res.redirect("/admin/adminlogin");
     } catch (error) {
@@ -268,4 +277,4 @@ const logout = (req, res) => {
 
 
 
-module.exports = { addadmin, addadminpost, adminhome, account, userManageget, editUser, logout, updateOrder, orderItems, productOrders }
+module.exports = { addadmin, addadminpost, adminhome, account, userManageget, editUser, logout, updateOrder, orderItems, productOrders,categoryBrand }

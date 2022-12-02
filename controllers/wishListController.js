@@ -85,9 +85,18 @@ const userWishlist = async (req, res) => {
 
 const deleteWishlist = async (req, res) => {
     try {
-        const prodId = req.params.id
-        const productId = new mongoose.Types.ObjectId(prodId)
-        const userId = req.session.user._id
+        console.log("delete");
+        const productId = req.params.id
+        console.log("prdid@@@@@@@@@",productId);
+        // const productId = new mongoose.Types.ObjectId(prodId)
+            
+        const email = req.session.email
+        const user = await User.find({ email })
+
+        const userId = user[0]._id;
+        console.log(userId);
+
+        
         const detail = await User.findById({ _id: userId })
         if (detail.state== true) {
             await Wishlist.updateOne({ userId }, { $pull: { wishlistItems: { "productId": productId } } })

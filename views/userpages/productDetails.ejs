@@ -247,19 +247,19 @@
 
                 </div>
 
-                <div class="container-fluid">
-                    <div class="row float-right">
-                        <div class="col-md-12 float-right">
-                            <div class="col-md-4 float-left ">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <img class="img-fluid  mx-auto d-block p-5" alt="Responsive image"
+                <div class="container-fluid text-center">
+                    <div class="row text-center">
+                        <div class="col-6 text-center">
+                            <div class="col-md-4 ml-0 ">
+                                <div class="row ml-0">
+                                    <div class="col-md-12 float-left">
+                                        <img class="img-fluid   d-block p-5" alt="Responsive image"
                                             src="<%= details.image[0].url %> " alt="">
                                     </div>
                                     <div class="col-md-1">
 
                                     </div>
-                                    <div class="col-md-5 ps-5">
+                                    <div class="col-md-5 ">
 
                                         <button data-bs-toggle="modal" data-bs-target="#exampleModal"
                                             onclick="wishlist('<%= details._id %>')" class="btn rounded text-light"
@@ -271,8 +271,10 @@
                                             onclick="cartList('<%= details._id %>')" class="btn rounded text-light"
                                             style="background-color: rgb(255, 94, 0);">Add To Cart</button>
                                     </div>
-                                </div>
+                            </div>    </div>
                             </div>
+                            
+                            <div class="col-6 float-left">
                             <div class="col-md-6 float-left mt-4">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -285,7 +287,7 @@
                                             <%= details.highlights %>
                                         </h6>
                                     </div> -->
-                                    <div class="col-md-3 pt-4">
+                                    <div class="col-md-3 pt-4 text-left">
                                         <h4>Rs.<%= details.product_price %>
                                         </h4>
                                     </div>
@@ -297,19 +299,120 @@
 
                                    
                                     <div class="col-md-12 pt-4">
-                                        <h6>About this item:</h6>
-                                        <p>
+                                        <h3>About this item:</h3>
+                                        <h5><p>
                                             <%= details.product_description %>
-                                        </p>
+                                        </p></h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
-            
+                
+            </div>
         </div>
+    </div>
+    <footer class="page-footer fixed-bottom font-small footer-default">
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <div class="col-md-3 footer-cms footer-column">
+                    <div class="ttcmsfooter">
+                        <div class="footer-logo"><img src="/img/logos/footer-logo.png" alt="footer-logo"></div>
+                        <div class="footer-desc">At vero eos et accusamus et iusto odio dignissimos ducimus, duis
+                            faucibus enim vitae</div>
+                    </div>
+                </div>
+                <div class="col-md-3 footer-column">
+                    <div class="title">
+                        <a href="#company" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
+                            aria-expanded="false">company</a>
+                    </div>
+                    <ul id="company" class="list-unstyled collapse">
+                        <li>
+                            <a href="#">search</a>
+                        </li>
+                        <li>
+                            <a href="#">New Products</a>
+                        </li>
+                        <li>
+                            <a href="category.html">Best Collection</a>
+                        </li>
+                        <li>
+                            <a href="wishlist.html">wishlist</a>
+                        </li>
+                        <li>
+                            <a href="blog-details.html">personal info</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-column">
+                    <div class="title">
+                        <a href="#products" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
+                            aria-expanded="false">products</a>
+                    </div>
+                    <ul id="products" class="list-unstyled collapse">
+                        <li>
+                            <a href="blog-details.html">blog</a>
+                        </li>
+                        <li>
+                            <a href="about-us.html">about us</a>
+                        </li>
+                        <li>
+                            <a href="contact-us.html">contact us</a>
+                        </li>
+                        <li>
+                            <a href="my-account.html">my account</a>
+                        </li>
+                        <li>
+                            <a href="contact-us.html">addresses</a>
+                        </li>
+                    </ul>
+    
+                </div>
+    
+                <div class="col-md-3 footer-column">
+                    <div class="title">
+                        <a href="#information" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
+                            aria-expanded="false">store information</a>
+                    </div>
+                    <ul id="information" class="list-unstyled collapse">
+                        <li class="contact-detail links">
+                            <span class="address">
+                                <span class="icon"><i class="material-icons">location_on</i></span>
+                                <span class="data"> 4030, Central Bazzar, opp. Varachha Police Station, Varachha Main
+                                    Road, Surat, Gujarat 395006, India</span> </span>
+                        </li>
+                        <li class="links">
+                            <span class="contact">
+                                <span class="icon"><i class="material-icons">phone</i></span>
+                                <span class="data"><a href="tel:(99)55669999">+ (99) 55-669-999</a></span> </span>
+                        </li>
+                        <li class="links">
+                            <span class="email">
+                                <span class="icon"><i class="material-icons">email</i></span>
+                                <span class="data"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        <!-- Copyright -->
+        <div class="footer-bottom-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-copyright text-center py-3">
+                        © 2019 - Boostrap theme by store™
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="goToTop" title="Back to top" class="btn-primary"><i
+                class="material-icons arrow-up">keyboard_arrow_up</i></a>
+    
+    
+    </footer>
        
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -366,106 +469,6 @@
                                 </div>
                 </div>
             </div>
-        </div>
-        <footer class="page-footer font-small footer-default">
-            <div class="container text-center text-md-left">
-                <div class="row">
-                    <div class="col-md-3 footer-cms footer-column">
-                        <div class="ttcmsfooter">
-                            <div class="footer-logo"><img src="/img/logos/footer-logo.png" alt="footer-logo"></div>
-                            <div class="footer-desc">At vero eos et accusamus et iusto odio dignissimos ducimus, duis
-                                faucibus enim vitae</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 footer-column">
-                        <div class="title">
-                            <a href="#company" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-                                aria-expanded="false">company</a>
-                        </div>
-                        <ul id="company" class="list-unstyled collapse">
-                            <li>
-                                <a href="#">search</a>
-                            </li>
-                            <li>
-                                <a href="#">New Products</a>
-                            </li>
-                            <li>
-                                <a href="category.html">Best Collection</a>
-                            </li>
-                            <li>
-                                <a href="wishlist.html">wishlist</a>
-                            </li>
-                            <li>
-                                <a href="blog-details.html">personal info</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 footer-column">
-                        <div class="title">
-                            <a href="#products" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-                                aria-expanded="false">products</a>
-                        </div>
-                        <ul id="products" class="list-unstyled collapse">
-                            <li>
-                                <a href="blog-details.html">blog</a>
-                            </li>
-                            <li>
-                                <a href="about-us.html">about us</a>
-                            </li>
-                            <li>
-                                <a href="contact-us.html">contact us</a>
-                            </li>
-                            <li>
-                                <a href="my-account.html">my account</a>
-                            </li>
-                            <li>
-                                <a href="contact-us.html">addresses</a>
-                            </li>
-                        </ul>
-        
-                    </div>
-        
-                    <div class="col-md-3 footer-column">
-                        <div class="title">
-                            <a href="#information" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
-                                aria-expanded="false">store information</a>
-                        </div>
-                        <ul id="information" class="list-unstyled collapse">
-                            <li class="contact-detail links">
-                                <span class="address">
-                                    <span class="icon"><i class="material-icons">location_on</i></span>
-                                    <span class="data"> 4030, Central Bazzar, opp. Varachha Police Station, Varachha Main
-                                        Road, Surat, Gujarat 395006, India</span> </span>
-                            </li>
-                            <li class="links">
-                                <span class="contact">
-                                    <span class="icon"><i class="material-icons">phone</i></span>
-                                    <span class="data"><a href="tel:(99)55669999">+ (99) 55-669-999</a></span> </span>
-                            </li>
-                            <li class="links">
-                                <span class="email">
-                                    <span class="icon"><i class="material-icons">email</i></span>
-                                    <span class="data"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Copyright -->
-            <div class="footer-bottom-wrap">
-                <div class="container">
-                    <div class="row">
-                        <div class="footer-copyright text-center py-3">
-                            © 2019 - Boostrap theme by store™
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a href="#" id="goToTop" title="Back to top" class="btn-primary"><i
-                    class="material-icons arrow-up">keyboard_arrow_up</i></a>
-        
-        
-        </footer>
 
        
     

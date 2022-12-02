@@ -10,10 +10,10 @@ const Brand = require('../models/brandSchema')
 
 
 
-const addBrand = async (req, res) => {
-    const brand = await Brand.find({})
-    res.render("admintemplate/addbrand", { brand })
-}
+// const addBrand = async (req, res) => {
+//     const brand = await Brand.find({})
+//     res.render("admintemplate/addbrand", { brand })
+// }
 
 
 
@@ -31,10 +31,10 @@ const addbrand = async (req, res) => {
 
         // res.sendStatus(404);
     }
-    res.redirect("/brand/addBrand");
+    res.redirect("/admin/categoryBrand");
 };
 
 
 
 
-module.exports = { addBrand, addbrand }
+module.exports = { addbrand }

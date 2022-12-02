@@ -9,7 +9,8 @@ const cartController=require('./cartController')
 const checkoutData=require('../models/checkoutSchema')
 const wishlistData=require('../models/wishListSchema')
 const categoryData=require('../models/categorySchema')
-const bannerData=require('../models/bannerSchema')
+const bannerData=require('../models/bannerSchema');
+const Category = require("../models/categorySchema");
 
 
 
@@ -120,8 +121,9 @@ const category = (req, res) => {
 const shop = async(req, res) => {
     const user = req.session.email
     const product=await Product.find()
+    const newCategory=await Category.find({})
  
-    res.render('userpages/shop',{user,product})
+    res.render('userpages/shop', { user, product, newCategory })
 }
 
 const blog = (req, res) => {
@@ -181,6 +183,20 @@ const saveAddress = async (req, res) => {
     } catch (err) {
         res.render('error', { err })
     }
+
+}
+
+
+
+
+const catagorySort = async (req, res) => {
+
+    const catagoryId = req.body.catagoryId;
+console.log(catagoryId);
+    const product = await Product.find({ category_id: catagoryId })
+    console.log("ffff", product);
+
+    res.send({ product });
 
 }
 
@@ -295,6 +311,7 @@ const verify = async (req, res) => {
 
 
 exports.home = home;
+exports.catagorySort = catagorySort
 exports.myaccount = myaccount;
 exports.category = category
 exports.shop = shop

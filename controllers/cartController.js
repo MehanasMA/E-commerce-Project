@@ -153,7 +153,7 @@ const addToCart = async (req, res) => {
 
         }
     } catch (err) {
-        // res.render('error',{err})
+        res.render('error',{err})
     }
 }
 
@@ -213,7 +213,7 @@ const userCart = async (req, res) => {
         const email = req.session.email
         console.log("emailllllll", email);
         const user = await User.findOne({ email })
-        console.log("userrrrrrrrrrrrrrr", user);
+        console.log("userrrrrrrrrrrrrrrcarrrrrrrrrrrrrrrrrrrrrrrttttttt", user);
 
 
         const userId = user._id

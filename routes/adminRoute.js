@@ -54,6 +54,7 @@ admin_route.post('/orderitems', adminController.orderItems)
 
 admin_route.get("/coupon", couponController.adminCouponPage);
 
+admin_route.get('/categoryBrand',adminController.categoryBrand)
 
 admin_route.post("/coupon", couponController.couponAdd);
 

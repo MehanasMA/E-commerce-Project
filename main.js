@@ -19,6 +19,7 @@ const checkOutRoute = require('./routes/checkoutRoute')
 const bannerRoute=require('./routes/bannerRoute')
 const session = require("express-session");
 const multer=require('multer')
+const morgan=require('morgan')
 // const filestore = require("session-file-store")(session);
 const flash = require("connect-flash")
 const methodOverride = require('method-override')
@@ -41,7 +42,7 @@ app.use(methodOverride('_method'))
 app.set("view engine", "ejs");
 app.use(flash())
 app.use(cors());
-
+app.use(morgan('dev'));
 
 app.use(cookieParser());
 

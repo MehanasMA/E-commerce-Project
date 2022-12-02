@@ -10,7 +10,7 @@ brand_route.use(express.static('public/Adminpublic'))
 
 
 
-brand_route.get("/addbrand", brandController.addBrand)
+// brand_route.get("/addbrand", brandController.addBrand)
 brand_route.post("/addbrand", brandController.addbrand)
 
 
