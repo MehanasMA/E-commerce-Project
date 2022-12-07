@@ -33,7 +33,7 @@ const checkoutSchema = new mongoose.Schema({
         required: true
     },
     coupenCode: {
-        type: Number
+        type: String
     },
     orderStatus: [{
         type: {

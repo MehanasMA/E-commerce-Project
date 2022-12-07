@@ -106,7 +106,7 @@ const productOrders = async (req, res) => {
         // console.log(orderId);
         res.render('orderManagment', { orderData })
     } catch (err) {
-        // res.render('error', { err })
+        res.render('error', { err })
     }
 }
 
@@ -126,54 +126,9 @@ const orderItems = async (req, res) => {
                 console.log("cartlist*****",cartList);
         res.send({ cartList })
     } catch (err) {
-        // res.render('error', { err })
-    }
-}
-
-
-
-
-
-const updateOrder = async (req, res) => {
-    try {
-        const { id } = req.params
-        await checkoutData.findByIdAndUpdate(id, {
-
-            orderStatus: {
-                type: req.body.orderStatus,
-                date: req.body.date
-
-            }
-        })
-        const orderData = await checkoutData.findById(id)
-        if (orderData.orderStatus[0].type == 'Delivered' && orderData.paymentStatus == 'cod') {
-            await checkoutData.findByIdAndUpdate(id, {
-                isCompleted: true
-            })
-        } else {
-            await checkoutData.findOneAndUpdate({ $and: [{ _id: id }, { paymentStatus: 'cod' }] }, {
-                isCompleted: false
-            })
-        }
-        req.flash('success', 'Order updated Successfully')
-        res.redirect('/orders')
-    } catch (err) {
         res.render('error', { err })
     }
-
-
-
 }
-
-
-
-
-
-
-const account = (req, res) => {
-    res.render("accounts")
-}
-
 
 
 
@@ -203,29 +158,11 @@ const addadminpost = async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
 const userManageget = async (req, res) => {
     const showuser = await User.find({}).sort({ name: 1 })
     res.render('userManagment', { showuser })
 }
 
-// const userStateblock = async (req, res) => {
-//     const { id } = req.params;
-//     await User.findByIdAndUpdate(id, { state: false });
-//     res.redirect("/admin/userManageget");
-// };
-// const userStateUnblock = async (req, res) => {
-//     const { id } = req.params;
-//     await User.findByIdAndUpdate(id, { state: true });
-//     res.redirect("/admin/userManageget");
-// };
 
 
 
@@ -251,14 +188,49 @@ const editUser = async (req, res) => {
 
 
 
-// const editproductget = (req, res) => {
-//     res.render('admintemplate/editproduct')
-// }
 
 
-// const editproductpost = (req, res) => {
-//     res.redirect('/admin/editproduct')
-// }
+
+const editOrder = async (req, res) => {
+    try {
+        const { id } = req.params
+        const orderData = await checkoutData.findById(id)
+        const email=req.session.email
+        const user=await User.findOne({email})
+        res.render('editOrder', { orderData,user })
+    } catch (err) {
+        res.render('error', { err })
+    }
+}
+
+
+const updateOrder = async (req, res) => {
+    try {
+        const { id } = req.params
+        await checkoutData.findByIdAndUpdate(id, {
+
+            orderStatus: {
+                type: req.body.orderStatus,
+                date: req.body.date
+
+            }
+        })
+        const orderData = await checkoutData.findById(id)
+        if (orderData.orderStatus[0].type == 'Delivered' && orderData.paymentStatus == 'cod') {
+            await checkoutData.findByIdAndUpdate(id, {
+                isCompleted: true
+            })
+        } else {
+            await checkoutData.findOneAndUpdate({ $and: [{ _id: id }, { paymentStatus: 'cod' }] }, {
+                isCompleted: false
+            })
+        }
+        req.flash('success', 'Order updated Successfully')
+        res.redirect('/orders')
+    } catch (err) {
+        res.render('error', { err })
+    }
+}
 
 
 
@@ -277,4 +249,5 @@ const logout = (req, res) => {
 
 
 
-module.exports = { addadmin, addadminpost, adminhome, account, userManageget, editUser, logout, updateOrder, orderItems, productOrders,categoryBrand }
+module.exports = {
+    addadmin, addadminpost, editOrder,adminhome, userManageget, editUser, logout, updateOrder, orderItems, productOrders,categoryBrand }

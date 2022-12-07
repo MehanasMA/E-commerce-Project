@@ -29,15 +29,6 @@ let transporter = nodemailer.createTransport({
 const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
 
 
-// const home = async(req, res) => {
-
-//         const email=req.session.email
-//         const user=await User.find({email})
-        
-//             res.render("userpages/home", { message: req.flash("invalid"),user});
-
-// }
-
 
 const home = async (req, res) => {
     const email = req.session.email
@@ -103,6 +94,7 @@ const loginPost = async (req, res, next) => {
 
 
 const myaccount = async(req, res) => {
+    try{
     // const user=await User.find({})
     const email = req.session.email
     const user = await User.findOne({ email })
@@ -112,6 +104,9 @@ const myaccount = async(req, res) => {
     const orderData = await checkoutData.find({ userId, paymentStatus: { $in: ["done", "COD"] } }).limit(4)
     // console.log("address",user.useraddress);
     res.render("userpages/myaccount",{user,useraddress,orderData})
+    }catch{
+        res.render('error')
+    }
 }
 
 const category = (req, res) => {
@@ -119,11 +114,15 @@ const category = (req, res) => {
 }
 
 const shop = async(req, res) => {
+    try{
     const user = req.session.email
     const product=await Product.find()
     const newCategory=await Category.find({})
  
     res.render('userpages/shop', { user, product, newCategory })
+    }catch{
+        res.render('error')
+    }
 }
 
 const blog = (req, res) => {

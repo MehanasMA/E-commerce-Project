@@ -36,22 +36,25 @@ const checkoutPage = async (req, res) => {
             { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
             { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }
             ]);
-          console.log("listt=====",cartList);
+        //   console.log("listt=====",cartList);
             const items = await Cart.findOne({ userId })
             // console.log("items!!!!!!",items);
-            let coupencode
-            if (items.coupenCode) {
-                coupencode = items.coupenCode
-                // console.log("coupppppooooonnnn",coupencode);
-            }
 
-            let discount;
-            if (coupencode) {
-                const coupens = await coupen.findOne({ couponCode: coupencode })
+            
+             
+            // let coupencode
+            // if (items.coupenCode) {
+            //     coupencode = items.coupenCode
+            //     // console.log("coupppppooooonnnn",coupencode);
+            // }
 
-                const discountt = coupens.discountPercentage
+            // let discount;
+            // if (coupencode) {
+            //     const coupens = await coupen.findOne({ couponCode: coupencode })
 
-                // console.log(discountt);
+            //     const discountt = coupens.discountPercentage
+
+            //     console.log(discountt);
             
             let total;
             let subtotal = 0;
@@ -69,30 +72,30 @@ const checkoutPage = async (req, res) => {
                 shipping = 0
             }
             
-            if(subtotal>15000){
-                discount = (subtotal) * (discountt/100)
-            }else{
-                discount=0
-            }
-            // console.log("subtotal",discount);
+            // if(subtotal>15000){
+            //     discount = (subtotal) * (discountt/100)
+            // }else{
+            //     discount=0
+            // }
+            // // console.log("subtotal",discount);
 
 
             let grandtotal
-            if (discount) {
-                grandtotal = subtotal + shipping - discount
-            } else {
+            // if (discount) {
+            //     grandtotal = subtotal + shipping - discount
+            // } else {
 
             grandtotal = subtotal + shipping
-            }
+            
           
         // console.log("fghjklllvbnmmmvbnm");
 
-            res.render('userpages/checkoutpage', { user, cartList, grandtotal, subtotal, shipping,discount ,useraddress})
+            res.render('userpages/checkoutpage', { user, cartList, grandtotal, subtotal, shipping ,useraddress})
         } else {
             req.flash('error', 'You are not logged in')
             // res.redirect('back')
         }
-    }} catch (err) {
+    } catch (err) {
         // res.render('error', { err })
     }
 }
@@ -104,19 +107,20 @@ const placeOrder = async (req, res) => {
         const user = await User.findOne({ email })
         const id = user._id
         // const userId = new mongoose.Types.ObjectId(usrId)
-       
+       console.log("user",id);
         const prodId = req.body.cartId
         // const cartId = new mongoose.Types.ObjectId(prodId)
         // console.log(cartId);
         const items = await Cart.findById({ _id: prodId })
-        // console.log("lkjhgghjbjbjvjhqdvjhqdv",items);
-        // const coupencode = items.coupenCode
-        // let discount;
-        // if (coupencode) {
-        //     const coupens = await coupenData.findOne({ code: coupencode })
-        //     discount = coupens.discount
+        console.log("lkjhgghjbjbjvjhqdvjhqdv",items);
+        const coupencode = items.coupenCode
+        let discount;
+        if (coupencode) {
+            const coupens = await coupenData.findOne({ code: coupencode })
+            discount = coupens.discount
+            console.log("gghhghg",discount);
 
-        // }
+        }
         
         const cartList = await Cart.aggregate([{ $match: { id } }, { $unwind: '$cartItem' },
         { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
@@ -189,7 +193,7 @@ const placeOrder = async (req, res) => {
         await Cart.deleteOne({ _id: prodId })
         
     } catch (err) {
-        // res.render('error', { err })
+        res.render('error', { err })
     }
 }
 

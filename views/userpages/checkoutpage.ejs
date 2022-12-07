@@ -209,6 +209,10 @@
 			<div class="container p-3">
 					<input type="hidden" value="<%= cartList[0]._id %>" name="cartId">
 				<div class="row">
+					<div class="table-coupon d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left">
+						<input type="text" placeholder="Coupon code" id="usercode" name="usercode">
+						<button class="btn btn-primary" id="button" type="button" onclick="coupen()">Apply coupon</button>
+					</div>
 					<div class="cart-block-left col-md-4 order-md-2 mb-4">
 						<div class="list-group mb-3">
 							<div class="list-group-item d-flex justify-content-between lh-condensed">
@@ -236,7 +240,13 @@
 									<h6 class="my-0">Discount</h6>
 									<small></small>
 								</div>
-								<span class="text-success">Rs.<%= discount%></span>
+								<h6>Rs.<span class="text-success" id="discount">0</span></h6>
+								<!-- <div class="single-total-content d-flex justify-content-between float-left w-100">
+									<strong>Discount</strong> -->
+									<!-- <h6 class="font-weight-medium">Rs.<span id="discount">0</span> </h6> -->
+								
+								
+								<!-- </div> -->
 
 							</div>
 
@@ -251,7 +261,7 @@
 
 							<div class="list-group-item d-flex justify-content-between">
 								<strong>Total </strong>
-								<strong>Rs <%= grandtotal%></strong>
+								<strong>Rs <span id="grandtotal"> <%= grandtotal%></span></strong>
 							</div>
 
 							<div class="list-group-item  justify-content-between">
@@ -364,6 +374,14 @@
 	  		</div>
 		</div>			
 	</form>
+	<div class="table-bottom-wrapper">
+		
+		<div class=" d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left">
+	
+			<button type="button" class=" btn btn-primary "><a href="/shop">Continue Shopping</a></button>
+		</div>
+	
+	</div>
 	 
 
 
@@ -653,6 +671,7 @@
 							console.log(response);
 							// alert(response)
 							if (response.codSuccess) {
+								console.log(response.codSuccess);
 								location.href = '/checkout/orderSuccess'
 							} else {
 								razorpayPayment(response)
@@ -725,6 +744,50 @@
 							success: location.reload()
 						})
 				}
+
+
+				   function coupen() {
+
+						const usercode = document.getElementById('usercode').value
+						console.log("usercode", usercode);
+						let disc = document.getElementById('discount').innerHTML
+
+						console.log("kgjkjgkejrg", disc);
+						fetch('/admin/applyCoupen/' + usercode, {
+							method: 'post',
+							headers: {
+								'Content-Type': 'application/json',
+
+
+							},
+							body: JSON.stringify({ disc })
+
+						})
+							.then(res => res.json())
+							.then(data => {
+								discount = data.success
+                                console.log(discount);
+								if (parseInt(document.getElementById('grandtotal').innerHTML) > 15000) {
+
+									if (parseInt(document.getElementById('discount').innerHTML) > 0) {
+										console.log("disssssssssss");
+										document.getElementById('button').disabled = true
+										console.log("hfhfhghg");
+									} else {
+										console.log("else");
+										coupen = Math.round(document.getElementById('grandtotal').innerHTML * (discount.discountPercentage / 100))
+										console.log("cpn", coupen);
+										document.getElementById('discount').innerHTML = coupen
+										document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('grandtotal').innerHTML) - parseInt(coupen)
+
+										console.log("heyyyyy");
+									}
+								}
+								else if (parseInt(document.getElementById('grandtotal').innerHTML) < 15000) {
+									document.getElementById('discount').innerHTML = '0'
+								}
+							})
+					}
 
 			</script>
 

@@ -107,11 +107,12 @@ const applyCoupen = async (req, res) => {
                 const users=await User.findOne({email})
                 const userId = users._id
                 console.log("userId", userId);
-                const user = await CartItem.findOneAndUpdate({  id:userId }, { coupenCode: usercode })
+                const user = await CheckoutData.findOneAndUpdate({  id:userId }, { coupenCode: usercode })
                 console.log("user", user);
                 const discount = code[0]
+
+                console.log("discounttttttt---------",discount);
                 res.send({ success: discount })
-                // console.log(discount);
                 console.log(res.send);
             } else {
                 console.log("expired", code);

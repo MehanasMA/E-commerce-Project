@@ -26,7 +26,7 @@ admin_route.post("/adminloginpost", adminController.addadminpost);
 
 admin_route.get("/dashboard", adminController.adminhome);
 
-admin_route.get("/accounts", adminController.account);
+// admin_route.get("/accounts", adminController.account);
 
 // admin_route.get("/editproduct", adminController.editproductget)
 
@@ -61,6 +61,11 @@ admin_route.post("/coupon", couponController.couponAdd);
 admin_route.delete("/coupon", couponController.couponDelete);
 
 admin_route.post('/applyCoupen/:id', couponController.applyCoupen)
+
+admin_route.get('/editOrders/:id', adminController.editOrder)
+
+admin_route.post('/updateOrder/:id', adminController.updateOrder)
+
 
 
 

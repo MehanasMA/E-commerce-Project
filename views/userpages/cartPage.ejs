@@ -231,14 +231,7 @@
 		</div>
 	</header>
 
-	<!-- <nav aria-label="breadcrumb" class="w-100 float-left">
-		<ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
-			style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active" aria-current="page">cart</li>
-
-		</ol>
-	</nav> -->
+	</nav> `																				
 
 	<div class="cart-area table-area pt-110 pb-95 float-left w-100">
 		<div class="container">
@@ -308,12 +301,7 @@
 												<td class="align-middle ">Rs.<span id="total<%= p.item %>">
 														<%= total %>
 													</span> </td>
-												<!-- <td class="align-middle">
-														<button type="button" data-toggle="modal"
-															data-target="#exampleModal<%= p.item %>"
-															class="btn btn-sm btn-primary"><i
-																class="fa fa-times"></i></button>
-													</td> -->
+												
 								</tr>
 								</tr>
 								<%})%>
@@ -324,18 +312,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="table-bottom-wrapper">
-						<div
-							class="table-coupon d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left">
-							<input type="text" placeholder="Coupon code" id="usercode" name="usercode">
-							<button class="btn btn-primary" id="button" type="button" onclick="coupen()">Apply coupon</button>
-						</div>
-						<div class=" d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left">
-							
-							<button type="button" class=" btn btn-primary "><a href="/shop">Continue Shopping</a></button>
-						</div>
-
-					</div>
+					
 				</div>
 				<div
 					class="table-total-wrapper d-flex justify-content-end pt-60 col-md-12 col-sm-12 col-lg-4 float-left  align-items-center">
@@ -393,24 +370,7 @@
 		</div>
 	</div>
 	<!-- Footer -->
-	<!-- <div class="block-newsletter"> -->
-			<!-- <div class="container">
-				<div class="tt-newsletter col-sm-7">
-					<h2 class="text-uppercase">Subscribe to our Newsletter</h2>
-				</div>
-				<div class="block-content col-sm-5">
-					<form method="post" action="contact-us.html">
-						<div class="input-group">
-							<input type="email" name="email" value="" placeholder="Email address.." required=""
-								class="form-control">
-							<span class="input-group-btn">
-								<button class="btn btn-theme text-uppercase btn-primary"
-									type="submit">Subscribe</button>
-							</span>
-						</div>
-					</form>
-				</div>
-			</div> -->
+
 		</div>
 	</div>
 	<footer class="page-footer font-small footer-default">
@@ -810,7 +770,7 @@
 
 					<script>
 					function inc(id) {
-						let discount = document.getElementById('discount').innerHTML
+						
 						// let count = document.getElementById(id).value
 						let price = document.getElementById('price' + id).innerHTML
 						fetch('/cart/itemInc/' + id, {
@@ -825,33 +785,18 @@
 						.then(data => {
 							document.getElementById(id).value++
 							document.getElementById('total' + id).innerHTML = parseInt(price) * parseInt(document.getElementById(id).value)
-							console.log(price);
+							
 							document.getElementById('subtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('price' + id).innerHTML)
-							console.log(typeof(document.getElementById('subtotal').innerHTML));
-							document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML)-parseInt(discount)
+						
+							document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML)
 						})
 					}
 
 					function dec(id) {
 							let price = document.getElementById('price' + id).innerHTML
 							let count = document.getElementById(id).value
-							// let row = document.getElementById('row' + id)
 							if (count > 1) {
-							// 	fetch('/cart/itemDelete/' + id, {
-							// 		method: 'put',
-							// 		headers: {
-							// 			'Content-type': 'application/json',
-							// 		},
-							// 		body: JSON.stringify({ hai: "jhj" })
-							// 	})
-							// 		.then(res => res.json())
-							// 		.then(data => {
-							// 			document.getElementById('subtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) - parseInt(document.getElementById('total' + id).innerHTML)
-							// 			document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML)
-							// 			row.remove()
-							// 			success: location.reload()
-							// 		})
-							// } else {
+							
 								fetch('/cart/itemDec/' + id, {
 									method: 'post',
 									headers: {
@@ -886,54 +831,13 @@
 							.then(res => res.json())
 							.then(data => {
 								document.getElementById('subtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) - parseInt(document.getElementById('total' + id).innerHTML)
-								document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML) - parseInt(document.getElementById('discount').innerHTML)
+								document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('subtotal').innerHTML) + parseInt(document.getElementById('shipping').innerHTML) 
 								row.remove()
 								success: location.reload()
 							})
 					}
 
-                  function coupen() {
-
-						const usercode = document.getElementById('usercode').value
-						console.log("usercode", usercode);
-						let disc = document.getElementById('discount').innerHTML
-
-						console.log("kgjkjgkejrg", disc);
-						fetch('/admin/applyCoupen/' + usercode, {
-							method: 'post',
-							headers: {
-								'Content-Type': 'application/json',
-
-
-							},
-							body: JSON.stringify({ disc })
-
-						})
-							.then(res => res.json())
-							.then(data => {
-								discount = data.success
-									
-								if (parseInt(document.getElementById('grandtotal').innerHTML) > 15000) {
-
-									if (parseInt(document.getElementById('discount').innerHTML) > 0) {
-										console.log("disssssssssss");
-										document.getElementById('button').disabled = true
-										console.log("hfhfhghg");
-									} else {
-										coupen = Math.round(document.getElementById('grandtotal').innerHTML * (discount.discountPercentage / 100))
-										console.log("cpn", coupen);
-										document.getElementById('discount').innerHTML = coupen
-										document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('grandtotal').innerHTML) - parseInt(coupen)
-
-										console.log("heyyyyy");
-									}
-								}
-								else if (parseInt(document.getElementById('grandtotal').innerHTML) < 15000) {
-									document.getElementById('discount').innerHTML = '0'
-								}
-							})
-					}
-
+               
 				</script> 
 					<!--End of Tawk.to Script-->
 

@@ -41,8 +41,24 @@ const saveBanner = async (req, res) => {
     }
 }
 
+
+const bannertDelete = async (req, res) => {
+    let deleted = false;
+    const { bannerId } = req.body;
+
+    try {
+        await bannerData.deleteOne({ _id: bannerId });
+        deleted = true
+    } catch {
+        res.send("error!!!!!!!!!!!!!!!!!!!!!")
+    }
+    res.send({ deleted })
+}
+
+
 module.exports = {
     setBanner,
     addBanner,
-    saveBanner
+    saveBanner,
+    bannertDelete 
  }

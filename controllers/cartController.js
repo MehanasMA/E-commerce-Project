@@ -4,88 +4,7 @@ const Product = require('../models/productSchema')
 const Cart = require('../models/cartSchema')
 const mongoose = require('mongoose')
 const userRoute=require('../controllers/userController')
-// const cartRoute=require('../routes/cartRoute')
 
-// const addToCart = async (req, res) => {
-   
-//     try {
-//         console.log("innnnnnnnn");
-//         if (req.session.email) {
-//             console.log("session",req.session.email);
-//             const productId = req.params.id
-//             console.log("jnjs",productId);
-//             // const productId = new mongoose.Types.OdbjectId(prodId)
-//             const email = req.session.email
-//             console.log("emailllllll",email);
-//             const user=await User.findOne({email})
-//             console.log("userrrrrrrrrrrrrrr",user);
-            
-            
-//             const id =user._id
-//             console.log("id",id);
-//             const item = await Product.findOne({ _id: productId })
-//             const price = item.product_price
-//             const detail = await User.findById({ _id: id })
-            
-//             if (detail.state == true) {
-                
-//                 const userExist = await Cart.findOne({ id })
-                
-//                 console.log("userExxxxxxxxxxxxxxxxxxxx",userExist);
-//                 if (userExist) {
-//                     const productExist = await Cart.findOne({
-//                         $and: [{ id }, {
-//                             cartItem: {
-//                                 $elemMatch: {
-//                                     productId
-//                                 }
-//                             }
-//                         }]
-//                     })
-//                     console.log("productExxxxxxxxxx",productExist);
-//                     if (productExist) {
-                        
-//                         await Cart.findOneAndUpdate({ $and: [{ id }, { "cartItem.productId": productId }] }, { $inc: { "cartItem.$.quantity": 1 } })
-                        
-//                         res.send({ success: true })
-//                         // res.redirect('/cart/userCart/:id')
-//                     } else {
-                        
-//                         await Cart.updateOne({ id }, { $push: { cartItem: { productId, quantity: 1, price } } })
-                        
-//                         res.send({ success: true })
-//                         // res.redirect('/cart/userCart/:id')
-//                     }
-//                 } else {
-//                     console.log("else");
-//                     const cart = new Cart({
-//                         id, cartItem: [{ productId, quantity: 1, price }]
-//                     })
-//                     console.log("detailllll",cart);
-//                    const save= await cart.save()
-//                     .then(() => {
-//                         res.send({ success: true })
-//                         // res.redirect('/cart/cart/:id')
-//                     })
-//                     .catch((err) => {
-//                         res.render('error', { err })
-//                     })
-//                 console.log("producttttttttttttttttttt",save);
-//                 }
-
-//             } else {
-//                 req.flash('error', 'You are unable to access the product')
-//                 res.redirect('/shop')
-//             }
-//         } else {
-//             req.flash('error', 'You are not logged in')
-//             res.redirect('/shop')
-//         }
-//     } catch (err) {
-//         // res.render('error', { err })
-//         console.log('error');
-//     }
-// }
 
 const addToCart = async (req, res) => {
     console.log("hgsad");
@@ -157,52 +76,6 @@ const addToCart = async (req, res) => {
     }
 }
 
-// const userCart = async (req, res) => {
- 
-//     try {
-        
-//         if (req.session.email) {
-            
-//             const email = req.session.email
-//             const user=await User.find({email})
-            
-//             const id=user._id;
-//             console.log("carrrrrrrrtttttttt",id);
-        
-//             const cartList = await Cart.aggregate([{ $match: { id } }, { $unwind: '$cartItem' },
-//             { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
-//             { $lookup: {from:'products', localField: 'item', foreignField: '_id', as: 'product' } }]);
-            
-        
-//             let total;
-//             let subtotal = 0;
-
-//             cartList.forEach((p) => {
-//                 p.product.forEach((p2) => {
-//                     total = (p2.product_price) * (p.itemQuantity)
-//                     subtotal += total
-//                 })
-//             })
-            
-//             let shipping = 0;
-//             if (subtotal < 15000) { 
-            
-//                 shipping = 150
-//             } else {
-//                 shipping = 0
-                
-//             }
-//             const grandtotal = subtotal + shipping
-//             console.log(grandtotal);
-//             res.render('userpages/cartPage', { cartList, subtotal, total, shipping, grandtotal })
-//         } else {
-//             req.flash('error', 'you are not logged in')
-//             res.redirect('/')
-//         }
-//     } catch (err) {
-//         // res.render('error', { err })
-//     }   
-// }
 
 
 const userCart = async (req, res) => {
