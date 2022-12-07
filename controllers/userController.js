@@ -77,6 +77,7 @@ const loginPost = async (req, res, next) => {
     const { Email, password } = req.body;
     const user = await User.findOne({ Email });
     const validPassword = await bcrypt.compare(password, user.password);
+    console.log(validPassword);
     if (validPassword) {
         req.session.email = user.email;
         // req.session.user_type = user.user_type;
