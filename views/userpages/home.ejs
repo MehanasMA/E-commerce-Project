@@ -94,6 +94,7 @@
 								</button>
 								<div id="user-dropdown" class="user-menu">
 									<ul>
+										<% if(user){ %>
 
 										<li><a href="/myaccount" class="text-capitalize">my account</a></li>
 
@@ -101,7 +102,7 @@
 										<!-- <li>Welcome <% user%></li>   -->
 										<li> <a class="" href="/logout">Logout</a></li>
 
-
+                                    <% }else{ %>
 
 
 										<li><a type="submit" class="modal-view button" data-toggle="modal"
@@ -110,7 +111,7 @@
 
 										<li><a href="#" class="modal-view button" data-toggle="modal"
 												data-target="#modalLoginForm">login</a></li>
-
+                                       <% } %>
 									</ul>
 								</div>
 							</div>
@@ -254,30 +255,7 @@
 					</div>
 				</div>
 			</div>
-			<!-- <div id="ttcmsaboutus" class="section ttaboutus my-40 my-sm-25">
-				<div class="container">
-					<div class="ttcmsaboutus ttabout d-lg-flex d-md-flex d-sm-flex d-xs-block align-items-center">
-						<div
-							class="ttcmsabout-img col-sm-6 col-xs-12 float-left left-to-right hb-animate-element hb-in-viewport">
-							<div class="ttimage"><a href="#"><img src="img/banner/cms-aboutus.jpg" alt="banner_1"></a>
-							</div>
-						</div>
-						<div
-							class="ttcmsabout-desc col-sm-6 col-xs-12 float-left right-to-left hb-animate-element hb-in-viewport">
-							<div class="ttabout-title text-capitalize font-italic mb-30 position-relative">Women's
-								Fashion</div>
-							<div class="ttabout-subtitle text-uppercase position-relative mb-30">Get Started with Decor.
-							</div>
-							<div class="ttabout-desc mb-40">Duis faucibus enim vitae nunc molestie, nec facilisis arcu
-								pulvinar. Nullam mattis arcu convallis, bibendum dui ac, laoreet est. Vivamus interdum
-								earcu convallis, bibendum dui ac, laoreet est.</div>
-							<div class="ttbtn"><a href="#" class="btn-primary text-capitalize">go,shop</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
- -->
-			<!-- <div id="ttcmsaboutus" class="section ttaboutus my-40 my-sm-25"> -->
+			
 			<div class="ttcmsaboutus ttabout d-lg-flex d-md-flex d-sm-flex d-xs-block align-items-center">
 
 				<div class="container-fluid">

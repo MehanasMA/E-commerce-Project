@@ -39,6 +39,7 @@ const home = async (req, res) => {
         let cartItems;
         let wishlistItems
         let orderData
+        let user
         if (req.session.user) {
             const userId = req.session.user._id
             orderData = await checkoutData.find({ userId: userId })
