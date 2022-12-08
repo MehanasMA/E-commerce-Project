@@ -22,8 +22,8 @@ let transporter = nodemailer.createTransport({
     service: "Gmail",
 
     auth: {
-        user: 'mamehanas88.gmail.com',
-        pass: 'mnyxapkyfetljzon'
+        user: 'mamehanas88@gmail.com',
+        pass: 'wtfuokqbkhcgqgsm'
     },
 });
 const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
@@ -81,8 +81,7 @@ const loginPost = async (req, res, next) => {
     console.log(validPassword);
     if (validPassword) {
         req.session.email = user.email;
-        // req.session.user_type = user.user_type;
-        // req.session.user_id = user._id;
+       
 
         res.redirect('/')
     }

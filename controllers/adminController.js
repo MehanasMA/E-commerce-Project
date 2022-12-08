@@ -18,7 +18,7 @@ const Brand = require("../models/brandSchema");
 
 
 const addadmin = (req, res) => {
-    res.render("Adminlogin");
+    res.render("Adminlogin", { message: req.flash("invalid") });
 }
 
 

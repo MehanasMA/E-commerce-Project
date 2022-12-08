@@ -2,18 +2,19 @@
 <html lang="en">
 
 <head>
-	<title>Fashion Template for Bootstrap</title>
+	<title>My Cart</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,900" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+	
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
 	<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -31,216 +32,175 @@
 </head>
 
 <body>
+<header class="header-area header-sticky text-center header-default">
+	<div class="header-main-sticky">
+		
+		<div class="header-main-head">
 
-	<header class="header-area header-sticky text-center header-default">
-		<div class="header-main-sticky">
-			<div class="header-nav">
+			<div class="header-main">
+				<div class="container">
+					<div class="header-left float-left d-flex d-lg-flex d-md-block d-xs-block">
 
-			</div>
-			<div class="header-main-head">
+						<div class="currency-wrapper toggle">
 
-				<div class="header-main">
-					<div class="container">
-						<div class="header-left float-left d-flex d-lg-flex d-md-block d-xs-block">
-
-
-							<div class="contact">
-								<i class="material-icons">phone</i>
-								<span>1234567890</span>
-							</div>
 						</div>
-						<div class="header-middle float-left">
-							<div class="logo">
-								<a href="/"><img src="/img/logos/logo.png" alt="NatureCircle"></a>
-							</div>
+						<div class="contact">
+							<i class="material-icons">phone</i>
+							<span>1234567890</span>
 						</div>
-						<div class="header-right d-flex d-xs-block d-sm-flex justify-content-end float-right">
-							<div class="search-wrapper">
-								<a>
-									<i class="material-icons search">search</i>
-									<i class="material-icons close">close</i>
-								</a>
-								<form autocomplete="off" action="/action_page.php" class="search-form">
-									<div class="autocomplete" style="width:300px;">
-										<input id="myInput" type="text" name="myCountry" placeholder="Search here">
-										<button type="button"><i class="material-icons">search</i></button>
-									</div>
-								</form>
-							</div>
-							<div class="user-info">
-								<button type="button" class="btn">
-									<i class="material-icons">perm_identity</i>
-								</button>
-								<div id="user-dropdown" class="user-menu">
-									<ul>
-										<li><a href="/myaccount" class="text-capitalize">my account</a></li>
-										<li><a href="#" class="modal-view button" data-toggle="modal"
-												data-target="#modalRegisterForm">Register</a></li>
-										<li><a href="#" class="modal-view button" data-toggle="modal"
-												data-target="#modalLoginForm">login</a></li>
-									</ul>
+					</div>
+					<div class="header-middle float-lg-left float-md-left float-sm-left float-xs-none">
+						<div class="logo">
+							<a href="/"><img src="/img/logos/logo.png" alt="NatureCircle"></a>
+						</div>
+					</div>
+					<div class="header-right d-flex d-xs-flex d-sm-flex justify-content-end float-right">
+						<div class="search-wrapper">
+							<a>
+								<i class="material-icons search">search</i>
+								<i class="material-icons close">close</i>
+							</a>
+							<form autocomplete="off" action="/action_page.php" class="search-form">
+								<div class="autocomplete" style="width:300px;">
+									<input id="myInput" type="text" name="myCountry" placeholder="Search here">
+									<button type="button"><i class="material-icons">search</i></button>
 								</div>
-							</div>
-							<div class="cart-wrapper">
-								<button type="button" class="btn">
-									<i class="material-icons">shopping_cart</i>
-									<span class="ttcount">2</span>
-								</button>
-								<div id="cart-dropdown" class="cart-menu">
-									<ul class="w-100 float-left">
-										<li>
-											<table class="table table-striped">
-												<tbody>
-													<tr>
-														<td class="text-center"><a href="#"><img
-																	src="img/products/01.jpg" alt="01" title="01"></a>
-														</td>
-														<td class="text-left product-name"><a href="#">aliquam quaerat
-																voluptatem</a>
-															<div class="quantity float-left w-100">
-																<span class="cart-qty">1 × </span>
-																<span class="text-left price"> $20.00</span>
-															</div>
-														</td>
-														<td class="text-center close"><a class="close-cart"><i
-																	class="material-icons">close</i></a></td>
-													</tr>
+							</form>
+						</div>
+						<div class="user-info">
+							<button type="button" class="btn">
+								<i class="material-icons">perm_identity</i>
+							</button>
+							<div id="user-dropdown" class="user-menu">
+								<ul>
 
-												</tbody>
-											</table>
-										</li>
-										<li>
-											<table class="table price mb-30">
-												<tbody>
-													<tr>
-														<td class="text-left"><strong>Total</strong></td>
-														<td class="text-right"><strong>$2,122.00</strong></td>
-													</tr>
-												</tbody>
-											</table>
-										</li>
-										<li class="buttons w-100 float-left">
-											<form action="cart_page.html">
+
+									<li><a href="/myaccount" class="text-capitalize">my account</a></li>
+
+
+									
+									<li> <a class="" href="/logout">Logout</a></li>
+
+
+
+
+									<li><a type="submit" class="modal-view button" data-toggle="modal"
+											data-target="#modalRegisterForm">Register</a></li>
+
+
+									<li><a href="#" class="modal-view button" data-toggle="modal"
+											data-target="#modalLoginForm">login</a></li>
+
+								</ul>
+							</div>
+						</div>
+						<div class="cart-wrapper">
+							<form action="/cart/cartpage" method="get">
+
+								<button class="btn" type="submit"><a href="/cart/cartpage">
+										<i class="material-icons">shopping_cart</i>
+									</a>
+								</button>
+							</form>
+							<div id="cart-dropdown" class="cart-menu">
+								<ul class="w-100 float-left">
+
+
+									<!-- <li class="buttons w-100 float-left">
+											<form action="/cart/cartpage" method="get">
 												<input class="btn pull-left mt_10 btn-primary btn-rounded w-100"
-													value="/cart/cart" type="submit">
+													value="View cart" type="submit">
 											</form>
-											<form action="checkout_page.html">
+											<form action="/checkout/checkout">
 												<input class="btn pull-right mt_10 btn-primary btn-rounded w-100"
-													value="/Checkout" type="submit">
+													value="Checkout" type="submit">
 											</form>
-										</li>
-									</ul>
-								</div>
+										</li> -->
+								</ul>
 							</div>
+						</div>
+						<div>
+
+
+							<i class="fa-solid fa-heart"></i>
+							<span class="material-symbols-outlined"><a href="/wishlist/wishlist">
+									favorite</a>
+							</span>
+
+
+
 						</div>
 					</div>
 				</div>
-				<div class="menu">
-					<div class="container">
-						<!-- Navbar -->
-						<nav class="navbar navbar-expand-lg navbar-light d-sm-none d-xs-none d-lg-block">
+			</div>
+			<div class="menu">
+				<div class="container">
+					<!--- Navbar -->
+					<nav class="navbar navbar-expand-lg navbar-light d-sm-none d-xs-none d-lg-block navbar-full">
 
-							<!-- Navbar brand -->
-							<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
+						<!-- Navbar brand -->
+						<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
 
-							<!-- Collapse button -->
-							<button class="navbar-toggler" type="button" data-toggle="collapse"
-								data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
-								aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+						<!-- Collapse button -->
+						<button class="navbar-toggler" type="button" data-toggle="collapse"
+							data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
+							aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
 
-							<!-- Collapsible content -->
-							<div class="collapse navbar-collapse">
+						<!-- Collapsible content -->
+						<div class="collapse navbar-collapse">
 
-								<!-- Links -->
-								<ul class="navbar-nav m-auto justify-content-center">
+							<!-- Links -->
+							<ul class="navbar-nav m-auto justify-content-center">
+								<li class="nav-item  active">
+									<a class="nav-link text-uppercase" href="/">
+										Home
+										<span class="sr-only">(current)</span> </a>
 
-									<!-- Features -->
-									<li class="nav-item active">
-										<a class="nav-link  text-uppercase" href="/">
-											Home
-											<span class="sr-only"></span> </a>
-										<div class=" mega-menu v-2 z-depth-1 special-color py-3 px-3">
-											<div class="sub-menu mb-xl-0 mb-4">
-												<h6 class="sub-title text-uppercase font-weight-normal white-text">
+								</li>
+								<!-- <li class="nav-item">
+										<a class="nav-link text-uppercase" href="/category">Category</a>
 
-											</div>
-										</div>
-									</li>
-									<li class="nav-item ">
-										<a class="nav-link  text-uppercase" href="/category">
-											Category
-											<span class="sr-only"></span> </a>
-										<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
-											<div class="sub-menu mb-xl-0 mb-4">
-												<h6 class="sub-title text-uppercase font-weight-normal white-text">
+									</li> -->
+								<li class="nav-item ">
+									<a class="nav-link text-uppercase" href="/about">About us</a>
+								</li>
 
 
-											</div>
-										</div>
-									</li>
-									<!-- Technology -->
-									<li class="nav-item">
-										<a class="nav-link  text-uppercase" href="/shop">Shop</a>
-										<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
-											<div class="row">
-												<div class="col-md-12 col-xl-4 sub-menu mb-xl-0 mb-4">
-													<h6 class="sub-title text-uppercase font-weight-normal white-text">
-														Product page</h6>
-													<!--Featured image-->
+								<li class="nav-item">
+									<a class="nav-link text-uppercase" href="/shop">
+										Shop
+										<span class="sr-only">(current)</span> </a>
 
+								</li>
 
-												</div>
+								<li class="nav-item ">
+									<a class="nav-link text-uppercase" href="/contact">Contact us</a>
+								</li>
+								
+							</ul>
+							<!-- Links -->
+						</div>
+						<!-- Collapsible content -->
 
-											</div>
-										</div>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link  text-uppercase" href="/category">Blog</a>
-
-									</li>
-									<li class="nav-item ">
-										<a class="nav-link text-uppercase" href="/contact">contact us</a>
-									</li>
-								</ul>
-								<!-- Links -->
-							</div>
-							<!-- Collapsible content -->
-
-						</nav>
-						<!-- Navbar -->
-						<nav class="navbar navbar-expand-lg navbar-light d-lg-none navbar-responsive">
-
-							<!-- Navbar brand -->
-							<a class="navbar-brand text-uppercase d-none" href="#">Navbar</a>
-
-							<!-- Collapse button -->
-							<button class="navbar-toggler" type="button" data-toggle="collapse"
-								data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
-								aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"><i class='material-icons'>sort</i></span>
-							</button>
-
-
-						</nav>
-					</div>
+					</nav>
 				</div>
 			</div>
 		</div>
-	</header>
+	</div>
+</header>
 
-	</nav> 																				
+	<!-- </nav> 																				 -->
 
 	<div class="cart-area table-area pt-110 pb-95 float-left w-100">
 		<div class="container">
 			<div class="row">
+				<% if(cartList.length>0){ %>
 				<div class="col-lg-8 col-md-12 col-sm-12 float-left cart-wrapper">
 					<div class="table-responsive">
 						<table class="table product-table text-center">
 							<thead>
-								<% if(cartList.length>0){ %>
 									<tr>
 										<th class="table-remove text-capitalize">remove</th>
 										<th class="table-image text-capitalize">image</th>
@@ -329,15 +289,13 @@
 									<%= shipping %>
 								</span>
 							</div>
-							<div class="single-total-content d-flex justify-content-between float-left w-100">
+							<!-- <div class="single-total-content d-flex justify-content-between float-left w-100">
 								<strong>Discount</strong>
 					         <h6 class="font-weight-medium">Rs.<span id="discount">0</span> </h6>
 									
 			
-							</div>
-							<!-- <div class="single-total-content d-flex justify-content-end float-left w-100">
-								<a href="#">Calculate shipping</a>
 							</div> -->
+							
 							<div class="single-total-content tt-total d-flex justify-content-between float-left w-100">
 								<strong>Total</strong>
 								<span class="c-total-price " id="grandtotal">
@@ -349,23 +307,24 @@
 								checkout</a>
 						</div>
 					</div>
+					</div>
               
 					<%} else {%>
 						<div class=" text-center mt-2 mr-5">
                               <div class="p-5">
 								<div class="px-5">
-							<h2>
+							<h2 class="p-1">
 								Your cart is currently empty</h2><br>
-							<p> Before proceed to checkout you must add some products to your shopping cart. You will
+							<h4><p class="p-5"> Before proceed to checkout you must add some products to your shopping cart. You will
 								find a lot of interesting
-								products on our "Shop" page.</p>
+								products on our "Shop" page.</p></h4>
 
-								<button class="btn "><a href="/shop">Shop Now</a></button>
+								<button class="btn btn-primary p-2 px-3"><a href="/shop">Shop Now</a></button>
 							<%}%>
 							</div>
 							</div>
 						</div>
-				</div>
+				
 			</div>
 
 		</div>
@@ -374,7 +333,7 @@
 
 		</div>
 	</div>
-	<footer class="page-footer  font-small footer-default">
+	<footer class="page-footer mt-5 font-small footer-default">
 		<div class="container-fluid">
 		<div class="container-fluid text-center text-md-left">
 			<div class="row">
@@ -491,214 +450,7 @@
 	</footer>
 	<!-- Footer -->
 
-	<!-- Register modal -->
-	<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header text-center">
-					<h4 class="modal-title w-100 font-weight-medium text-left">Sign up</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body mx-3">
-					<div class="md-form mb-4">
-						<input type="text" id="RegisterForm-name" class="form-control validate" placeholder="Your name">
-					</div>
-					<div class="md-form mb-4">
-						<input type="email" id="RegisterForm-email" class="form-control validate"
-							placeholder="Your email">
-					</div>
-					<div class="md-form mb-4">
-						<input type="password" id="RegisterForm-pass" class="form-control validate"
-							placeholder="Your password">
-					</div>
-					<div class="checkbox-link d-flex justify-content-between">
-						<div class="left-col">
-							<input id="remember-me" type="checkbox"><label for="remember_me">Remember Me</label>
-						</div>
-						<div class="right-col"><a href="#">Forget Password?</a></div>
-					</div>
-				</div>
-
-				<div class="modal-footer d-flex justify-content-center">
-					<button class="btn btn-primary">Sign up</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Login modal -->
-	<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header text-center">
-					<h4 class="modal-title w-100 font-weight-medium text-left">Sign in</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body mx-3">
-					<div class="md-form mb-4">
-						<input type="text" id="LoginForm-name" class="form-control validate" placeholder="Your name">
-					</div>
-					<div class="md-form mb-4">
-						<input type="password" id="LoginForm-pass" class="form-control validate"
-							placeholder="Your password">
-					</div>
-					<div class="checkbox-link d-flex justify-content-between">
-						<div class="left-col">
-							<input type="checkbox" id="remember_me"><label for="remember_me">Remember Me</label>
-						</div>
-						<div class="right-col"><a href="#">Forget Password?</a></div>
-					</div>
-				</div>
-
-				<div class="modal-footer d-flex justify-content-center">
-					<button class="btn btn-primary">Sign in</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- product_view modal -->
-	<div class="modal fade product_view" id="product_view" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title w-100w-100w-100 font-weight-bold d-none">Quick view</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-6 left-columm">
-							<div class="product-large-image tab-content">
-								<div class="tab-pane active" id="product-1" role="tabpanel"
-									aria-labelledby="product-tab-1">
-
-								</div>
-
-							</div>
-							<div class="small-image-list float-left w-100">
-								<div class="nav-add small-image-slider-single-product-tabstyle-3 owl-carousel"
-									role="tablist">
-
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 product_content">
-							<h4 class="product-title text-capitalize">aliquam quaerat voluptatem</h4>
-							<div class="rating">
-								<div class="product-ratings d-inline-block align-middle">
-									<span class="fa fa-stack"><i class="material-icons">star</i></span>
-									<span class="fa fa-stack"><i class="material-icons">star</i></span>
-									<span class="fa fa-stack"><i class="material-icons">star</i></span>
-									<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-									<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-								</div>
-							</div>
-							<span class="description float-left w-100">Lorem Ipsum is simply dummy text of the printing
-								and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-								since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-								a type specimen book.</span>
-							<h3 class="price float-left w-100"><span
-									class="regular-price align-middle">$75.00</span><span
-									class="old-price align-middle">$60.00</span></h3>
-
-							<div class="product-variants float-left w-100">
-
-								<div class="color-option d-flex align-items-center">
-									<h5>color :</h5>
-									<ul class="color-categories">
-										<li class="active">
-											<a class="tt-pink" href="#" title="Pink"></a>
-										</li>
-										<li>
-											<a class="tt-blue" href="#" title="Blue"></a>
-										</li>
-										<li>
-											<a class="tt-yellow" href="#" title="Yellow"></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="btn-cart d-flex align-items-center float-left w-100">
-								<h5>qty:</h5>
-								<input value="1" type="number">
-								<button type="button" class="btn btn-primary"><i
-										class="material-icons">shopping_cart</i> Add To Cart</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- cart-pop modal -->
-
-	<!-- <div class="modal fade" id="cart-pop" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header alert-success">
-					<h4 class="modal-title w-100w-100w-100">Product successfully added to your shopping cart</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-6 divide-right">
-							<div class="row">
-								<div class="col-md-5 col-xs-4 product-img float-left">
-
-								</div>
-								<div class="col-md-7 col-xs-8 product-desc float-left">
-									<h4 class="product-title text-capitalize">aliquam quaerat voluptatem</h4>
-									<div class="rating">
-										<div class="product-ratings">
-											<span class="fa fa-stack"><i class="material-icons">star</i></span>
-											<span class="fa fa-stack"><i class="material-icons">star</i></span>
-											<span class="fa fa-stack"><i class="material-icons">star</i></span>
-											<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-											<span class="fa fa-stack"><i class="material-icons off">star</i></span>
-										</div>
-									</div>
-									<h3 class="price float-left w-100"><span
-											class="regular-price align-middle">$75.00</span><span
-											class="old-price align-middle">$60.00</span></h3>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 divide-left">
-							<p class="cart-products-count"></p>
-							<p class="total-products float-left w-100">
-								<strong>Total products: </strong>
-							</p>
-							<p class="shipping float-left w-100">
-								<strong>Total shipping: </strong>
-							</p>
-							<p class="total-price float-left w-100">
-								<strong>Total:</strong>
-							</p>
-							<div class="cart-content-btn float-left w-100">
-								<form action="#">
-									<input class="btn pull-right mt_10 btn-primary" value="Continue shopping"
-										type="submit">
-								</form>
-								<form action="checkout_page.html">
-									<input class="btn pull-right mt_10 btn-primary" value="Proceed to checkout"
-										type="submit">
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+	
 
 
 

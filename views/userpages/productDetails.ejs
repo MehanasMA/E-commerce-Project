@@ -37,39 +37,18 @@
 
     <header class="header-area header-sticky text-center header-default">
         <div class="header-main-sticky">
-            <div class="header-nav d-none">
-                <!-- <div class="container">
-					<div class="nav-left float-left">
-						<% if(user) {%>
-						<div class="ttheader-service">WELCOME....!!!!!
-					
-							<div class="nav-right float-right d-flex">
-								<div class="ttheader-mail"><a href="mailto:demo.store@gmail.com">demo.store@gmail.com</a></div>
-							<%}%></div>
-					</div>
-				</div>
-				</div> -->
-            </div>
+           
             <div class="header-main-head">
 
                 <div class="header-main">
                     <div class="container">
-                        <!-- <div class="header-left float-left d-flex d-lg-flex d-md-block d-xs-block">
-
-                            <div class="currency-wrapper toggle">
-
-                            </div>
-                            <div class="contact">
-                                <i class="material-icons">phone</i>
-                                <span>1234567890</span>
-                            </div>
-                        </div> -->
+                       
                         <div class="header-middle float-lg-left float-md-left float-sm-left float-xs-none ">
-                            <div class="logo pt-1 mb-2">
+                            <div class="logo">
                                 <a href="/"><img src="/img/logos/logo.png" alt="NatureCircle"></a>
                             </div>
                         </div>
-                        <div class="header-right d-flex d-xs-flex d-sm-flex justify-content-end float-right">
+                        <div class="header-right d-flex d-xs-flex d-sm-flex justify-content-end float-right mb-0">
                             <div class="search-wrapper">
                                 <a>
                                     <i class="material-icons search">search</i>
@@ -114,68 +93,19 @@
                                     </a>
                                 </button>
 
-                                <div id="cart-dropdown" class="cart-menu">
-                                    <ul class="w-100 float-left">
-                                        <li>
-                                            <table class="table table-striped">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-center"><a href="#"><img src="<% %>" alt="01"
-                                                                    title="01"></a>
-                                                        </td>
-                                                        <td class="text-left product-name"><a href="#">aliquam quaerat
-                                                                voluptatem</a>
-                                                            <div class="quantity float-left w-100">
-                                                                <span class="cart-qty">1 × </span>
-                                                                <span class="text-left price"> $20.00</span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-center close"><a class="close-cart"><i
-                                                                    class="material-icons">close</i></a></td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </li>
-                                        <li>
-                                            <table class="table price mb-30">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-left"><strong>Total</strong></td>
-                                                        <td class="text-right"><strong>$2,122.00</strong></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </li>
-                                        <li class="buttons w-100 float-left">
-                                            <form action="/cart/cartpage" method="get">
-                                                <input class="btn pull-left mt_10 btn-primary btn-rounded w-100"
-                                                    value="View cart" type="submit">
-                                            </form>
-                                            <form action="/checkout/checkout">
-                                                <input class="btn pull-right mt_10 btn-primary btn-rounded w-100"
-                                                    value="Checkout" type="submit">
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                             <div>
-                                <% if(user) { %>
-
+                        
                                     <i class="fa-solid fa-heart"></i>
                                     <span class="material-symbols-outlined"><a href="/wishlist/wishlist">
                                             favorite</a>
                                     </span>
-
-
-                                    <% }%>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="menu mt-4">
-                    <div class="container">
+                <div class="menu mt-5">
+                    <div class="container-fluid">
                         <!--- Navbar -->
                         <nav class="navbar navbar-expand-lg navbar-light d-sm-none d-xs-none d-lg-block navbar-full">
 
@@ -219,21 +149,7 @@
                                     <li class="nav-item ">
                                         <a class="nav-link text-uppercase" href="/contact">Contact us</a>
                                     </li>
-                                    <!-- <li class="nav-item">
-										<a class="nav-link text-uppercase" href="/blog">Blog</a>
-
-									</li> -->
-                                    <!-- <li class="nav-item dropdown">
-
-										<ul class="list-unstyled"> -->
-                                    <!-- <li>
-												<a class="menu-item pl-0" href="/about">
-													About us </a>
-											</li> -->
-
-                                    <!-- <li class="nav-item dropdown">
-												<a class="nav-link text-uppercase" href="/contact">contact us</a>
-											</li> -->
+                                   
                                 </ul>
                                 <!-- Links -->
                                 <!-- </div> -->
@@ -247,37 +163,25 @@
 
                 </div>
 
-                <div class="container-fluid text-center">
+                <div class="container-fluid text-center col-12">
                     <div class="row text-center">
                         <div class="col-6 text-center">
-                            <div class="col-md-4 ml-0 ">
-                                <div class="row ml-0">
-                                    <div class="col-md-12 float-left">
+                            <div class="col-6">
+                                <!-- <div class="row"> -->
+                                    <div class="col-12 ">
                                         <img class="img-fluid   d-block p-5" alt="Responsive image"
                                             src="<%= details.image[0].url %> " alt="">
                                     </div>
-                                    <div class="col-md-1">
-
-                                    </div>
-                                    <div class="col-md-5 ">
-
-                                        <button data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            onclick="wishlist('<%= details._id %>')" class="btn rounded text-light"
-                                            style=" background-color:orange;">To wishlist</button>
-                                    </div>
-                                    <div class="col-md-5 ">
-
-                                        <button data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                                            onclick="cartList('<%= details._id %>')" class="btn rounded text-light"
-                                            style="background-color: rgb(255, 94, 0);">Add To Cart</button>
-                                    </div>
-                            </div>    </div>
+                                   
+                                    
+                            </div>    
+                        <!-- </div> -->
                             </div>
                             
-                            <div class="col-6 float-left">
-                            <div class="col-md-6 float-left mt-4">
+                            <div class="col-6 ">
+                            <div class="col-5  mt-4">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-12 mt-5">
                                         <h3>
                                             <%= details.product_name %>
                                         </h3>
@@ -287,7 +191,7 @@
                                             <%= details.highlights %>
                                         </h6>
                                     </div> -->
-                                    <div class="col-md-3 pt-4 text-left">
+                                    <div class="col-12 mt-4 text-success ">
                                         <h4>Rs.<%= details.product_price %>
                                         </h4>
                                     </div>
@@ -298,13 +202,27 @@
                                     </div> -->
 
                                    
-                                    <div class="col-md-12 pt-4">
-                                        <h3>About this item:</h3>
+                                    <div class="col-12 pt-5">
+                                        <h5 class="p-3">About this item:</h5>
                                         <h5><p>
                                             <%= details.product_description %>
                                         </p></h5>
                                     </div>
                                 </div>
+                                <div class="row col-12 p-5">
+                                <!-- <div class="col-12"> -->
+                                <div class="col-6">
+                                
+                                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="wishlist('<%= details._id %>')"
+                                        class="btn rounded px-4 text-light" style=" background-color:orange;">To wishlist</button>
+                                </div>
+                                <div class="col-6 ">
+                                
+                                    <button data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="cartList('<%= details._id %>')"
+                                        class="btn rounded px-3 text-light" style="background-color: rgb(255, 94, 0);">Add To Cart</button>
+                                </div>
+                                </div>
+                                <!-- </div> -->
                             </div>
                         </div>
                         
@@ -314,7 +232,7 @@
             </div>
         </div>
     </div>
-    <footer class="page-footer fixed-bottom font-small footer-default">
+    <footer class="page-footer  font-small footer-default">
         <div class="container text-center text-md-left">
             <div class="row">
                 <div class="col-md-3 footer-cms footer-column">
@@ -399,18 +317,7 @@
             </div>
         </div>
         <!-- Copyright -->
-        <div class="footer-bottom-wrap">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-copyright text-center py-3">
-                        © 2019 - Boostrap theme by store™
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a href="#" id="goToTop" title="Back to top" class="btn-primary"><i
-                class="material-icons arrow-up">keyboard_arrow_up</i></a>
-    
+       
     
     </footer>
        
