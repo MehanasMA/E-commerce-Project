@@ -20,19 +20,19 @@
 		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link href="img/favicon.ico" rel="icon">
-		
-		<!-- Google Web Fonts -->
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-			rel="stylesheet">
-		
+	<link href="img/favicon.ico" rel="icon">
 
-			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-				integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		<!-- Font Awesome -->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Google Web Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<!-- Font Awesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Bootstrap core CSS -->
 	<link href="/css/styles.css" rel="stylesheet">
 	<link href="/css/animate.css" rel="stylesheet">
@@ -64,7 +64,7 @@
 
 				<div class="header-main">
 					<div class="container">
-						
+
 						<div class="header-middle float-lg-left  float-md-left float-sm-left float-xs-none">
 							<div class="logo">
 								<a href="/"><img src="/img/logos/logo.png" alt="NatureCircle"></a>
@@ -132,7 +132,7 @@
 								</div> -->
 							</div>
 							<div>
-								<% if(user) { %>
+							
 
 									<i class="fa-solid fa-heart"></i>
 									<span class="material-symbols-outlined"><a href="/wishlist/wishlist">
@@ -140,7 +140,7 @@
 									</span>
 
 
-									<% }%>
+									
 							</div>
 						</div>
 					</div>
@@ -190,7 +190,7 @@
 									<li class="nav-item ">
 										<a class="nav-link text-uppercase" href="/contact">Contact us</a>
 									</li>
-									
+
 								</ul>
 								<!-- Links -->
 							</div>
@@ -203,202 +203,216 @@
 		</div>
 	</header>
 	<form id="pay" method="post">
-<div class="mt-5">
-	<div class="checkout-inner float-left w-100 pt-5 mt-5">
-		<div class="container-fluid">
-			<div class="container p-3">
-					<input type="hidden" value="<%= cartList[0]._id %>" name="cartId">
-				<div class="row">
-					<div class="table-coupon d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left">
-						<input type="text" placeholder="Coupon code" id="usercode" name="usercode">
-						<button class="btn btn-primary" id="button" type="button" onclick="coupen()">Apply coupon</button>
-					</div>
-					<div class="cart-block-left col-md-4 order-md-2 mb-4">
-						<div class="list-group mb-3">
-							<div class="list-group-item d-flex justify-content-between lh-condensed">
-								<div>
-									<h4 class="d-flex justify-content-between align-items-center mb-3">
-										<span><a href="/cart/cart/cartList[0]._id">Your cart</a></span>
-									</h4>
-
-									<% cartList.forEach((p)=> { %>
-										<% p.product.forEach((p1)=> { %>
-											<h6 class="my-0">
-												<%= p1.product_name %> - <%= p.itemQuantity %>Pcs
-											</h6>
-								</div>
-								<% const total=parseInt(p1.product_price)*parseInt(p.itemQuantity) %>
-									<span class="text-muted">Rs <%= total %></span>
-									<% }) %>
-										<% }) %>
-
-							</div>
-
-							<div class="list-group-item d-flex justify-content-between">
-								<div class="text-success">
-
-									<h6 class="my-0">Discount</h6>
-									<small></small>
-								</div>
-								<h6>Rs.<span class="text-success" id="discount">0</span></h6>
-								<!-- <div class="single-total-content d-flex justify-content-between float-left w-100">
-									<strong>Discount</strong> -->
-									<!-- <h6 class="font-weight-medium">Rs.<span id="discount">0</span> </h6> -->
-								
-								
-								<!-- </div> -->
-
-							</div>
-
-							<div class="list-group-item d-flex justify-content-between">
-								<div class="text-success">
-
-									<h6 class="my-0">Shipping</h6>
-									<small></small>
-								</div>
-								<span class="text-success">Rs <%= shipping%></span>
-							</div>
-
-							<div class="list-group-item d-flex justify-content-between">
-								<strong>Total </strong>
-								<strong>Rs <span id="grandtotal"> <%= grandtotal%></span></strong>
-							</div>
-
-							<div class="list-group-item  justify-content-between">
-
-								<div class="custom-control custom-radio" name="payment" id="checkbox-card-debit">
-									<input id="payment" name="payment" value="COD" type="radio"
-										class="custom-control-input" required="">
-									<label class="custom-control-label" for="COD">COD</label>
-								</div>
-								<div class="custom-control custom-radio" id="checkbox-card-paypal">
-									<input id="online" name="payment" value="online" type="radio"
-										class="custom-control-input" required="">
-									<label class="custom-control-label" for="payment">Online</label>
-								</div>
-							</div>
-
-
-
-
-
-
-							<div id="card-dropdown-paypal">
-								<div class="list-group-item  justify-content-between">
-									<div class="image"><img src="/img/logos/paypal.png"></div>
-								</div>
-							</div>
-							<button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" id="order"
-								type="submit">Place Order</button>
-							<!-- <div>
-								
-								<h6 class="text-danger">Your address is not added to place order...</h6>
-								<h4 class="text-success">Please add an address...</h4>
-							</div> -->
-
-							</ul>
-
-							
-
-						</div>
-					</div>
-					<div class="cart-block-right col-md-8 order-md-1">
-						<input type="hidden" name="address" value="<%= cartList[0]._id %>" name="cartId">
-						<h4 class="mb-3 mt-5">Billing address</h4>
-						<hr>
+		<div class="mt-5 col-12">
+			<div class="checkout-inner float-left w-100 pt-5 mt-5">
+				<div class="container-fluid">
+					<div class="container p-3">
+						<input type="hidden" value="<%= cartList[0]._id %>" name="cartId">
 						<div class="row">
-							<div class="col-md-6 mb-3">
+							<div
+								class="table-coupon pt-5 text-end d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left col-12">
+								<input type="text" placeholder="Coupon code" id="usercode" name="usercode">
+								<button class="btn btn-primary" id="button" type="button" onclick="coupen()">Apply
+									coupon</button>
+							</div>
+							<!-- <div class="col-12"> -->
+							<div class="=row">
+								<div class="cart-block-left  col-5 pt-5 order-md-2 mb-4">
+									<div class="list-group mb-3 p-5">
+										<div class="list-group-item d-flex justify-content-between lh-condensed">
+											<div>
+												<h4 class="d-flex justify-content-between align-items-center mb-3">
+													<span><a href="/cart/cart/cartList[0]._id">Your cart</a></span>
+												</h4>
+											</div>
+										</div>
+										<% cartList.forEach((p)=> { %>
+											<% p.product.forEach((p1)=> { %>
+												<div class="">
+													<h6 class="my-0">
+														<%= p1.product_name %> - <%= p.itemQuantity %>Pcs
+													</h6>
+												</div>
+												<div>
+												<% const total=parseInt(p1.product_price)*parseInt(p.itemQuantity) %>
+													<span class="text-muted">Rs <%= total %></span>
+													</div>
+													<% }) %>
+														<% }) %>
 
-								<table>
-									<thead>
-										<tr>
-											<th></th>
-											
+									</div>
 
-										</tr>
+															<div class="list-group-item d-flex justify-content-between">
+																<div class="text-success">
 
-									</thead>
-									<tbody>
-										<% let i=0; for(add of useraddress) { %>
-											<tr>
-												<th>
-													<label class="control control-checkbox">
-														<input type="radio"
-															value="<%= add.name%>, <%=add.address%>,<%=add.district%>,<%=add.statePlace%>,<%=add.pincode%> ,<%=add.email%>,<%=add.mobile %>"
-															name="address" />
-
-														<div class="control_indicator"></div>
+																	<h6 class="my-0">Discount</h6>
+																	<small></small>
+																</div>
+																<h6>Rs.<span class="text-success" id="discount">0</span>
+																</h6>
+																<!-- <div class="single-total-content d-flex justify-content-between float-left w-100">
+									<strong>Discount</strong> -->
+																<!-- <h6 class="font-weight-medium">Rs.<span id="discount">0</span> </h6> -->
 
 
+																<!-- </div> -->
 
-													</label>
-												</th>
-												<td>
-													<div class="control_indicator p-3"></div>
-													</label>
-													</th>
-												<td>
-													<h5 style="font-weight:bolder">
-														<%= add.name%>
+															</div>
 
-													</h5>
-													<p>
-														<%= add.address +" , "+" "+add.district+" ,"+add.statePlace
-															+","+add.pincode %>
-														<%=add.email +", "+add.mobile %>
+															<div class="list-group-item d-flex justify-content-between">
+																<div class="text-success">
+
+																	<h6 class="my-0">Shipping</h6>
+																	<small></small>
+																</div>
+																<span class="text-success">Rs <%= shipping%></span>
+															</div>
+
+															<div class="list-group-item d-flex justify-content-between">
+																<strong>Total </strong>
+																<strong>Rs <span id="grandtotal">
+																		<%= grandtotal%>
+																	</span></strong>
+															</div>
+
+															<div class="list-group-item  justify-content-between">
+
+																<div class="custom-control custom-radio" name="payment"
+																	id="checkbox-card-debit">
+																	<input id="payment" name="payment" value="COD"
+																		type="radio" class="custom-control-input"
+																		required="">
+																	<label class="custom-control-label"
+																		for="COD">COD</label>
+																</div>
+																<div class="custom-control custom-radio"
+																	id="checkbox-card-paypal">
+																	<input id="online" name="payment" value="online"
+																		type="radio" class="custom-control-input"
+																		required="">
+																	<label class="custom-control-label"
+																		for="payment">Online</label>
+																</div>
+															</div>
+
+
+
+
+
+
+															<div id="card-dropdown-paypal">
+																<div class="list-group-item  justify-content-between">
+																	<div class="image"><img src="/img/logos/paypal.png">
+																	</div>
+																</div>
+															</div>
+															<button
+																class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3"
+																id="order" type="submit">Place Order</button>
+
+
+															</ul>
+
+
+
+									</div>
+								</div>
+
+								<div class="cart-block-right col-md-8order-md-1">
+									<input type="hidden" name="address" value="<%= cartList[0]._id %>" name="cartId">
+									<h4 class="mb-3 mt-5">Billing address</h4>
+									<hr>
+									<div class="row">
+										<div class="col-md-6 mb-3">
+									
+											<table>
+												<thead>
+													<tr>
+														<th></th>
+
+
+													</tr>
+
+												</thead>
+												<tbody>
+													<% let i=0; for(add of useraddress) { %>
+														<tr>
+															<th>
+																<label class="control control-checkbox">
+																	<input type="radio"
+																		value="<%= add.name%>, <%=add.address%>,<%=add.district%>,<%=add.statePlace%>,<%=add.pincode%> ,<%=add.email%>,<%=add.mobile %>"
+																		name="address" />
+
+																	<div class="control_indicator p-3"></div>
+
+
+
+																</label>
+															</th>
+															<td>
+																<div class="control_indicator p-3"></div>
+																</label>
+																</th>
+															<td>
+																<h5 style="font-weight:bolder">
+																	<%= add.name%>
+
+																</h5>
+																<p>
+																	<%= add.address +" , "+" "+add.district+","+add.statePlace +","+add.pincode %>
+																		<%=add.email +", "+add.mobile %>
 										             </p>
 										                                                         
 										               </td>
 													   <td></td>
 													<td></td>
+										 <br>
 											<br>
-											<br>
-											<td class="p-3"><button type=" button" class="btn btn-primary" data-bs-toggle="modal"
-															data-bs-target="#exampleModal<%=add._id %>">
-															<i class="material-icons">delete</i>
-															</button></td>
+											<td class=" p-3"><button type=" button" class="btn btn-primary" data-bs-toggle="modal"
+																				data-bs-target="#exampleModal<%=add._id %>">
+																				<i class="material-icons">delete</i>
+																			</button>
+															</td>
 															<br>
 															<td></td>
-											</tr>
-											<%i++;}%>
+														</tr>
+														<%i++;}%>
+													</div>
+													</tbody>
+												</table>
 											
-										</div>
-									</tbody>
-								</table>
-								<div class="btn btn-primary"><a href="/addAddress">Add New Address</div>
+										<div class="btn btn-primary"><a href="/addAddress">Add New Address</div>
 
-						</div>
-						</div>
-					
+									</div>
+								</div>
+							</div>
+							<!-- </div> -->
+						<!-- </div> -->
+					</div>
 				</div>
-	  		</div>
-		</div>			
+				</div>
+				</div>
 	</form>
-	<div class="table-bottom-wrapper">
-		
-		<div class=" d-flex d-xs-block d-lg-flex d-sm-flex fix justify-content-start float-left">
-	
-			<button type="button" class=" btn btn-primary "><a href="/shop">Continue Shopping</a></button>
+	<div class="table-bottom-wrapper text-white">
+
+		<div class=" d-flex d-xs-block d-lg-flex d-sm-flex text-white fix justify-content-start float-left">
+
+			<button type="button" class=" btn btn-primary text-white mb-5 ms-5"><a href="/shop">Continue
+					Shopping</a></button>
 		</div>
-	
+
 	</div>
-	 
+
 
 
 	<footer class="page-footer font-small footer-default">
 		<div class="container text-center text-md-left">
 			<div class="footer-logo text-center mt-2"><img src="/img/logos/footer-logo.png" alt="footer-logo"></div>
 			<div class="row">
-				<!-- <div class="col-md-3 footer-cms footer-column">
-					<div class="ttcmsfooter">
-						<div class="footer-logo"><img src="/img/logos/footer-logo.png" alt="footer-logo"></div>
-						<div class="footer-desc">At vero eos et accusamus et iusto odio dignissimos ducimus, duis
-							faucibus enim vitae</div>
-					</div>
-				</div> -->
+
 				<div class="col-md-3 footer-column">
 					<div class="title">
-						
+
 						<a href="#company" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
 							aria-expanded="false">company</a>
 					</div>
@@ -442,9 +456,9 @@
 							<a href="contact-us.html">addresses</a>
 						</li>
 					</ul>
-	
+
 				</div>
-	
+
 				<div class="col-md-3 footer-column">
 					<div class="title">
 						<a href="#information" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse"
@@ -483,8 +497,8 @@
 		</div>
 		<a href="#" id="goToTop" title="Back to top" class="btn-primary"><i
 				class="material-icons arrow-up">keyboard_arrow_up</i></a> -->
-	
-	
+
+
 	</footer>
 	<!-- Footer -->
 
@@ -746,48 +760,48 @@
 				}
 
 
-				   function coupen() {
+				function coupen() {
 
-						const usercode = document.getElementById('usercode').value
-						console.log("usercode", usercode);
-						let disc = document.getElementById('discount').innerHTML
+					const usercode = document.getElementById('usercode').value
+					console.log("usercode", usercode);
+					let disc = document.getElementById('discount').innerHTML
 
-						console.log("kgjkjgkejrg", disc);
-						fetch('/admin/applyCoupen/' + usercode, {
-							method: 'post',
-							headers: {
-								'Content-Type': 'application/json',
+					console.log("kgjkjgkejrg", disc);
+					fetch('/admin/applyCoupen/' + usercode, {
+						method: 'post',
+						headers: {
+							'Content-Type': 'application/json',
 
 
-							},
-							body: JSON.stringify({ disc })
+						},
+						body: JSON.stringify({ disc })
 
+					})
+						.then(res => res.json())
+						.then(data => {
+							discount = data.success
+							console.log(discount);
+							if (parseInt(document.getElementById('grandtotal').innerHTML) > 15000) {
+
+								if (parseInt(document.getElementById('discount').innerHTML) > 0) {
+									console.log("disssssssssss");
+									document.getElementById('button').disabled = true
+									console.log("hfhfhghg");
+								} else {
+									console.log("else");
+									coupen = Math.round(document.getElementById('grandtotal').innerHTML * (discount.discountPercentage / 100))
+									console.log("cpn", coupen);
+									document.getElementById('discount').innerHTML = coupen
+									document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('grandtotal').innerHTML) - parseInt(coupen)
+
+									console.log("heyyyyy");
+								}
+							}
+							else if (parseInt(document.getElementById('grandtotal').innerHTML) < 15000) {
+								document.getElementById('discount').innerHTML = '0'
+							}
 						})
-							.then(res => res.json())
-							.then(data => {
-								discount = data.success
-                                console.log(discount);
-								if (parseInt(document.getElementById('grandtotal').innerHTML) > 15000) {
-
-									if (parseInt(document.getElementById('discount').innerHTML) > 0) {
-										console.log("disssssssssss");
-										document.getElementById('button').disabled = true
-										console.log("hfhfhghg");
-									} else {
-										console.log("else");
-										coupen = Math.round(document.getElementById('grandtotal').innerHTML * (discount.discountPercentage / 100))
-										console.log("cpn", coupen);
-										document.getElementById('discount').innerHTML = coupen
-										document.getElementById('grandtotal').innerHTML = parseInt(document.getElementById('grandtotal').innerHTML) - parseInt(coupen)
-
-										console.log("heyyyyy");
-									}
-								}
-								else if (parseInt(document.getElementById('grandtotal').innerHTML) < 15000) {
-									document.getElementById('discount').innerHTML = '0'
-								}
-							})
-					}
+				}
 
 			</script>
 

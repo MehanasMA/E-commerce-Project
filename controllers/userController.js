@@ -157,19 +157,19 @@ const saveAddress = async (req, res) => {
     
     try {
         const { id } = req.params
-        // console.log(id);
         if (!req.body) {
             req.flash('error', 'Empty fields are not allowed')
             res.redirect('back')
         }
         else {
-
+            
             const {name,email,mobile,address,district,statePlace,pincode} =req.body
-       
+            
             try{
+                console.log(req.body);
                 
                const tryyy= await User.findByIdAndUpdate(id, { $push: { useraddress:{name, email, mobile, address, district, statePlace, pincode } }})
-            //    console.log(tryyy);
+               console.log(tryyy);
              
                 res.redirect('/checkout/checkout/:id')
 

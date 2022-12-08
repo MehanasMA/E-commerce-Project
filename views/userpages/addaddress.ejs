@@ -256,38 +256,10 @@
                             <!-- Collapsible content -->
                             <div class="collapse navbar-collapse" id="navbarSupportedContent2">
 
-                                <!-- Links -->
-                                <!-- <ul class="navbar-nav m-auto justify-content-center">
-
-									 Features -->
-                                <!-- <li class="nav-item dropdown active">
-										<a class="nav-link dropdown-toggle text-uppercase" href="category.html">
-											Features
-											<span class="sr-only">(current)</span> </a>
-										<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3"> --> -->
-                                <!-- <div class="sub-menu mb-xl-0 mb-4">
-												<h6 class="sub-title text-uppercase font-weight-normal white-text">
-													Featured</h6>
-
-											</div>
-										</div>
-									</li>
-									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle text-uppercase" href="category.html">
-											Elements
-											<span class="sr-only">(current)</span> </a>
-										<div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
-											<div class="sub-menu mb-xl-0 mb-4">
-												<h6 class="sub-title text-uppercase font-weight-normal white-text">
-													Featured</h6>
-
-											</div> -->
+                                
                             </div>
                             </li>
-                            <!-- Technology -->
-                            <!-- <li class="nav-item dropdown mega-dropdown">
-										<a class="nav-link dropdown-toggle text-uppercase"
-											href="category.html">Technology</a> -->
+                            
                             <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
                                 <div class="row">
                                     <div class="col-md-12 col-xl-4 sub-menu mb-xl-0 mb-4">
@@ -304,11 +276,7 @@
                                     <div class="col-md-6 col-xl-4 sub-menu mb-0">
 
                                         <ul class="list-unstyled">
-                                            <!-- <li>
-															<span class="menu-banner"><img
-																	src="/img/banner/menu-banner.jpg"
-																	alt="menu-banner" /></span>
-														</li> -->
+                                         
                                         </ul>
                                     </div>
                                 </div>
@@ -333,34 +301,36 @@
                     </div>
                 </div>
                 <form class="" action="/saveAddress/<%=user._id%>" method="post">
-                    <div class="cart-block-right col-md-8 order-md-1">
+                    <div class="col-md-4 mx-auto"></div>
+                    <div class="cart-block-right col-md-8 order-md-1 mx-5">
                         <!-- <input type="hidden" value="<%= //cartList[0]._id %>" name="cartId"> -->
                         <h4 class="mb-3">Billing address</h4>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
+                        <div class="row text-center ml-5">
+                            
+                            <div class="col-md-12 mb-3">
                                 <label for="name">name <span class="required">*</span></label>
                                 <input type="text" class="form-control" name="name" id="name" placeholder=""
                                     value="<%= user.name %> " required="">
 
                             </div>
 
-                        </div>
+                       
 
 
-                        <div class="mb-3">
+                        <div class="col-md-12 mb-3">
                             <label for="address">Address<span class="required">*</span> </label>
                             <textarea type="text" class="form-control" name="address" id="address" placeholder=""
                                 required=""></textarea>
 
                         </div>
 
-                        <div class="mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="mobile">Mobile<span class="required">*</span> </label>
                             <input type="text" class="form-control" name="mobile" id="mobile" value="<%=user.mobile%>" placeholder=""
                                 required="">
 
                         </div>
-                        <div class="mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="email">Email </label>
                             <input type="email" class="form-control" name="email" value="<%=user.email%>" id="email" placeholder=""
                                 required>
@@ -382,32 +352,12 @@
 
 
                     </div>
-                    <button class="btn btn-primary" type="submit">Add</button>
+                    </div>
+                    <button class="btn btn-primary px-5" type="submit">Add</button>
 </form>
-                    <!-- Footer
-                    <div class="block-newsletter">
-                        <div class="parallax" data-source-url="/img/banner/parallax.jpg"
-                            style="background-image:url(/img/banner/parallax.jpg); background-position:50% 65.8718%;">
-                            <div class="container">
-                                <div class="tt-newsletter col-sm-7">
-                                    <h2 class="text-uppercase">Subscribe to our Newsletter</h2>
-                                </div> -->
-                                <!-- <div class="block-content col-sm-5">
-                                    <form method="post" action="contact-us.html">
-                                        <div class="input-group">
-                                            <input type="email" name="email" value="" placeholder="Email address.."
-                                                required="" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-theme text-uppercase btn-primary"
-                                                    type="submit">Subscribe</button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                </div> -->
-                            <!-- </d  iv>
-                        </div>
-                    </div> -->
-                    <footer class="page-footer font-small footer-default">
+                    <!-- Footer --->
+
+                    <footer class="page-footer font-small footer-default mt-2">
                         <div class="container text-center text-md-left">
                             <div class="row">
                                 <div class="col-md-2 footer-cms footer-column">
@@ -587,13 +537,7 @@
                                         <input type="password" id="LoginForm-pass" class="form-control validate"
                                             placeholder="Your password">
                                     </div>
-                                    <div class="checkbox-link d-flex justify-content-between">
-                                        <div class="left-col">
-                                            <input type="checkbox" id="remember_me"><label for="remember_me">Remember
-                                                Me</label>
-                                        </div>
-                                        <div class="right-col"><a href="#">Forget Password?</a></div>
-                                    </div>
+                                   
                                 </div>
 
                                 <div class="modal-footer d-flex justify-content-center">

@@ -18,7 +18,7 @@ const Brand = require("../models/brandSchema");
 
 
 const addadmin = (req, res) => {
-    res.render("Adminlogin", { message: req.flash("invalid") });
+    res.render("Adminlogin");
 }
 
 
@@ -32,9 +32,9 @@ const addadmin = (req, res) => {
 
 const adminhome = async (req, res) => {
       
-const admin={username:"admin@gmail.com",password:"admin123"}
-const {username,password}=req.body
-if(username==admin.username && password==admin.password){
+// const admin={username:"admin@gmail.com",password:"admin123"}
+// const {username,password}=req.body
+// if(username==admin.username && password==admin.password){
     try {
         const dailySale = await checkoutData.find({ $and: [{ createdAt: { $lt: Date.now(), $gt: Date.now() - 86400000 } }, { 'orderStatus.type': { $ne: 'Cancelled' } }] })
         let todaySale = 0
@@ -85,7 +85,7 @@ if(username==admin.username && password==admin.password){
         res.render('error')
     }
 }
-}
+// }
 
 
 

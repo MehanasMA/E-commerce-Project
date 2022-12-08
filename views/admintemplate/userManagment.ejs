@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto h-100">
             <li class="nav-item">
-              <a class="nav-link active" href="/admin/dashboard">
+              <a class="nav-link " href="/admin/dashboard">
                 <i class="fas fa-tachometer-alt"></i>
                 Dashboard
                 <span class="sr-only">(current)</span>
@@ -53,7 +53,7 @@
             </li>
             <li class="nav-item ">
 
-              <a class="nav-link " href="/admin/userManageget" id="navbar" role="button" data-toggle=""
+              <a class="nav-link active " href="/admin/userManageget" id="navbar" role="button" data-toggle=""
                 aria-haspopup="true" aria-expanded="false">
                 <i class="far fa-file-alt"></i>
                 <span>
@@ -63,7 +63,7 @@
              
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/product/products">
+              <a class="nav-link " href="/product/products">
                 <i class="fas fa-shopping-cart"></i>
                 Product Managment
               </a>
@@ -111,7 +111,7 @@
   <div class="container mt-5">
     <div class="row tm-content-row">
       <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
-        <div class="tm-bg-primary-dark tm-block tm-block-products">
+        <div class="tm-bg-white tm-block tm-block-products">
           <div class="tm-product-table-container mx-auto text-white">
             <div id="demo_info" class="box">
               <table id="example" class="display table table-hover tm-table-small tm-product-table" style="width:100%">
@@ -146,9 +146,9 @@
                       <td>
                         <% if(datas.state==false) {%>
                           <form action="/admin/editUser/<%= datas._id %>?_method=PUT" method="post">
-                            <button class="btn btn-danger" type="submit"
-                              onclick=" return confirm('Are u sure want to block <%=datas.name%>')"
-                              class="">BLOCK</button>
+                            <button class="btn btn-success" type="submit"
+                              onclick=" return confirm('Are u sure want to Unblock <%=datas.name%>')"
+                              class="">UNBLOCK</button>
                           </form>
 
                           <% }else{ %>
@@ -157,8 +157,8 @@
 
 
 
-                              <button class="btn btn-success" type="submit"
-                                onclick=" return confirm('Are u sure want to unblock <%= datas.name%>')">UNBLOCK</button>
+                              <button class="btn btn-danger" type="submit"
+                                onclick=" return confirm('Are u sure want to block <%= datas.name%>')">BLOCK</button>
 
                             </form>
                       </td>
