@@ -3,29 +3,27 @@ const User = require('../models/userSchema')
 const Product = require('../models/productSchema')
 const Cart = require('../models/cartSchema')
 const mongoose = require('mongoose')
-const userRoute=require('../controllers/userController')
+const userRoute = require('../controllers/userController')
 
 
 const addToCart = async (req, res) => {
-    console.log("hgsad");
+    
     const email = req.session.email
-            console.log("emailllllll",email);
-            const user=await User.findOne({email})
-            console.log("userrrrrrrrrrrrrrr",user);
-            
-            
-            const userId =user._id
-            console.log("id",userId);
+
+    const user = await User.findOne({ email })
+    
+
+
+    const userId = user._id
+    console.log("id", userId);
     const productId = req.params.id
 
-    console.log("pprooooo", productId)
 
     try {
 
         if (req.session.email) {
 
-            const userExist = await Cart.findOne({  userId })
-            console.log("userexist", userExist);
+            const userExist = await Cart.findOne({ id:userId })
 
             if (userExist) {
                 const productExist = await Cart.findOne({
@@ -43,36 +41,32 @@ const addToCart = async (req, res) => {
                         $and: [{ id: userId }, {
                             cartItem: {
                                 $elemMatch: {
-                                   productId: productId
+                                    productId: productId
                                 }
                             }
                         }]
                     }, { $inc: { "cartItem.$.quantity": 1 } })
 
 
-                    console.log("Old product");
                 }
                 else {
                     await Cart.updateOne({ user: userId }, { $push: { cartItem: { productId: productId, quantity: 1 } } })
 
-                    console.log("newwwww product");
                 }
 
             } else {
-                console.log("New User");
                 const cart = new Cart({
                     id: userId, cartItem: [{ productId: productId, quantity: 1 }]
                 })
 
-                const prd=await cart.save()
-                console.log("prdddddddddd",prd);
+                const prd = await cart.save()
 
 
             }
 
         }
     } catch (err) {
-        res.render('error',{err})
+        res.render('error', { err })
     }
 }
 
@@ -84,19 +78,18 @@ const userCart = async (req, res) => {
     try {
 
         const email = req.session.email
-        console.log("emailllllll", email);
         const user = await User.findOne({ email })
-        console.log("userrrrrrrrrrrrrrrcarrrrrrrrrrrrrrrrrrrrrrrttttttt", user);
 
 
         const userId = user._id
-
+        console.log(userId)
         const cartList = await Cart.aggregate([{ $match: {  id:userId } }, { $unwind: '$cartItem' },
         { $project: { item: '$cartItem.productId', itemQuantity: '$cartItem.quantity' } },
         { $lookup: { from: 'products', localField: 'item', foreignField: '_id', as: 'product' } }
         ]);
 
-console.log("carttttttllllllllllllllllllifyg",cartList);
+
+        
         let total;
         let subtotal = 0;
 
@@ -130,11 +123,11 @@ console.log("carttttttllllllllllllllllllifyg",cartList);
 
 
 const itemInc = async (req, res) => {
-   
+
     try {
-       
+
         const prodId = req.params
-       
+
         const productId = mongoose.Types.ObjectId(prodId)
         const email = req.session.email
         const user = await User.find({ email })
@@ -142,11 +135,11 @@ const itemInc = async (req, res) => {
         const userId = user[0]._id;
 
         const detail = await User.findById({ _id: userId })
-        // console.log(detail);
+       
 
         if (detail.state == true) {
             const userExist = await Cart.findOne({ userId })
-            
+
             if (userExist) {
 
                 const productExist = await Cart.findOne({
@@ -161,7 +154,7 @@ const itemInc = async (req, res) => {
 
                 if (productExist) {
                     await Cart.findOneAndUpdate({ $and: [{ userId }, { "cartItem.productId": productId }] }, { $inc: { "cartItem.$.quantity": 1 } })
-                    
+
                     let quantity = 0
                     // req.flash('success', 'Item added to cart successfully')
                     res.send({ success: true })
@@ -236,10 +229,10 @@ const itemDelete = async (req, res) => {
         const productId = new mongoose.Types.ObjectId(prodId)
         const email = req.session.email
         const user = await User.find({ email })
-        
+
         const id = user[0]._id;
         const detail = await User.findById({ _id: id })
-        
+
         if (detail.state == true) {
             await Cart.updateOne({ id }, { $pull: { cartItem: { "productId": productId } } })
             res.send({ success: true })
