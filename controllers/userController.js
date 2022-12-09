@@ -49,14 +49,9 @@ const home = async (req, res) => {
             wishlistCount = await wishlistData.aggregate([{ $match: { userId } }, { $project: { count: { $size: "$wishlistItems" } } }, { $project: { _id: 0 } }]);
         }
         const products = await Product.find({}).limit(4)
-        // console.log(products);
         const categories = await categoryData.find({})
         const banner = await bannerData.find({}).sort({ date: -1 })
-        // const justArrived = await Product.find({
-        //     $and: [{
-        //         expiresAt: { $gte: Date.now() }
-        //     }, { deleted: false }]
-        // }).limit(4)
+       
         res.render('userpages/home', { products, categories, cartCount, wishlistCount, cartItems, wishlistItems, orderData, banner,user })
     } catch (err) {
         res.render('error', { err })
@@ -76,9 +71,12 @@ const home = async (req, res) => {
 
 const loginPost = async (req, res, next) => {
     const { Email, password } = req.body;
-    const user = await User.findOne({ Email });
-    const validPassword = await bcrypt.compare(password, user.password);
-    console.log(validPassword);
+
+
+    const user = await User.findOne({ email:Email });
+    const validPassword = await bcrypt.compare(password,user.password);
+    
+    
     if (validPassword) {
         req.session.email = user.email;
        
@@ -96,14 +94,11 @@ const loginPost = async (req, res, next) => {
 
 const myaccount = async(req, res) => {
     try{
-    // const user=await User.find({})
     const email = req.session.email
     const user = await User.findOne({ email })
     const userId = user._id
-    // const user = await User.findById(userId)
     const useraddress = user.useraddress
     const orderData = await checkoutData.find({ userId, paymentStatus: { $in: ["done", "COD"] } }).limit(4)
-    // console.log("address",user.useraddress);
     res.render("userpages/myaccount",{user,useraddress,orderData})
     }catch{
         res.render('error')
